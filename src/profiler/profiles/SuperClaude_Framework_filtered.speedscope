@@ -1,0 +1,304 @@
+{
+  "$schema": "https://www.speedscope.app/file-format-schema.json",
+  "profiles": [
+    {
+      "type": "sampled",
+      "name": "Process 1584 Thread 0 \"\"",
+      "unit": "seconds",
+      "startValue": 0.0,
+      "endValue": 0.02,
+      "samples": [],
+      "weights": []
+    },
+    {
+      "type": "sampled",
+      "name": "Process 1584 Thread 10688 \"MainThread\"",
+      "unit": "seconds",
+      "startValue": 0.0,
+      "endValue": 1.51,
+      "samples": [
+        [
+          1,
+          0
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4
+        ],
+        [
+          5
+        ],
+        [
+          5
+        ],
+        [
+          5
+        ],
+        [
+          5
+        ],
+        [
+          5
+        ],
+        [
+          6
+        ],
+        [
+          5
+        ],
+        [
+          7
+        ],
+        [
+          5
+        ],
+        [
+          5
+        ],
+        [
+          5
+        ],
+        [
+          9,
+          8
+        ],
+        [
+          5
+        ],
+        [
+          5
+        ],
+        [
+          5
+        ],
+        [
+          5
+        ],
+        [
+          5
+        ],
+        [
+          6
+        ],
+        [
+          5
+        ],
+        [
+          12,
+          11,
+          10
+        ],
+        [
+          12,
+          11,
+          10
+        ],
+        [
+          12,
+          11,
+          10
+        ],
+        [
+          12,
+          11,
+          10
+        ],
+        [
+          13
+        ],
+        [
+          14
+        ],
+        [
+          14
+        ],
+        [
+          16,
+          15
+        ],
+        [
+          17
+        ],
+        [
+          14
+        ],
+        [
+          18
+        ],
+        [
+          14
+        ],
+        [
+          19
+        ]
+      ],
+      "weights": [
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01
+      ]
+    }
+  ],
+  "shared": {
+    "frames": [
+      {
+        "name": "__init__",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\SuperClaude_Framework\\src\\superclaude\\execution\\reflection.py",
+        "line": 78,
+        "col": null
+      },
+      {
+        "name": "intelligent_execute",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\SuperClaude_Framework\\src\\superclaude\\execution\\__init__.py",
+        "line": 82,
+        "col": null
+      },
+      {
+        "name": "intelligent_execute",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\SuperClaude_Framework\\src\\superclaude\\execution\\__init__.py",
+        "line": 74,
+        "col": null
+      },
+      {
+        "name": "safe_execute",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\SuperClaude_Framework\\src\\superclaude\\execution\\__init__.py",
+        "line": 231,
+        "col": null
+      },
+      {
+        "name": "pm_context",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\SuperClaude_Framework\\src\\superclaude\\pytest_plugin.py",
+        "line": 126,
+        "col": null
+      },
+      {
+        "name": "install_commands",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\SuperClaude_Framework\\src\\superclaude\\cli\\install_commands.py",
+        "line": 57,
+        "col": null
+      },
+      {
+        "name": "install_commands",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\SuperClaude_Framework\\src\\superclaude\\cli\\install_commands.py",
+        "line": 51,
+        "col": null
+      },
+      {
+        "name": "install_commands",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\SuperClaude_Framework\\src\\superclaude\\cli\\install_commands.py",
+        "line": 37,
+        "col": null
+      },
+      {
+        "name": "_get_commands_source",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\SuperClaude_Framework\\src\\superclaude\\cli\\install_commands.py",
+        "line": 104,
+        "col": null
+      },
+      {
+        "name": "list_available_commands",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\SuperClaude_Framework\\src\\superclaude\\cli\\install_commands.py",
+        "line": 132,
+        "col": null
+      },
+      {
+        "name": "_search_codebase",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\SuperClaude_Framework\\src\\superclaude\\pm_agent\\confidence.py",
+        "line": 288,
+        "col": null
+      },
+      {
+        "name": "_no_duplicates",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\SuperClaude_Framework\\src\\superclaude\\pm_agent\\confidence.py",
+        "line": 159,
+        "col": null
+      },
+      {
+        "name": "assess",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\SuperClaude_Framework\\src\\superclaude\\pm_agent\\confidence.py",
+        "line": 64,
+        "col": null
+      },
+      {
+        "name": "execute",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\SuperClaude_Framework\\src\\superclaude\\execution\\parallel.py",
+        "line": 183,
+        "col": null
+      },
+      {
+        "name": "__init__",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\SuperClaude_Framework\\src\\superclaude\\execution\\self_correction.py",
+        "line": 86,
+        "col": null
+      },
+      {
+        "name": "_init_reflexion_memory",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\SuperClaude_Framework\\src\\superclaude\\execution\\self_correction.py",
+        "line": 104,
+        "col": null
+      },
+      {
+        "name": "__init__",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\SuperClaude_Framework\\src\\superclaude\\execution\\self_correction.py",
+        "line": 92,
+        "col": null
+      },
+      {
+        "name": "learn_and_prevent",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\SuperClaude_Framework\\src\\superclaude\\execution\\self_correction.py",
+        "line": 311,
+        "col": null
+      },
+      {
+        "name": "get_prevention_rules",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\SuperClaude_Framework\\src\\superclaude\\execution\\self_correction.py",
+        "line": 348,
+        "col": null
+      },
+      {
+        "name": "__init__",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\SuperClaude_Framework\\src\\superclaude\\execution\\self_correction.py",
+        "line": 91,
+        "col": null
+      }
+    ]
+  },
+  "activeProfileIndex": null,
+  "exporter": "py-spy@0.4.1",
+  "name": "py-spy profile"
+}

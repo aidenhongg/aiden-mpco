@@ -1,0 +1,20 @@
+{
+  "$schema": "https://www.speedscope.app/file-format-schema.json",
+  "profiles": [
+    {
+      "type": "sampled",
+      "name": "Process 3948 Thread 10940 \"MainThread\"",
+      "unit": "seconds",
+      "startValue": 0.0,
+      "endValue": 0.74,
+      "samples": [],
+      "weights": []
+    }
+  ],
+  "shared": {
+    "frames": []
+  },
+  "activeProfileIndex": null,
+  "exporter": "py-spy@0.4.1",
+  "name": "py-spy profile"
+}

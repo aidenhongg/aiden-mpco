@@ -1,0 +1,5 @@
+{
+    "objective": "runtime performance",
+    "description": "Optimize the specific code object provided. Return ONLY the optimized version of that object, preserving its exact signature and interface.",
+    "considerations": "Algorithmic complexity and big O notation; data structures and their efficiency; loop optimizations and redundant iterations; memory access patterns and cache utilization; I/O operations and system calls; parallel processing and multi-threading; redundant computations."
+}

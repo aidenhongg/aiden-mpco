@@ -1,0 +1,14 @@
+{
+    "CorridorKey": {
+        "description": "Perfect Green Screen Keys",
+        "languages": "Python, Shell, Batchfile, Dockerfile"
+    },
+    "Claude-Code-Usage-Monitor": {
+        "description": "Real-time Claude Code usage monitor with predictions and warnings",
+        "languages": "Python"
+    },
+    "Memori": {
+        "description": "SQL Native Memory Layer for LLMs, AI Agents & Multi-Agent Systems",
+        "languages": "Python, TypeScript, Jupyter Notebook, Makefile, JavaScript, Dockerfile"
+    }
+}

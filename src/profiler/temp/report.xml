@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="40" skipped="5" tests="323" time="18.998" timestamp="2026-03-27T00:46:51.527226-07:00" hostname="aiden"><properties><property name="hypothesis-statistics-tests/test_exr_gamma_bug_condition.py::TestDefect3NaivePowVsPiecewiseSRGB::test_gamma_corrected_exr_matches_piecewise_srgb" value="dGVzdHMvdGVzdF9leHJfZ2FtbWFfYnVnX2NvbmRpdGlvbi5weTo6VGVzdERlZmVjdDNOYWl2ZVBvd1ZzUGllY2V3aXNlU1JHQjo6dGVzdF9nYW1tYV9jb3JyZWN0ZWRfZXhyX21hdGNoZXNfcGllY2V3aXNlX3NyZ2I6CgogIC0gZHVyaW5nIHJldXNlIHBoYXNlICgwLjAxIHNlY29uZHMpOgogICAgLSBUeXBpY2FsIHJ1bnRpbWVzOiB+IDltcywgb2Ygd2hpY2ggPCAxbXMgaW4gZGF0YSBnZW5lcmF0aW9uCiAgICAtIDAgcGFzc2luZyBleGFtcGxlcywgMSBmYWlsaW5nIGV4YW1wbGVzLCAwIGludmFsaWQgZXhhbXBsZXMKICAgIC0gRm91bmQgMSBkaXN0aW5jdCBlcnJvciBpbiB0aGlzIHBoYXNlCgogIC0gU3RvcHBlZCBiZWNhdXNlIG5vdGhpbmcgbGVmdCB0byBkbw==" /><property name="hypothesis-statistics-tests/test_exr_gamma_bug_condition.py::TestDefect3NaivePowVsPiecewiseSRGB::test_threshold_region_divergence" value="dGVzdHMvdGVzdF9leHJfZ2FtbWFfYnVnX2NvbmRpdGlvbi5weTo6VGVzdERlZmVjdDNOYWl2ZVBvd1ZzUGllY2V3aXNlU1JHQjo6dGVzdF90aHJlc2hvbGRfcmVnaW9uX2RpdmVyZ2VuY2U6CgogIC0gZHVyaW5nIHJldXNlIHBoYXNlICgwLjAxIHNlY29uZHMpOgogICAgLSBUeXBpY2FsIHJ1bnRpbWVzOiB+IDltcywgb2Ygd2hpY2ggPCAxbXMgaW4gZGF0YSBnZW5lcmF0aW9uCiAgICAtIDAgcGFzc2luZyBleGFtcGxlcywgMSBmYWlsaW5nIGV4YW1wbGVzLCAwIGludmFsaWQgZXhhbXBsZXMKICAgIC0gRm91bmQgMSBkaXN0aW5jdCBlcnJvciBpbiB0aGlzIHBoYXNlCgogIC0gU3RvcHBlZCBiZWNhdXNlIG5vdGhpbmcgbGVmdCB0byBkbw==" /><property name="hypothesis-statistics-tests/test_exr_gamma_bug_condition.py::TestDefect1And2RunInferenceEXRPath::test_exr_srgb_frame_is_gamma_corrected" value="dGVzdHMvdGVzdF9leHJfZ2FtbWFfYnVnX2NvbmRpdGlvbi5weTo6VGVzdERlZmVjdDFBbmQyUnVuSW5mZXJlbmNlRVhSUGF0aDo6dGVzdF9leHJfc3JnYl9mcmFtZV9pc19nYW1tYV9jb3JyZWN0ZWQ6CgogIC0gZHVyaW5nIHJldXNlIHBoYXNlICgwLjAxIHNlY29uZHMpOgogICAgLSBUeXBpY2FsIHJ1bnRpbWVzOiB+IDEwbXMsIG9mIHdoaWNoIDwgMW1zIGluIGRhdGEgZ2VuZXJhdGlvbgogICAgLSAwIHBhc3NpbmcgZXhhbXBsZXMsIDEgZmFpbGluZyBleGFtcGxlcywgMCBpbnZhbGlkIGV4YW1wbGVzCiAgICAtIEZvdW5kIDEgZGlzdGluY3QgZXJyb3IgaW4gdGhpcyBwaGFzZQoKICAtIFN0b3BwZWQgYmVjYXVzZSBub3RoaW5nIGxlZnQgdG8gZG8=" /><property name="hypothesis-statistics-tests/test_exr_gamma_preservation.py::TestPreservationLinearEXRRead::test_exr_default_returns_raw_linear_data" value="dGVzdHMvdGVzdF9leHJfZ2FtbWFfcHJlc2VydmF0aW9uLnB5OjpUZXN0UHJlc2VydmF0aW9uTGluZWFyRVhSUmVhZDo6dGVzdF9leHJfZGVmYXVsdF9yZXR1cm5zX3Jhd19saW5lYXJfZGF0YToKCiAgLSBkdXJpbmcgcmV1c2UgcGhhc2UgKDAuMDEgc2Vjb25kcyk6CiAgICAtIFR5cGljYWwgcnVudGltZXM6IH4gOW1zLCBvZiB3aGljaCA8IDFtcyBpbiBkYXRhIGdlbmVyYXRpb24KICAgIC0gMCBwYXNzaW5nIGV4YW1wbGVzLCAxIGZhaWxpbmcgZXhhbXBsZXMsIDAgaW52YWxpZCBleGFtcGxlcwogICAgLSBGb3VuZCAxIGRpc3RpbmN0IGVycm9yIGluIHRoaXMgcGhhc2UKCiAgLSBTdG9wcGVkIGJlY2F1c2Ugbm90aGluZyBsZWZ0IHRvIGRv" /><property name="hypothesis-statistics-tests/test_exr_gamma_preservation.py::TestPreservationLinearEXRRead::test_exr_explicit_false_returns_raw_linear_data" value="dGVzdHMvdGVzdF9leHJfZ2FtbWFfcHJlc2VydmF0aW9uLnB5OjpUZXN0UHJlc2VydmF0aW9uTGluZWFyRVhSUmVhZDo6dGVzdF9leHJfZXhwbGljaXRfZmFsc2VfcmV0dXJuc19yYXdfbGluZWFyX2RhdGE6CgogIC0gZHVyaW5nIHJldXNlIHBoYXNlICgwLjAxIHNlY29uZHMpOgogICAgLSBUeXBpY2FsIHJ1bnRpbWVzOiB+IDltcywgb2Ygd2hpY2ggPCAxbXMgaW4gZGF0YSBnZW5lcmF0aW9uCiAgICAtIDAgcGFzc2luZyBleGFtcGxlcywgMSBmYWlsaW5nIGV4YW1wbGVzLCAwIGludmFsaWQgZXhhbXBsZXMKICAgIC0gRm91bmQgMSBkaXN0aW5jdCBlcnJvciBpbiB0aGlzIHBoYXNlCgogIC0gU3RvcHBlZCBiZWNhdXNlIG5vdGhpbmcgbGVmdCB0byBkbw==" /><property name="hypothesis-statistics-tests/test_exr_gamma_preservation.py::TestPreservationStandardImageRead::test_png_read_returns_uint8_normalized" value="dGVzdHMvdGVzdF9leHJfZ2FtbWFfcHJlc2VydmF0aW9uLnB5OjpUZXN0UHJlc2VydmF0aW9uU3RhbmRhcmRJbWFnZVJlYWQ6OnRlc3RfcG5nX3JlYWRfcmV0dXJuc191aW50OF9ub3JtYWxpemVkOgoKICAtIGR1cmluZyBnZW5lcmF0ZSBwaGFzZSAoMC41OCBzZWNvbmRzKToKICAgIC0gVHlwaWNhbCBydW50aW1lczogfiAyLTE2IG1zLCBvZiB3aGljaCB+IDAtMiBtcyBpbiBkYXRhIGdlbmVyYXRpb24KICAgIC0gNTAgcGFzc2luZyBleGFtcGxlcywgMCBmYWlsaW5nIGV4YW1wbGVzLCAzIGludmFsaWQgZXhhbXBsZXMKCiAgLSBTdG9wcGVkIGJlY2F1c2Ugc2V0dGluZ3MubWF4X2V4YW1wbGVzPTUw" /><property name="hypothesis-statistics-tests/test_exr_gamma_preservation.py::TestPreservationStandardImageRead::test_png_result_dtype_and_range" value="dGVzdHMvdGVzdF9leHJfZ2FtbWFfcHJlc2VydmF0aW9uLnB5OjpUZXN0UHJlc2VydmF0aW9uU3RhbmRhcmRJbWFnZVJlYWQ6OnRlc3RfcG5nX3Jlc3VsdF9kdHlwZV9hbmRfcmFuZ2U6CgogIC0gZHVyaW5nIGdlbmVyYXRlIHBoYXNlICgwLjM5IHNlY29uZHMpOgogICAgLSBUeXBpY2FsIHJ1bnRpbWVzOiB+IDItMTAgbXMsIG9mIHdoaWNoIH4gMC0yIG1zIGluIGRhdGEgZ2VuZXJhdGlvbgogICAgLSA1MCBwYXNzaW5nIGV4YW1wbGVzLCAwIGZhaWxpbmcgZXhhbXBsZXMsIDIgaW52YWxpZCBleGFtcGxlcwoKICAtIFN0b3BwZWQgYmVjYXVzZSBzZXR0aW5ncy5tYXhfZXhhbXBsZXM9NTA=" /><property name="hypothesis-statistics-tests/test_exr_gamma_preservation.py::TestPreservationLinearEXRInference::test_linear_exr_passes_through_unchanged" value="dGVzdHMvdGVzdF9leHJfZ2FtbWFfcHJlc2VydmF0aW9uLnB5OjpUZXN0UHJlc2VydmF0aW9uTGluZWFyRVhSSW5mZXJlbmNlOjp0ZXN0X2xpbmVhcl9leHJfcGFzc2VzX3Rocm91Z2hfdW5jaGFuZ2VkOgoKICAtIGR1cmluZyByZXVzZSBwaGFzZSAoMC4wMSBzZWNvbmRzKToKICAgIC0gVHlwaWNhbCBydW50aW1lczogfiAxMm1zLCBvZiB3aGljaCA8IDFtcyBpbiBkYXRhIGdlbmVyYXRpb24KICAgIC0gMCBwYXNzaW5nIGV4YW1wbGVzLCAxIGZhaWxpbmcgZXhhbXBsZXMsIDAgaW52YWxpZCBleGFtcGxlcwogICAgLSBGb3VuZCAxIGRpc3RpbmN0IGVycm9yIGluIHRoaXMgcGhhc2UKCiAgLSBTdG9wcGVkIGJlY2F1c2Ugbm90aGluZyBsZWZ0IHRvIGRv" /><property name="hypothesis-statistics-tests/test_pbt_auto_download.py::TestMissingCheckpointTriggersDownload::test_missing_pth_triggers_download_and_returns_valid_path" value="dGVzdHMvdGVzdF9wYnRfYXV0b19kb3dubG9hZC5weTo6VGVzdE1pc3NpbmdDaGVja3BvaW50VHJpZ2dlcnNEb3dubG9hZDo6dGVzdF9taXNzaW5nX3B0aF90cmlnZ2Vyc19kb3dubG9hZF9hbmRfcmV0dXJuc192YWxpZF9wYXRoOgoKICAtIGR1cmluZyBnZW5lcmF0ZSBwaGFzZSAoMS4wMCBzZWNvbmRzKToKICAgIC0gVHlwaWNhbCBydW50aW1lczogfiAxLTggbXMsIG9mIHdoaWNoIH4gMC0xIG1zIGluIGRhdGEgZ2VuZXJhdGlvbgogICAgLSAxMDAgcGFzc2luZyBleGFtcGxlcywgMCBmYWlsaW5nIGV4YW1wbGVzLCAxMyBpbnZhbGlkIGV4YW1wbGVzCgogIC0gU3RvcHBlZCBiZWNhdXNlIHNldHRpbmdzLm1heF9leGFtcGxlcz0xMDA=" /><property name="hypothesis-statistics-tests/test_pbt_auto_download.py::TestExistingCheckpointSkipsDownload::test_existing_pth_skips_download" value="dGVzdHMvdGVzdF9wYnRfYXV0b19kb3dubG9hZC5weTo6VGVzdEV4aXN0aW5nQ2hlY2twb2ludFNraXBzRG93bmxvYWQ6OnRlc3RfZXhpc3RpbmdfcHRoX3NraXBzX2Rvd25sb2FkOgoKICAtIGR1cmluZyBnZW5lcmF0ZSBwaGFzZSAoMC40MCBzZWNvbmRzKToKICAgIC0gVHlwaWNhbCBydW50aW1lczogfiAyLTMgbXMsIG9mIHdoaWNoIDwgMW1zIGluIGRhdGEgZ2VuZXJhdGlvbgogICAgLSAxMDAgcGFzc2luZyBleGFtcGxlcywgMCBmYWlsaW5nIGV4YW1wbGVzLCAwIGludmFsaWQgZXhhbXBsZXMKCiAgLSBTdG9wcGVkIGJlY2F1c2Ugc2V0dGluZ3MubWF4X2V4YW1wbGVzPTEwMA==" /><property name="hypothesis-statistics-tests/test_pbt_auto_download.py::TestAutoDownloadIsTorchOnly::test_non_pth_extension_raises_without_download" value="dGVzdHMvdGVzdF9wYnRfYXV0b19kb3dubG9hZC5weTo6VGVzdEF1dG9Eb3dubG9hZElzVG9yY2hPbmx5Ojp0ZXN0X25vbl9wdGhfZXh0ZW5zaW9uX3JhaXNlc193aXRob3V0X2Rvd25sb2FkOgoKICAtIGR1cmluZyBnZW5lcmF0ZSBwaGFzZSAoMC4wMiBzZWNvbmRzKToKICAgIC0gVHlwaWNhbCBydW50aW1lczogfiAxLTMgbXMsIG9mIHdoaWNoIDwgMW1zIGluIGRhdGEgZ2VuZXJhdGlvbgogICAgLSA4IHBhc3NpbmcgZXhhbXBsZXMsIDAgZmFpbGluZyBleGFtcGxlcywgMCBpbnZhbGlkIGV4YW1wbGVzCgogIC0gU3RvcHBlZCBiZWNhdXNlIG5vdGhpbmcgbGVmdCB0byBkbw==" /><property name="hypothesis-statistics-tests/test_pbt_auto_download.py::TestNetworkErrorsProduceActionableMessages::test_network_errors_produce_actionable_messages" value="dGVzdHMvdGVzdF9wYnRfYXV0b19kb3dubG9hZC5weTo6VGVzdE5ldHdvcmtFcnJvcnNQcm9kdWNlQWN0aW9uYWJsZU1lc3NhZ2VzOjp0ZXN0X25ldHdvcmtfZXJyb3JzX3Byb2R1Y2VfYWN0aW9uYWJsZV9tZXNzYWdlczoKCiAgLSBkdXJpbmcgZ2VuZXJhdGUgcGhhc2UgKDAuMjQgc2Vjb25kcyk6CiAgICAtIFR5cGljYWwgcnVudGltZXM6IH4gMS0zIG1zLCBvZiB3aGljaCA8IDFtcyBpbiBkYXRhIGdlbmVyYXRpb24KICAgIC0gMTAwIHBhc3NpbmcgZXhhbXBsZXMsIDAgZmFpbGluZyBleGFtcGxlcywgMCBpbnZhbGlkIGV4YW1wbGVzCgogIC0gU3RvcHBlZCBiZWNhdXNlIHNldHRpbmdzLm1heF9leGFtcGxlcz0xMDA=" /><property name="hypothesis-statistics-tests/test_pbt_backend_resolution.py::test_backend_resolution_priority_chain" value="dGVzdHMvdGVzdF9wYnRfYmFja2VuZF9yZXNvbHV0aW9uLnB5Ojp0ZXN0X2JhY2tlbmRfcmVzb2x1dGlvbl9wcmlvcml0eV9jaGFpbjoKCiAgLSBkdXJpbmcgZ2VuZXJhdGUgcGhhc2UgKDAuMDggc2Vjb25kcyk6CiAgICAtIFR5cGljYWwgcnVudGltZXM6IH4gMS0zIG1zLCBvZiB3aGljaCA8IDFtcyBpbiBkYXRhIGdlbmVyYXRpb24KICAgIC0gMzIgcGFzc2luZyBleGFtcGxlcywgMCBmYWlsaW5nIGV4YW1wbGVzLCAwIGludmFsaWQgZXhhbXBsZXMKCiAgLSBTdG9wcGVkIGJlY2F1c2Ugbm90aGluZyBsZWZ0IHRvIGRv" /><property name="hypothesis-statistics-tests/test_pbt_dep_preservation.py::test_non_torch_dependency_preserved" value="dGVzdHMvdGVzdF9wYnRfZGVwX3ByZXNlcnZhdGlvbi5weTo6dGVzdF9ub25fdG9yY2hfZGVwZW5kZW5jeV9wcmVzZXJ2ZWQ6CgogIC0gZHVyaW5nIGdlbmVyYXRlIHBoYXNlICgwLjA0IHNlY29uZHMpOgogICAgLSBUeXBpY2FsIHJ1bnRpbWVzOiB+IDEtMiBtcywgb2Ygd2hpY2ggPCAxbXMgaW4gZGF0YSBnZW5lcmF0aW9uCiAgICAtIDE5IHBhc3NpbmcgZXhhbXBsZXMsIDAgZmFpbGluZyBleGFtcGxlcywgMCBpbnZhbGlkIGV4YW1wbGVzCgogIC0gU3RvcHBlZCBiZWNhdXNlIG5vdGhpbmcgbGVmdCB0byBkbw==" /></properties><testcase classname="test_vram" name="test_vram" time="0.001"><failure message="AssertionError: Torch not compiled with CUDA enabled">test_vram.py:27: in test_vram
+    engine = CorridorKeyEngine(
+CorridorKeyModule\inference_engine.py:37: in __init__
+    self.mean = torch.tensor([0.485, 0.456, 0.406], dtype=model_precision, device=self.device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\venvs\CorridorKey\Lib\site-packages\torch\cuda\__init__.py:403: in _lazy_init
+    raise AssertionError("Torch not compiled with CUDA enabled")
+E   AssertionError: Torch not compiled with CUDA enabled</failure></testcase><testcase classname="tests.test_backend.TestResolveBackend" name="test_explicit_torch" time="0.006" /><testcase classname="tests.test_backend.TestResolveBackend" name="test_explicit_mlx_on_non_apple_raises" time="0.003" /><testcase classname="tests.test_backend.TestResolveBackend" name="test_env_var_torch" time="0.003" /><testcase classname="tests.test_backend.TestResolveBackend" name="test_auto_non_darwin" time="0.003" /><testcase classname="tests.test_backend.TestResolveBackend" name="test_auto_darwin_no_mlx_package" time="0.003" /><testcase classname="tests.test_backend.TestResolveBackend" name="test_unknown_backend_raises" time="0.003" /><testcase classname="tests.test_backend.TestDiscoverCheckpoint" name="test_exactly_one" time="0.003" /><testcase classname="tests.test_backend.TestDiscoverCheckpoint" name="test_zero_torch_triggers_auto_download" time="0.005" /><testcase classname="tests.test_backend.TestDiscoverCheckpoint" name="test_zero_torch_download_failure_raises_runtime_error" time="0.004" /><testcase classname="tests.test_backend.TestDiscoverCheckpoint" name="test_zero_safetensors_with_cross_reference" time="0.005" /><testcase classname="tests.test_backend.TestDiscoverCheckpoint" name="test_multiple_raises" time="0.003" /><testcase classname="tests.test_backend.TestDiscoverCheckpoint" name="test_safetensors" time="0.003" /><testcase classname="tests.test_backend.TestDiscoverCheckpoint" name="test_ensure_torch_checkpoint_happy_path" time="0.006" /><testcase classname="tests.test_backend.TestDiscoverCheckpoint" name="test_skip_when_present" time="0.004" /><testcase classname="tests.test_backend.TestDiscoverCheckpoint" name="test_mlx_not_triggered" time="0.003" /><testcase classname="tests.test_backend.TestDiscoverCheckpoint" name="test_network_error_wrapping" time="0.004" /><testcase classname="tests.test_backend.TestDiscoverCheckpoint" name="test_disk_space_error" time="0.004" /><testcase classname="tests.test_backend.TestDiscoverCheckpoint" name="test_logging_on_download" time="0.007" /><testcase classname="tests.test_backend.TestWrapMlxOutput" name="test_output_keys" time="0.010" /><testcase classname="tests.test_backend.TestWrapMlxOutput" name="test_alpha_shape_dtype" time="0.005" /><testcase classname="tests.test_backend.TestWrapMlxOutput" name="test_fg_shape_dtype" time="0.005" /><testcase classname="tests.test_backend.TestWrapMlxOutput" name="test_processed_shape_dtype" time="0.004" /><testcase classname="tests.test_backend.TestWrapMlxOutput" name="test_comp_shape_dtype" time="0.004" /><testcase classname="tests.test_backend.TestWrapMlxOutput" name="test_value_ranges" time="0.005" /><testcase classname="tests.test_cli.TestHelpOutput" name="test_main_help" time="0.083" /><testcase classname="tests.test_cli.TestHelpOutput" name="test_list_clips_help" time="0.011" /><testcase classname="tests.test_cli.TestHelpOutput" name="test_generate_alphas_help" time="0.013" /><testcase classname="tests.test_cli.TestHelpOutput" name="test_run_inference_help" time="0.023" /><testcase classname="tests.test_cli.TestHelpOutput" name="test_wizard_help" time="0.012" /><testcase classname="tests.test_cli.TestInvalidArgs" name="test_wizard_requires_path" time="0.011" /><testcase classname="tests.test_cli.TestInvalidArgs" name="test_unknown_subcommand" time="0.011" /><testcase classname="tests.test_cli.TestInferenceSettings" name="test_defaults" time="0.003" /><testcase classname="tests.test_cli.TestInferenceSettings" name="test_custom_values" time="0.003" /><testcase classname="tests.test_cli.TestCallbackProtocol" name="test_run_inference_passes_callbacks" time="0.016" /><testcase classname="tests.test_cli.TestCallbackProtocol" name="test_callback_signatures" time="0.006" /><testcase classname="tests.test_cli.TestListClips" name="test_list_clips_calls_scan" time="0.010" /><testcase classname="tests.test_cli.TestNonInteractiveFlags" name="test_all_flags_skips_prompts" time="0.013" /><testcase classname="tests.test_cli.TestNonInteractiveFlags" name="test_srgb_flag" time="0.011" /><testcase classname="tests.test_cli.TestNonInteractiveFlags" name="test_despill_clamped_to_range" time="0.011" /><testcase classname="tests.test_cli.TestNonInteractiveFlags" name="test_run_inference_help_shows_flags" time="0.023" /><testcase classname="tests.test_cli.TestNonInteractiveFlags" name="test_skip_existing_passed_through" time="0.012" /><testcase classname="tests.test_clip_manager.TestFileTypeDetection" name="test_image_extensions_recognized[frame.png]" time="0.003" /><testcase classname="tests.test_clip_manager.TestFileTypeDetection" name="test_image_extensions_recognized[SHOT_001.EXR]" time="0.003" /><testcase classname="tests.test_clip_manager.TestFileTypeDetection" name="test_image_extensions_recognized[plate.jpg]" time="0.003" /><testcase classname="tests.test_clip_manager.TestFileTypeDetection" name="test_image_extensions_recognized[ref.JPEG]" time="0.004" /><testcase classname="tests.test_clip_manager.TestFileTypeDetection" name="test_image_extensions_recognized[scan.tif]" time="0.004" /><testcase classname="tests.test_clip_manager.TestFileTypeDetection" name="test_image_extensions_recognized[deep.tiff]" time="0.003" /><testcase classname="tests.test_clip_manager.TestFileTypeDetection" name="test_image_extensions_recognized[comp.bmp]" time="0.003" /><testcase classname="tests.test_clip_manager.TestFileTypeDetection" name="test_video_extensions_recognized[frame.mp4]" time="0.004" /><testcase classname="tests.test_clip_manager.TestFileTypeDetection" name="test_video_extensions_recognized[CLIP.MOV]" time="0.004" /><testcase classname="tests.test_clip_manager.TestFileTypeDetection" name="test_video_extensions_recognized[take.avi]" time="0.004" /><testcase classname="tests.test_clip_manager.TestFileTypeDetection" name="test_video_extensions_recognized[rushes.mkv]" time="0.004" /><testcase classname="tests.test_clip_manager.TestFileTypeDetection" name="test_non_media_rejected[readme.txt]" time="0.004" /><testcase classname="tests.test_clip_manager.TestFileTypeDetection" name="test_non_media_rejected[notes.pdf]" time="0.003" /><testcase classname="tests.test_clip_manager.TestFileTypeDetection" name="test_non_media_rejected[project.nk]" time="0.003" /><testcase classname="tests.test_clip_manager.TestFileTypeDetection" name="test_non_media_rejected[scene.blend]" time="0.005" /><testcase classname="tests.test_clip_manager.TestFileTypeDetection" name="test_non_media_rejected[.DS_Store]" time="0.004" /><testcase classname="tests.test_clip_manager.TestFileTypeDetection" name="test_image_is_not_video" time="0.003" /><testcase classname="tests.test_clip_manager.TestFileTypeDetection" name="test_video_is_not_image" time="0.003" /><testcase classname="tests.test_clip_manager.TestMapPath" name="test_basic_mapping" time="0.004" /><testcase classname="tests.test_clip_manager.TestMapPath" name="test_case_insensitive_drive_letter" time="0.005" /><testcase classname="tests.test_clip_manager.TestMapPath" name="test_trailing_whitespace_stripped" time="0.003" /><testcase classname="tests.test_clip_manager.TestMapPath" name="test_backslashes_converted" time="0.004" /><testcase classname="tests.test_clip_manager.TestMapPath" name="test_non_v_drive_passthrough" time="0.004" /><testcase classname="tests.test_clip_manager.TestMapPath" name="test_drive_root_only" time="0.003" /><testcase classname="tests.test_clip_manager.TestClipAsset" name="test_sequence_frame_count" time="0.006" /><testcase classname="tests.test_clip_manager.TestClipAsset" name="test_sequence_ignores_non_image_files" time="0.006" /><testcase classname="tests.test_clip_manager.TestClipAsset" name="test_empty_sequence" time="0.004" /><testcase classname="tests.test_clip_manager.TestClipEntryFindAssets" name="test_finds_image_sequence_input" time="0.013" /><testcase classname="tests.test_clip_manager.TestClipEntryFindAssets" name="test_finds_alpha_hint" time="0.012" /><testcase classname="tests.test_clip_manager.TestClipEntryFindAssets" name="test_empty_alpha_hint_is_none" time="0.011" /><testcase classname="tests.test_clip_manager.TestClipEntryFindAssets" name="test_missing_input_raises" time="0.005" /><testcase classname="tests.test_clip_manager.TestClipEntryFindAssets" name="test_empty_input_dir_raises" time="0.005" /><testcase classname="tests.test_clip_manager.TestClipEntryFindAssets" name="test_validate_pair_frame_count_mismatch" time="0.007" /><testcase classname="tests.test_clip_manager.TestClipEntryFindAssets" name="test_validate_pair_matching_counts_ok" time="0.012" /><testcase classname="tests.test_clip_manager.TestGenerateAlphas" name="test_all_clips_valid_skips_generation" time="0.005" /><testcase classname="tests.test_clip_manager.TestGenerateAlphas" name="test_gvm_missing_exits_gracefully" time="0.005" /><testcase classname="tests.test_clip_manager.TestGenerateAlphas" name="test_existing_alpha_dir_is_cleaned" time="0.238" /><testcase classname="tests.test_clip_manager.TestGenerateAlphas" name="test_naming_remap_sequence" time="0.007" /><testcase classname="tests.test_clip_manager.TestGenerateAlphas" name="test_naming_remap_video" time="0.224" /><testcase classname="tests.test_clip_manager.TestGenerateAlphas" name="test_empty_output_logs_error" time="0.156" /><testcase classname="tests.test_clip_manager.TestVideoMaMa" name="test_videomama_skips_if_sequence_exists" time="0.010" /><testcase classname="tests.test_clip_manager.TestVideoMaMa" name="test_videomama_processes_valid_candidate" time="0.014" /><testcase classname="tests.test_clip_manager.TestVideoMaMa" name="test_videomama_skips_if_input_missing" time="0.006" /><testcase classname="tests.test_clip_manager.TestVideoMaMa" name="test_videomama_skips_if_mask_missing" time="0.011" /><testcase classname="tests.test_clip_manager.TestVideoMaMa" name="test_videomama_mask_thresholding" time="0.015" /><testcase classname="tests.test_clip_manager.TestVideoMaMa" name="test_videomama_rgba_to_rgb_conversion" time="0.018" /><testcase classname="tests.test_clip_manager.TestVideoMaMa" name="test_videomama_exr_gamma_handling" time="0.010"><failure message="cv2.error: OpenCV(4.13.0) D:\a\opencv-python\opencv-python\opencv\modules\imgcodecs\src\grfmt_exr.cpp:103: error: (-213:The function/feature is not implemented) imgcodecs: OpenEXR codec is disabled. You can enable it via 'OPENCV_IO_ENABLE_OPENEXR' option. Refer for details and cautions here: https://github.com/opencv/opencv/issues/21326 in function 'cv::initOpenEXR'">tests\test_clip_manager.py:506: in test_videomama_exr_gamma_handling
+    cv2.imwrite(exr_file, img)
+E   cv2.error: OpenCV(4.13.0) D:\a\opencv-python\opencv-python\opencv\modules\imgcodecs\src\grfmt_exr.cpp:103: error: (-213:The function/feature is not implemented) imgcodecs: OpenEXR codec is disabled. You can enable it via 'OPENCV_IO_ENABLE_OPENEXR' option. Refer for details and cautions here: https://github.com/opencv/opencv/issues/21326 in function 'cv::initOpenEXR'</failure></testcase><testcase classname="tests.test_clip_manager.TestVideoMaMa" name="test_safety_removes_file_blocking_dir" time="0.016" /><testcase classname="tests.test_clip_manager.TestVideoMaMa" name="test_videomama_multiple_clips_batch" time="0.029" /><testcase classname="tests.test_clip_manager.TestVideoMaMa" name="test_videomama_upgrades_video_alpha" time="0.015" /><testcase classname="tests.test_clip_manager.TestVideoMaMa" name="test_videomama_handles_invalid_image_load" time="0.016" /><testcase classname="tests.test_clip_manager.TestVideoMaMa" name="test_videomama_priority_folder_over_video" time="0.016" /><testcase classname="tests.test_clip_manager.TestVideoMaMa" name="test_loop_chunking_logic" time="0.046" /><testcase classname="tests.test_clip_manager.TestVideoMaMa" name="test_videomama_mask_from_video" time="0.012" /><testcase classname="tests.test_clip_manager.TestVideoMaMa" name="test_videomama_cleanup_on_failure" time="0.010" /><testcase classname="tests.test_clip_manager.TestOrganizeTarget" name="test_creates_hint_directories" time="0.005" /><testcase classname="tests.test_clip_manager.TestOrganizeTarget" name="test_existing_hint_dirs_preserved" time="0.011" /><testcase classname="tests.test_clip_manager.TestOrganizeTarget" name="test_moves_loose_images_to_input" time="0.007" /><testcase classname="tests.test_clip_manager.TestOrganizeClips" name="test_organize_loose_video_file" time="0.008" /><testcase classname="tests.test_clip_manager.TestOrganizeClips" name="test_skips_video_if_folder_exists" time="0.006" /><testcase classname="tests.test_clip_manager.TestOrganizeClips" name="test_ignores_protected_folders" time="0.005" /><testcase classname="tests.test_clip_manager.TestOrganizeClips" name="test_handles_nonexistent_directory" time="0.003" /><testcase classname="tests.test_clip_manager.TestOrganizeClips" name="test_batch_organization_mix" time="0.005" /><testcase classname="tests.test_clip_manager.TestScanClips" name="test_creates_clips_dir_and_returns_empty_if_missing" time="0.004" /><testcase classname="tests.test_clip_manager.TestScanClips" name="test_returns_clips_with_valid_input" time="0.011" /><testcase classname="tests.test_clip_manager.TestScanClips" name="test_excludes_frame_count_mismatch" time="0.014" /><testcase classname="tests.test_clip_manager.TestScanClips" name="test_skips_hidden_and_underscore_dirs" time="0.012" /><testcase classname="tests.test_clip_manager.TestScanClips" name="test_noise_filter_skips_hidden_folders" time="0.006" /><testcase classname="tests.test_clip_manager.TestScanClips" name="test_scanner_handles_multiple_shots" time="0.008" /><testcase classname="tests.test_clip_manager.TestScanClips" name="test_ideal_organization_loose_videos" time="0.005" /><testcase classname="tests.test_clip_manager.TestScanClips" name="test_organization_skips_existing_folders" time="0.006" /><testcase classname="tests.test_clip_manager.TestScanClips" name="test_batch_processing_mix" time="0.007" /><testcase classname="tests.test_clip_manager.TestScanClips" name="test_nonexistent_directory_logging" time="0.003" /><testcase classname="tests.test_color_utils.TestSrgbLinearConversion" name="test_identity_values_numpy[0.0]" time="0.005" /><testcase classname="tests.test_color_utils.TestSrgbLinearConversion" name="test_identity_values_numpy[1.0]" time="0.003" /><testcase classname="tests.test_color_utils.TestSrgbLinearConversion" name="test_identity_values_torch[0.0]" time="0.003" /><testcase classname="tests.test_color_utils.TestSrgbLinearConversion" name="test_identity_values_torch[1.0]" time="0.004" /><testcase classname="tests.test_color_utils.TestSrgbLinearConversion" name="test_mid_gray_numpy" time="0.004" /><testcase classname="tests.test_color_utils.TestSrgbLinearConversion" name="test_mid_gray_torch" time="0.003" /><testcase classname="tests.test_color_utils.TestSrgbLinearConversion" name="test_roundtrip_numpy[0.0]" time="0.003" /><testcase classname="tests.test_color_utils.TestSrgbLinearConversion" name="test_roundtrip_numpy[0.001]" time="0.004" /><testcase classname="tests.test_color_utils.TestSrgbLinearConversion" name="test_roundtrip_numpy[0.0031308]" time="0.004" /><testcase classname="tests.test_color_utils.TestSrgbLinearConversion" name="test_roundtrip_numpy[0.05]" time="0.003" /><testcase classname="tests.test_color_utils.TestSrgbLinearConversion" name="test_roundtrip_numpy[0.214]" time="0.003" /><testcase classname="tests.test_color_utils.TestSrgbLinearConversion" name="test_roundtrip_numpy[0.5]" time="0.004" /><testcase classname="tests.test_color_utils.TestSrgbLinearConversion" name="test_roundtrip_numpy[0.8]" time="0.004" /><testcase classname="tests.test_color_utils.TestSrgbLinearConversion" name="test_roundtrip_numpy[1.0]" time="0.004" /><testcase classname="tests.test_color_utils.TestSrgbLinearConversion" name="test_roundtrip_torch[0.0]" time="0.004" /><testcase classname="tests.test_color_utils.TestSrgbLinearConversion" name="test_roundtrip_torch[0.001]" time="0.005" /><testcase classname="tests.test_color_utils.TestSrgbLinearConversion" name="test_roundtrip_torch[0.0031308]" time="0.004" /><testcase classname="tests.test_color_utils.TestSrgbLinearConversion" name="test_roundtrip_torch[0.05]" time="0.004" /><testcase classname="tests.test_color_utils.TestSrgbLinearConversion" name="test_roundtrip_torch[0.214]" time="0.005" /><testcase classname="tests.test_color_utils.TestSrgbLinearConversion" name="test_roundtrip_torch[0.5]" time="0.004" /><testcase classname="tests.test_color_utils.TestSrgbLinearConversion" name="test_roundtrip_torch[0.8]" time="0.004" /><testcase classname="tests.test_color_utils.TestSrgbLinearConversion" name="test_roundtrip_torch[1.0]" time="0.004" /><testcase classname="tests.test_color_utils.TestSrgbLinearConversion" name="test_breakpoint_continuity_linear_to_srgb" time="0.004" /><testcase classname="tests.test_color_utils.TestSrgbLinearConversion" name="test_breakpoint_continuity_srgb_to_linear" time="0.003" /><testcase classname="tests.test_color_utils.TestSrgbLinearConversion" name="test_negative_clamped_linear_to_srgb_numpy" time="0.003" /><testcase classname="tests.test_color_utils.TestSrgbLinearConversion" name="test_negative_clamped_linear_to_srgb_torch" time="0.004" /><testcase classname="tests.test_color_utils.TestSrgbLinearConversion" name="test_negative_clamped_srgb_to_linear_numpy" time="0.004" /><testcase classname="tests.test_color_utils.TestSrgbLinearConversion" name="test_negative_clamped_srgb_to_linear_torch" time="0.004" /><testcase classname="tests.test_color_utils.TestSrgbLinearConversion" name="test_vectorized_numpy" time="0.010" /><testcase classname="tests.test_color_utils.TestSrgbLinearConversion" name="test_vectorized_torch" time="0.004" /><testcase classname="tests.test_color_utils.TestPremultiply" name="test_roundtrip_numpy" time="0.004" /><testcase classname="tests.test_color_utils.TestPremultiply" name="test_roundtrip_torch" time="0.004" /><testcase classname="tests.test_color_utils.TestPremultiply" name="test_output_bounded_by_fg_numpy" time="0.004" /><testcase classname="tests.test_color_utils.TestPremultiply" name="test_output_bounded_by_fg_torch" time="0.003" /><testcase classname="tests.test_color_utils.TestPremultiply" name="test_zero_alpha_numpy" time="0.004" /><testcase classname="tests.test_color_utils.TestPremultiply" name="test_one_alpha_numpy" time="0.004" /><testcase classname="tests.test_color_utils.TestCompositing" name="test_straight_vs_premul_equivalence_numpy" time="0.004" /><testcase classname="tests.test_color_utils.TestCompositing" name="test_straight_vs_premul_equivalence_torch" time="0.004" /><testcase classname="tests.test_color_utils.TestCompositing" name="test_alpha_zero_shows_background" time="0.003" /><testcase classname="tests.test_color_utils.TestCompositing" name="test_alpha_one_shows_foreground" time="0.005" /><testcase classname="tests.test_color_utils.TestDespill" name="test_pure_green_reduced_average_mode_numpy" time="0.003" /><testcase classname="tests.test_color_utils.TestDespill" name="test_pure_green_reduced_max_mode_numpy" time="0.003" /><testcase classname="tests.test_color_utils.TestDespill" name="test_pure_red_unchanged_numpy" time="0.004" /><testcase classname="tests.test_color_utils.TestDespill" name="test_strength_zero_is_noop_numpy" time="0.005" /><testcase classname="tests.test_color_utils.TestDespill" name="test_partial_green_average_mode_numpy" time="0.003" /><testcase classname="tests.test_color_utils.TestDespill" name="test_max_mode_higher_limit_than_average" time="0.003" /><testcase classname="tests.test_color_utils.TestDespill" name="test_fractional_strength_interpolates" time="0.004" /><testcase classname="tests.test_color_utils.TestDespill" name="test_despill_torch" time="0.005" /><testcase classname="tests.test_color_utils.TestDespill" name="test_green_below_limit_unchanged_numpy" time="0.004" /><testcase classname="tests.test_color_utils.TestCleanMatte" name="test_large_blob_preserved" time="0.004" /><testcase classname="tests.test_color_utils.TestCleanMatte" name="test_small_blob_removed" time="0.005" /><testcase classname="tests.test_color_utils.TestCleanMatte" name="test_mixed_blobs" time="0.006" /><testcase classname="tests.test_color_utils.TestCleanMatte" name="test_3d_input_preserved" time="0.004" /><testcase classname="tests.test_color_utils.TestCheckerboard" name="test_output_shape" time="0.010" /><testcase classname="tests.test_color_utils.TestCheckerboard" name="test_output_range" time="0.004" /><testcase classname="tests.test_color_utils.TestCheckerboard" name="test_uses_specified_colors" time="0.015" /><testcase classname="tests.test_color_utils.TestRgbToYuv" name="test_pure_white_bchw" time="0.004" /><testcase classname="tests.test_color_utils.TestRgbToYuv" name="test_pure_red_known_values" time="0.004" /><testcase classname="tests.test_color_utils.TestRgbToYuv" name="test_chw_layout" time="0.005" /><testcase classname="tests.test_color_utils.TestRgbToYuv" name="test_last_dim_layout" time="0.004" /><testcase classname="tests.test_color_utils.TestRgbToYuv" name="test_rejects_numpy" time="0.004" /><testcase classname="tests.test_color_utils.TestDilateMask" name="test_radius_zero_noop_numpy" time="0.004" /><testcase classname="tests.test_color_utils.TestDilateMask" name="test_radius_zero_noop_torch" time="0.004" /><testcase classname="tests.test_color_utils.TestDilateMask" name="test_dilation_expands_numpy" time="0.004" /><testcase classname="tests.test_color_utils.TestDilateMask" name="test_dilation_expands_torch" time="0.005" /><testcase classname="tests.test_color_utils.TestDilateMask" name="test_preserves_2d_shape_numpy" time="0.004" /><testcase classname="tests.test_color_utils.TestDilateMask" name="test_preserves_2d_shape_torch" time="0.005" /><testcase classname="tests.test_color_utils.TestDilateMask" name="test_preserves_3d_shape_torch" time="0.006" /><testcase classname="tests.test_color_utils.TestApplyGarbageMatte" name="test_none_input_passthrough" time="0.004" /><testcase classname="tests.test_color_utils.TestApplyGarbageMatte" name="test_zeros_outside_garbage_region" time="0.003" /><testcase classname="tests.test_color_utils.TestApplyGarbageMatte" name="test_3d_matte_with_2d_garbage" time="0.004" /><testcase classname="tests.test_device_utils.TestDetectBestDevice" name="test_returns_cuda_when_available" time="0.004" /><testcase classname="tests.test_device_utils.TestDetectBestDevice" name="test_returns_mps_when_no_cuda" time="0.004" /><testcase classname="tests.test_device_utils.TestDetectBestDevice" name="test_returns_cpu_when_nothing" time="0.004" /><testcase classname="tests.test_device_utils.TestResolveDevice" name="test_none_triggers_auto_detect" time="0.004" /><testcase classname="tests.test_device_utils.TestResolveDevice" name="test_auto_string_triggers_auto_detect" time="0.004" /><testcase classname="tests.test_device_utils.TestResolveDevice" name="test_env_var_used_when_no_cli_arg" time="0.004" /><testcase classname="tests.test_device_utils.TestResolveDevice" name="test_env_var_auto_triggers_detect" time="0.004" /><testcase classname="tests.test_device_utils.TestResolveDevice" name="test_cli_arg_overrides_env_var" time="0.004" /><testcase classname="tests.test_device_utils.TestResolveDevice" name="test_explicit_cuda" time="0.004" /><testcase classname="tests.test_device_utils.TestResolveDevice" name="test_explicit_mps" time="0.004" /><testcase classname="tests.test_device_utils.TestResolveDevice" name="test_explicit_cpu" time="0.004" /><testcase classname="tests.test_device_utils.TestResolveDevice" name="test_case_insensitive" time="0.003" /><testcase classname="tests.test_device_utils.TestResolveDevice" name="test_cuda_unavailable_raises" time="0.004" /><testcase classname="tests.test_device_utils.TestResolveDevice" name="test_mps_no_backend_raises" time="0.004" /><testcase classname="tests.test_device_utils.TestResolveDevice" name="test_mps_unavailable_raises" time="0.005" /><testcase classname="tests.test_device_utils.TestResolveDevice" name="test_invalid_device_raises" time="0.004" /><testcase classname="tests.test_device_utils.TestClearDeviceCache" name="test_cuda_clears_cache" time="0.004" /><testcase classname="tests.test_device_utils.TestClearDeviceCache" name="test_mps_clears_cache" time="0.004" /><testcase classname="tests.test_device_utils.TestClearDeviceCache" name="test_cpu_is_noop" time="0.003" /><testcase classname="tests.test_device_utils.TestClearDeviceCache" name="test_accepts_torch_device_object" time="0.004" /><testcase classname="tests.test_device_utils.TestClearDeviceCache" name="test_accepts_mps_device_object" time="0.004" /><testcase classname="tests.test_e2e_workflow.TestE2EInferenceWorkflow" name="test_output_directories_created" time="0.016"><failure message="cv2.error: OpenCV(4.13.0) D:\a\opencv-python\opencv-python\opencv\modules\imgcodecs\src\grfmt_exr.cpp:103: error: (-213:The function/feature is not implemented) imgcodecs: OpenEXR codec is disabled. You can enable it via 'OPENCV_IO_ENABLE_OPENEXR' option. Refer for details and cautions here: https://github.com/opencv/opencv/issues/21326 in function 'cv::initOpenEXR'">tests\test_e2e_workflow.py:62: in test_output_directories_created
+    run_inference([entry], device="cpu")
+clip_manager.py:780: in run_inference
+    cv2.imwrite(os.path.join(fg_dir, f"{input_stem}.exr"), fg_bgr, EXR_WRITE_FLAGS)
+E   cv2.error: OpenCV(4.13.0) D:\a\opencv-python\opencv-python\opencv\modules\imgcodecs\src\grfmt_exr.cpp:103: error: (-213:The function/feature is not implemented) imgcodecs: OpenEXR codec is disabled. You can enable it via 'OPENCV_IO_ENABLE_OPENEXR' option. Refer for details and cautions here: https://github.com/opencv/opencv/issues/21326 in function 'cv::initOpenEXR'</failure></testcase><testcase classname="tests.test_e2e_workflow.TestE2EInferenceWorkflow" name="test_output_files_written_per_frame" time="0.016"><failure message="cv2.error: OpenCV(4.13.0) D:\a\opencv-python\opencv-python\opencv\modules\imgcodecs\src\grfmt_exr.cpp:103: error: (-213:The function/feature is not implemented) imgcodecs: OpenEXR codec is disabled. You can enable it via 'OPENCV_IO_ENABLE_OPENEXR' option. Refer for details and cautions here: https://github.com/opencv/opencv/issues/21326 in function 'cv::initOpenEXR'">tests\test_e2e_workflow.py:87: in test_output_files_written_per_frame
+    run_inference([entry], device="cpu")
+clip_manager.py:780: in run_inference
+    cv2.imwrite(os.path.join(fg_dir, f"{input_stem}.exr"), fg_bgr, EXR_WRITE_FLAGS)
+E   cv2.error: OpenCV(4.13.0) D:\a\opencv-python\opencv-python\opencv\modules\imgcodecs\src\grfmt_exr.cpp:103: error: (-213:The function/feature is not implemented) imgcodecs: OpenEXR codec is disabled. You can enable it via 'OPENCV_IO_ENABLE_OPENEXR' option. Refer for details and cautions here: https://github.com/opencv/opencv/issues/21326 in function 'cv::initOpenEXR'</failure></testcase><testcase classname="tests.test_e2e_workflow.TestE2EInferenceWorkflow" name="test_clip_without_alpha_skipped" time="0.011" /><testcase classname="tests.test_exr_gamma_bug_condition.TestDefect3NaivePowVsPiecewiseSRGB" name="test_gamma_corrected_exr_matches_piecewise_srgb" time="0.029"><failure message="cv2.error: OpenCV(4.13.0) D:\a\opencv-python\opencv-python\opencv\modules\imgcodecs\src\grfmt_exr.cpp:103: error: (-213:The function/feature is not implemented) imgcodecs: OpenEXR codec is disabled. You can enable it via 'OPENCV_IO_ENABLE_OPENEXR' option. Refer for details and cautions here: https://github.com/opencv/opencv/issues/21326 in function 'cv::initOpenEXR'&#10;&#10;Falsifying example: test_gamma_corrected_exr_matches_piecewise_srgb(&#10;    self=&lt;tests.test_exr_gamma_bug_condition.TestDefect3NaivePowVsPiecewiseSRGB object at 0x000001EEE6879BD0&gt;,&#10;    data=array([[[0., 0., 0.],&#10;            [0., 0., 0.],&#10;            [0., 0., 0.],&#10;            [0., 0., 0.]],&#10;    &#10;           [[0., 0., 0.],&#10;            [0., 0., 0.],&#10;            [0., 0., 0.],&#10;            [0., 0., 0.]],&#10;    &#10;           [[0., 0., 0.],&#10;            [0., 0., 0.],&#10;            [0., 0., 0.],&#10;            [0., 0., 0.]],&#10;    &#10;           [[0., 0., 0.],&#10;            [0., 0., 0.],&#10;            [0., 0., 0.],&#10;            [0., 0., 0.]]], dtype=float32),&#10;)">tests\test_exr_gamma_bug_condition.py:83: in test_gamma_corrected_exr_matches_piecewise_srgb
+    @settings(max_examples=50, deadline=None)
+               ^^^^^^^
+tests\test_exr_gamma_bug_condition.py:92: in test_gamma_corrected_exr_matches_piecewise_srgb
+    _write_exr(exr_path, data)
+tests\test_exr_gamma_bug_condition.py:67: in _write_exr
+    cv2.imwrite(path, bgr)
+E   cv2.error: OpenCV(4.13.0) D:\a\opencv-python\opencv-python\opencv\modules\imgcodecs\src\grfmt_exr.cpp:103: error: (-213:The function/feature is not implemented) imgcodecs: OpenEXR codec is disabled. You can enable it via 'OPENCV_IO_ENABLE_OPENEXR' option. Refer for details and cautions here: https://github.com/opencv/opencv/issues/21326 in function 'cv::initOpenEXR'
+E   
+E   Falsifying example: test_gamma_corrected_exr_matches_piecewise_srgb(
+E       self=&lt;tests.test_exr_gamma_bug_condition.TestDefect3NaivePowVsPiecewiseSRGB object at 0x000001EEE6879BD0&gt;,
+E       data=array([[[0., 0., 0.],
+E               [0., 0., 0.],
+E               [0., 0., 0.],
+E               [0., 0., 0.]],
+E       
+E              [[0., 0., 0.],
+E               [0., 0., 0.],
+E               [0., 0., 0.],
+E               [0., 0., 0.]],
+E       
+E              [[0., 0., 0.],
+E               [0., 0., 0.],
+E               [0., 0., 0.],
+E               [0., 0., 0.]],
+E       
+E              [[0., 0., 0.],
+E               [0., 0., 0.],
+E               [0., 0., 0.],
+E               [0., 0., 0.]]], dtype=float32),
+E   )</failure></testcase><testcase classname="tests.test_exr_gamma_bug_condition.TestDefect3NaivePowVsPiecewiseSRGB" name="test_threshold_region_divergence" time="0.025"><failure message="cv2.error: OpenCV(4.13.0) D:\a\opencv-python\opencv-python\opencv\modules\imgcodecs\src\grfmt_exr.cpp:103: error: (-213:The function/feature is not implemented) imgcodecs: OpenEXR codec is disabled. You can enable it via 'OPENCV_IO_ENABLE_OPENEXR' option. Refer for details and cautions here: https://github.com/opencv/opencv/issues/21326 in function 'cv::initOpenEXR'&#10;&#10;Falsifying example: test_threshold_region_divergence(&#10;    self=&lt;tests.test_exr_gamma_bug_condition.TestDefect3NaivePowVsPiecewiseSRGB object at 0x000001EEE6AD2AD0&gt;,&#10;    pixel_val=0.0,&#10;)">tests\test_exr_gamma_bug_condition.py:117: in test_threshold_region_divergence
+    pixel_val=threshold_pixel_values,
+           ^^^^^^^
+tests\test_exr_gamma_bug_condition.py:131: in test_threshold_region_divergence
+    _write_exr(exr_path, data)
+tests\test_exr_gamma_bug_condition.py:67: in _write_exr
+    cv2.imwrite(path, bgr)
+E   cv2.error: OpenCV(4.13.0) D:\a\opencv-python\opencv-python\opencv\modules\imgcodecs\src\grfmt_exr.cpp:103: error: (-213:The function/feature is not implemented) imgcodecs: OpenEXR codec is disabled. You can enable it via 'OPENCV_IO_ENABLE_OPENEXR' option. Refer for details and cautions here: https://github.com/opencv/opencv/issues/21326 in function 'cv::initOpenEXR'
+E   
+E   Falsifying example: test_threshold_region_divergence(
+E       self=&lt;tests.test_exr_gamma_bug_condition.TestDefect3NaivePowVsPiecewiseSRGB object at 0x000001EEE6AD2AD0&gt;,
+E       pixel_val=0.0,
+E   )</failure></testcase><testcase classname="tests.test_exr_gamma_bug_condition.TestDefect1And2RunInferenceEXRPath" name="test_exr_srgb_frame_is_gamma_corrected" time="0.029"><failure message="cv2.error: OpenCV(4.13.0) D:\a\opencv-python\opencv-python\opencv\modules\imgcodecs\src\grfmt_exr.cpp:103: error: (-213:The function/feature is not implemented) imgcodecs: OpenEXR codec is disabled. You can enable it via 'OPENCV_IO_ENABLE_OPENEXR' option. Refer for details and cautions here: https://github.com/opencv/opencv/issues/21326 in function 'cv::initOpenEXR'&#10;&#10;Falsifying example: test_exr_srgb_frame_is_gamma_corrected(&#10;    self=&lt;tests.test_exr_gamma_bug_condition.TestDefect1And2RunInferenceEXRPath object at 0x000001EEE6AD2D50&gt;,&#10;    data=array([[[0., 0., 0.],&#10;            [0., 0., 0.],&#10;            [0., 0., 0.],&#10;            [0., 0., 0.]],&#10;    &#10;           [[0., 0., 0.],&#10;            [0., 0., 0.],&#10;            [0., 0., 0.],&#10;            [0., 0., 0.]],&#10;    &#10;           [[0., 0., 0.],&#10;            [0., 0., 0.],&#10;            [0., 0., 0.],&#10;            [0., 0., 0.]],&#10;    &#10;           [[0., 0., 0.],&#10;            [0., 0., 0.],&#10;            [0., 0., 0.],&#10;            [0., 0., 0.]]], dtype=float32),&#10;)">tests\test_exr_gamma_bug_condition.py:166: in test_exr_srgb_frame_is_gamma_corrected
+    @settings(max_examples=30, deadline=None)
+               ^^^^^^^
+tests\test_exr_gamma_bug_condition.py:185: in test_exr_srgb_frame_is_gamma_corrected
+    _write_exr(exr_path, data)
+tests\test_exr_gamma_bug_condition.py:67: in _write_exr
+    cv2.imwrite(path, bgr)
+E   cv2.error: OpenCV(4.13.0) D:\a\opencv-python\opencv-python\opencv\modules\imgcodecs\src\grfmt_exr.cpp:103: error: (-213:The function/feature is not implemented) imgcodecs: OpenEXR codec is disabled. You can enable it via 'OPENCV_IO_ENABLE_OPENEXR' option. Refer for details and cautions here: https://github.com/opencv/opencv/issues/21326 in function 'cv::initOpenEXR'
+E   
+E   Falsifying example: test_exr_srgb_frame_is_gamma_corrected(
+E       self=&lt;tests.test_exr_gamma_bug_condition.TestDefect1And2RunInferenceEXRPath object at 0x000001EEE6AD2D50&gt;,
+E       data=array([[[0., 0., 0.],
+E               [0., 0., 0.],
+E               [0., 0., 0.],
+E               [0., 0., 0.]],
+E       
+E              [[0., 0., 0.],
+E               [0., 0., 0.],
+E               [0., 0., 0.],
+E               [0., 0., 0.]],
+E       
+E              [[0., 0., 0.],
+E               [0., 0., 0.],
+E               [0., 0., 0.],
+E               [0., 0., 0.]],
+E       
+E              [[0., 0., 0.],
+E               [0., 0., 0.],
+E               [0., 0., 0.],
+E               [0., 0., 0.]]], dtype=float32),
+E   )</failure></testcase><testcase classname="tests.test_exr_gamma_preservation.TestPreservationLinearEXRRead" name="test_exr_default_returns_raw_linear_data" time="0.027"><failure message="cv2.error: OpenCV(4.13.0) D:\a\opencv-python\opencv-python\opencv\modules\imgcodecs\src\grfmt_exr.cpp:103: error: (-213:The function/feature is not implemented) imgcodecs: OpenEXR codec is disabled. You can enable it via 'OPENCV_IO_ENABLE_OPENEXR' option. Refer for details and cautions here: https://github.com/opencv/opencv/issues/21326 in function 'cv::initOpenEXR'&#10;&#10;Falsifying example: test_exr_default_returns_raw_linear_data(&#10;    self=&lt;tests.test_exr_gamma_preservation.TestPreservationLinearEXRRead object at 0x000001EEE6AD2E90&gt;,&#10;    data=array([[[0., 0., 0.],&#10;            [0., 0., 0.],&#10;            [0., 0., 0.],&#10;            [0., 0., 0.]],&#10;    &#10;           [[0., 0., 0.],&#10;            [0., 0., 0.],&#10;            [0., 0., 0.],&#10;            [0., 0., 0.]],&#10;    &#10;           [[0., 0., 0.],&#10;            [0., 0., 0.],&#10;            [0., 0., 0.],&#10;            [0., 0., 0.]],&#10;    &#10;           [[0., 0., 0.],&#10;            [0., 0., 0.],&#10;            [0., 0., 0.],&#10;            [0., 0., 0.]]], dtype=float32),&#10;)">tests\test_exr_gamma_preservation.py:87: in test_exr_default_returns_raw_linear_data
+    @settings(max_examples=50, deadline=None)
+               ^^^^^^^
+tests\test_exr_gamma_preservation.py:97: in test_exr_default_returns_raw_linear_data
+    _write_exr(exr_path, data)
+tests\test_exr_gamma_preservation.py:64: in _write_exr
+    cv2.imwrite(path, bgr)
+E   cv2.error: OpenCV(4.13.0) D:\a\opencv-python\opencv-python\opencv\modules\imgcodecs\src\grfmt_exr.cpp:103: error: (-213:The function/feature is not implemented) imgcodecs: OpenEXR codec is disabled. You can enable it via 'OPENCV_IO_ENABLE_OPENEXR' option. Refer for details and cautions here: https://github.com/opencv/opencv/issues/21326 in function 'cv::initOpenEXR'
+E   
+E   Falsifying example: test_exr_default_returns_raw_linear_data(
+E       self=&lt;tests.test_exr_gamma_preservation.TestPreservationLinearEXRRead object at 0x000001EEE6AD2E90&gt;,
+E       data=array([[[0., 0., 0.],
+E               [0., 0., 0.],
+E               [0., 0., 0.],
+E               [0., 0., 0.]],
+E       
+E              [[0., 0., 0.],
+E               [0., 0., 0.],
+E               [0., 0., 0.],
+E               [0., 0., 0.]],
+E       
+E              [[0., 0., 0.],
+E               [0., 0., 0.],
+E               [0., 0., 0.],
+E               [0., 0., 0.]],
+E       
+E              [[0., 0., 0.],
+E               [0., 0., 0.],
+E               [0., 0., 0.],
+E               [0., 0., 0.]]], dtype=float32),
+E   )</failure></testcase><testcase classname="tests.test_exr_gamma_preservation.TestPreservationLinearEXRRead" name="test_exr_explicit_false_returns_raw_linear_data" time="0.026"><failure message="cv2.error: OpenCV(4.13.0) D:\a\opencv-python\opencv-python\opencv\modules\imgcodecs\src\grfmt_exr.cpp:103: error: (-213:The function/feature is not implemented) imgcodecs: OpenEXR codec is disabled. You can enable it via 'OPENCV_IO_ENABLE_OPENEXR' option. Refer for details and cautions here: https://github.com/opencv/opencv/issues/21326 in function 'cv::initOpenEXR'&#10;&#10;Falsifying example: test_exr_explicit_false_returns_raw_linear_data(&#10;    self=&lt;tests.test_exr_gamma_preservation.TestPreservationLinearEXRRead object at 0x000001EEE6AD2FD0&gt;,&#10;    data=array([[[0., 0., 0.],&#10;            [0., 0., 0.],&#10;            [0., 0., 0.],&#10;            [0., 0., 0.]],&#10;    &#10;           [[0., 0., 0.],&#10;            [0., 0., 0.],&#10;            [0., 0., 0.],&#10;            [0., 0., 0.]],&#10;    &#10;           [[0., 0., 0.],&#10;            [0., 0., 0.],&#10;            [0., 0., 0.],&#10;            [0., 0., 0.]],&#10;    &#10;           [[0., 0., 0.],&#10;            [0., 0., 0.],&#10;            [0., 0., 0.],&#10;            [0., 0., 0.]]], dtype=float32),&#10;)">tests\test_exr_gamma_preservation.py:120: in test_exr_explicit_false_returns_raw_linear_data
+    @settings(max_examples=50, deadline=None)
+               ^^^^^^^
+tests\test_exr_gamma_preservation.py:129: in test_exr_explicit_false_returns_raw_linear_data
+    _write_exr(exr_path, data)
+tests\test_exr_gamma_preservation.py:64: in _write_exr
+    cv2.imwrite(path, bgr)
+E   cv2.error: OpenCV(4.13.0) D:\a\opencv-python\opencv-python\opencv\modules\imgcodecs\src\grfmt_exr.cpp:103: error: (-213:The function/feature is not implemented) imgcodecs: OpenEXR codec is disabled. You can enable it via 'OPENCV_IO_ENABLE_OPENEXR' option. Refer for details and cautions here: https://github.com/opencv/opencv/issues/21326 in function 'cv::initOpenEXR'
+E   
+E   Falsifying example: test_exr_explicit_false_returns_raw_linear_data(
+E       self=&lt;tests.test_exr_gamma_preservation.TestPreservationLinearEXRRead object at 0x000001EEE6AD2FD0&gt;,
+E       data=array([[[0., 0., 0.],
+E               [0., 0., 0.],
+E               [0., 0., 0.],
+E               [0., 0., 0.]],
+E       
+E              [[0., 0., 0.],
+E               [0., 0., 0.],
+E               [0., 0., 0.],
+E               [0., 0., 0.]],
+E       
+E              [[0., 0., 0.],
+E               [0., 0., 0.],
+E               [0., 0., 0.],
+E               [0., 0., 0.]],
+E       
+E              [[0., 0., 0.],
+E               [0., 0., 0.],
+E               [0., 0., 0.],
+E               [0., 0., 0.]]], dtype=float32),
+E   )</failure></testcase><testcase classname="tests.test_exr_gamma_preservation.TestPreservationStandardImageRead" name="test_png_read_returns_uint8_normalized" time="0.583" /><testcase classname="tests.test_exr_gamma_preservation.TestPreservationStandardImageRead" name="test_png_result_dtype_and_range" time="0.400" /><testcase classname="tests.test_exr_gamma_preservation.TestPreservationLinearEXRInference" name="test_linear_exr_passes_through_unchanged" time="0.033"><failure message="cv2.error: OpenCV(4.13.0) D:\a\opencv-python\opencv-python\opencv\modules\imgcodecs\src\grfmt_exr.cpp:103: error: (-213:The function/feature is not implemented) imgcodecs: OpenEXR codec is disabled. You can enable it via 'OPENCV_IO_ENABLE_OPENEXR' option. Refer for details and cautions here: https://github.com/opencv/opencv/issues/21326 in function 'cv::initOpenEXR'&#10;&#10;Falsifying example: test_linear_exr_passes_through_unchanged(&#10;    self=&lt;tests.test_exr_gamma_preservation.TestPreservationLinearEXRInference object at 0x000001EEE6AD3610&gt;,&#10;    data=array([[[0., 0., 0.],&#10;            [0., 0., 0.],&#10;            [0., 0., 0.],&#10;            [0., 0., 0.]],&#10;    &#10;           [[0., 0., 0.],&#10;            [0., 0., 0.],&#10;            [0., 0., 0.],&#10;            [0., 0., 0.]],&#10;    &#10;           [[0., 0., 0.],&#10;            [0., 0., 0.],&#10;            [0., 0., 0.],&#10;            [0., 0., 0.]],&#10;    &#10;           [[0., 0., 0.],&#10;            [0., 0., 0.],&#10;            [0., 0., 0.],&#10;            [0., 0., 0.]]], dtype=float32),&#10;)">tests\test_exr_gamma_preservation.py:220: in test_linear_exr_passes_through_unchanged
+    @settings(max_examples=30, deadline=None)
+               ^^^^^^^
+tests\test_exr_gamma_preservation.py:238: in test_linear_exr_passes_through_unchanged
+    _write_exr(exr_path, data)
+tests\test_exr_gamma_preservation.py:64: in _write_exr
+    cv2.imwrite(path, bgr)
+E   cv2.error: OpenCV(4.13.0) D:\a\opencv-python\opencv-python\opencv\modules\imgcodecs\src\grfmt_exr.cpp:103: error: (-213:The function/feature is not implemented) imgcodecs: OpenEXR codec is disabled. You can enable it via 'OPENCV_IO_ENABLE_OPENEXR' option. Refer for details and cautions here: https://github.com/opencv/opencv/issues/21326 in function 'cv::initOpenEXR'
+E   
+E   Falsifying example: test_linear_exr_passes_through_unchanged(
+E       self=&lt;tests.test_exr_gamma_preservation.TestPreservationLinearEXRInference object at 0x000001EEE6AD3610&gt;,
+E       data=array([[[0., 0., 0.],
+E               [0., 0., 0.],
+E               [0., 0., 0.],
+E               [0., 0., 0.]],
+E       
+E              [[0., 0., 0.],
+E               [0., 0., 0.],
+E               [0., 0., 0.],
+E               [0., 0., 0.]],
+E       
+E              [[0., 0., 0.],
+E               [0., 0., 0.],
+E               [0., 0., 0.],
+E               [0., 0., 0.]],
+E       
+E              [[0., 0., 0.],
+E               [0., 0., 0.],
+E               [0., 0., 0.],
+E               [0., 0., 0.]]], dtype=float32),
+E   )</failure></testcase><testcase classname="tests.test_frame_io.TestReadVideoFrameAtNegativeIndex" name="test_negative_one_returns_none" time="0.004" /><testcase classname="tests.test_frame_io.TestReadVideoFrameAtNegativeIndex" name="test_large_negative_returns_none" time="0.004" /><testcase classname="tests.test_frame_io.TestReadVideoFrameAtNegativeIndex" name="test_zero_does_not_trigger_guard" time="0.160" /><testcase classname="tests.test_frame_io.TestReadVideoMaskAtNegativeIndex" name="test_negative_one_returns_none" time="0.004" /><testcase classname="tests.test_frame_io.TestReadVideoMaskAtNegativeIndex" name="test_large_negative_returns_none" time="0.004" /><testcase classname="tests.test_frame_io.TestReadVideoMaskAtNegativeIndex" name="test_zero_does_not_trigger_guard" time="0.153" /><testcase classname="tests.test_gamma_consistency.TestGammaInconsistency" name="test_linear_to_srgb_differs_from_gamma_22" time="0.004" /><testcase classname="tests.test_gamma_consistency.TestGammaInconsistency" name="test_srgb_to_linear_differs_from_gamma_22" time="0.004" /><testcase classname="tests.test_gamma_consistency.TestGammaDivergenceMagnitude" name="test_divergence_at_known_values[0.001-0.005]" time="0.004" /><testcase classname="tests.test_gamma_consistency.TestGammaDivergenceMagnitude" name="test_divergence_at_known_values[0.01-0.01]" time="0.004" /><testcase classname="tests.test_gamma_consistency.TestGammaDivergenceMagnitude" name="test_divergence_at_known_values[0.1-0.001]" time="0.004" /><testcase classname="tests.test_gamma_consistency.TestGammaDivergenceMagnitude" name="test_divergence_at_known_values[0.5-0.001]" time="0.004" /><testcase classname="tests.test_gamma_consistency.TestGammaDivergenceMagnitude" name="test_both_methods_agree_at_zero_and_one" time="0.004" /><testcase classname="tests.test_gamma_consistency.TestGammaDivergenceMagnitude" name="test_worst_case_divergence_in_darks" time="0.004" /><testcase classname="tests.test_imports" name="test_import_corridorkey_module" time="0.004" /><testcase classname="tests.test_imports" name="test_import_color_utils" time="0.005" /><testcase classname="tests.test_imports" name="test_import_inference_engine" time="0.004" /><testcase classname="tests.test_imports" name="test_import_model_transformer" time="0.004" /><testcase classname="tests.test_imports" name="test_import_gvm_core" time="2.477" /><testcase classname="tests.test_imports" name="test_import_gvm_wrapper" time="0.005" /><testcase classname="tests.test_imports" name="test_import_videomama" time="0.004" /><testcase classname="tests.test_imports" name="test_import_videomama_inference" time="0.004" /><testcase classname="tests.test_inference_engine.TestProcessFrameOutputs" name="test_output_keys[True-openCV]" time="1.518"><failure message="AttributeError: 'numpy.ndarray' object has no attribute 'permute'">tests\test_inference_engine.py:64: in test_output_keys
+    result = engine.process_frame(sample_frame_rgb, sample_mask, post_process_on_gpu=backend == "torch")[0]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\venvs\CorridorKey\Lib\site-packages\torch\utils\_contextlib.py:120: in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+CorridorKeyModule\inference_engine.py:345: in process_frame
+    self._postprocess_opencv(
+CorridorKeyModule\inference_engine.py:177: in _postprocess_opencv
+    res_alpha = pred_alpha.permute(1, 2, 0).cpu().numpy()
+                ^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'numpy.ndarray' object has no attribute 'permute'</failure></testcase><testcase classname="tests.test_inference_engine.TestProcessFrameOutputs" name="test_output_keys[True-torch]" time="0.041" /><testcase classname="tests.test_inference_engine.TestProcessFrameOutputs" name="test_output_keys[False-openCV]" time="0.005"><failure message="AttributeError: 'numpy.ndarray' object has no attribute 'permute'">tests\test_inference_engine.py:66: in test_output_keys
+    result = engine.process_frame(sample_frame_rgb, sample_mask, post_process_on_gpu=backend == "torch")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\venvs\CorridorKey\Lib\site-packages\torch\utils\_contextlib.py:120: in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+CorridorKeyModule\inference_engine.py:345: in process_frame
+    self._postprocess_opencv(
+CorridorKeyModule\inference_engine.py:177: in _postprocess_opencv
+    res_alpha = pred_alpha.permute(1, 2, 0).cpu().numpy()
+                ^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'numpy.ndarray' object has no attribute 'permute'</failure></testcase><testcase classname="tests.test_inference_engine.TestProcessFrameOutputs" name="test_output_keys[False-torch]" time="0.031" /><testcase classname="tests.test_inference_engine.TestProcessFrameOutputs" name="test_output_shapes_match_input[True-openCV]" time="0.006"><failure message="AttributeError: 'numpy.ndarray' object has no attribute 'permute'">tests\test_inference_engine.py:82: in test_output_shapes_match_input
+    result = engine.process_frame(sample_frame_rgb, sample_mask, post_process_on_gpu=backend == "torch")[0]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\venvs\CorridorKey\Lib\site-packages\torch\utils\_contextlib.py:120: in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+CorridorKeyModule\inference_engine.py:345: in process_frame
+    self._postprocess_opencv(
+CorridorKeyModule\inference_engine.py:177: in _postprocess_opencv
+    res_alpha = pred_alpha.permute(1, 2, 0).cpu().numpy()
+                ^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'numpy.ndarray' object has no attribute 'permute'</failure></testcase><testcase classname="tests.test_inference_engine.TestProcessFrameOutputs" name="test_output_shapes_match_input[True-torch]" time="0.039" /><testcase classname="tests.test_inference_engine.TestProcessFrameOutputs" name="test_output_shapes_match_input[False-openCV]" time="0.006"><failure message="AttributeError: 'numpy.ndarray' object has no attribute 'permute'">tests\test_inference_engine.py:84: in test_output_shapes_match_input
+    result = engine.process_frame(sample_frame_rgb, sample_mask, post_process_on_gpu=backend == "torch")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\venvs\CorridorKey\Lib\site-packages\torch\utils\_contextlib.py:120: in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+CorridorKeyModule\inference_engine.py:345: in process_frame
+    self._postprocess_opencv(
+CorridorKeyModule\inference_engine.py:177: in _postprocess_opencv
+    res_alpha = pred_alpha.permute(1, 2, 0).cpu().numpy()
+                ^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'numpy.ndarray' object has no attribute 'permute'</failure></testcase><testcase classname="tests.test_inference_engine.TestProcessFrameOutputs" name="test_output_shapes_match_input[False-torch]" time="0.027" /><testcase classname="tests.test_inference_engine.TestProcessFrameOutputs" name="test_output_dtype_float32[True-openCV]" time="0.006"><failure message="AttributeError: 'numpy.ndarray' object has no attribute 'permute'">tests\test_inference_engine.py:99: in test_output_dtype_float32
+    result = engine.process_frame(sample_frame_rgb, sample_mask, post_process_on_gpu=backend == "torch")[0]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\venvs\CorridorKey\Lib\site-packages\torch\utils\_contextlib.py:120: in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+CorridorKeyModule\inference_engine.py:345: in process_frame
+    self._postprocess_opencv(
+CorridorKeyModule\inference_engine.py:177: in _postprocess_opencv
+    res_alpha = pred_alpha.permute(1, 2, 0).cpu().numpy()
+                ^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'numpy.ndarray' object has no attribute 'permute'</failure></testcase><testcase classname="tests.test_inference_engine.TestProcessFrameOutputs" name="test_output_dtype_float32[True-torch]" time="0.031" /><testcase classname="tests.test_inference_engine.TestProcessFrameOutputs" name="test_output_dtype_float32[False-openCV]" time="0.005"><failure message="AttributeError: 'numpy.ndarray' object has no attribute 'permute'">tests\test_inference_engine.py:101: in test_output_dtype_float32
+    result = engine.process_frame(sample_frame_rgb, sample_mask, post_process_on_gpu=backend == "torch")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\venvs\CorridorKey\Lib\site-packages\torch\utils\_contextlib.py:120: in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+CorridorKeyModule\inference_engine.py:345: in process_frame
+    self._postprocess_opencv(
+CorridorKeyModule\inference_engine.py:177: in _postprocess_opencv
+    res_alpha = pred_alpha.permute(1, 2, 0).cpu().numpy()
+                ^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'numpy.ndarray' object has no attribute 'permute'</failure></testcase><testcase classname="tests.test_inference_engine.TestProcessFrameOutputs" name="test_output_dtype_float32[False-torch]" time="0.031" /><testcase classname="tests.test_inference_engine.TestProcessFrameOutputs" name="test_alpha_output_range_is_zero_to_one[True-openCV]" time="0.006"><failure message="AttributeError: 'numpy.ndarray' object has no attribute 'permute'">tests\test_inference_engine.py:114: in test_alpha_output_range_is_zero_to_one
+    result = engine.process_frame(sample_frame_rgb, sample_mask, post_process_on_gpu=backend == "torch")[0]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\venvs\CorridorKey\Lib\site-packages\torch\utils\_contextlib.py:120: in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+CorridorKeyModule\inference_engine.py:345: in process_frame
+    self._postprocess_opencv(
+CorridorKeyModule\inference_engine.py:177: in _postprocess_opencv
+    res_alpha = pred_alpha.permute(1, 2, 0).cpu().numpy()
+                ^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'numpy.ndarray' object has no attribute 'permute'</failure></testcase><testcase classname="tests.test_inference_engine.TestProcessFrameOutputs" name="test_alpha_output_range_is_zero_to_one[True-torch]" time="0.041" /><testcase classname="tests.test_inference_engine.TestProcessFrameOutputs" name="test_alpha_output_range_is_zero_to_one[False-openCV]" time="0.007"><failure message="AttributeError: 'numpy.ndarray' object has no attribute 'permute'">tests\test_inference_engine.py:116: in test_alpha_output_range_is_zero_to_one
+    result = engine.process_frame(sample_frame_rgb, sample_mask, post_process_on_gpu=backend == "torch")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\venvs\CorridorKey\Lib\site-packages\torch\utils\_contextlib.py:120: in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+CorridorKeyModule\inference_engine.py:345: in process_frame
+    self._postprocess_opencv(
+CorridorKeyModule\inference_engine.py:177: in _postprocess_opencv
+    res_alpha = pred_alpha.permute(1, 2, 0).cpu().numpy()
+                ^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'numpy.ndarray' object has no attribute 'permute'</failure></testcase><testcase classname="tests.test_inference_engine.TestProcessFrameOutputs" name="test_alpha_output_range_is_zero_to_one[False-torch]" time="0.033" /><testcase classname="tests.test_inference_engine.TestProcessFrameOutputs" name="test_fg_output_range_is_zero_to_one[True-openCV]" time="0.006"><failure message="AttributeError: 'numpy.ndarray' object has no attribute 'permute'">tests\test_inference_engine.py:129: in test_fg_output_range_is_zero_to_one
+    result = engine.process_frame(sample_frame_rgb, sample_mask, post_process_on_gpu=backend == "torch")[0]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\venvs\CorridorKey\Lib\site-packages\torch\utils\_contextlib.py:120: in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+CorridorKeyModule\inference_engine.py:345: in process_frame
+    self._postprocess_opencv(
+CorridorKeyModule\inference_engine.py:177: in _postprocess_opencv
+    res_alpha = pred_alpha.permute(1, 2, 0).cpu().numpy()
+                ^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'numpy.ndarray' object has no attribute 'permute'</failure></testcase><testcase classname="tests.test_inference_engine.TestProcessFrameOutputs" name="test_fg_output_range_is_zero_to_one[True-torch]" time="0.033" /><testcase classname="tests.test_inference_engine.TestProcessFrameOutputs" name="test_fg_output_range_is_zero_to_one[False-openCV]" time="0.006"><failure message="AttributeError: 'numpy.ndarray' object has no attribute 'permute'">tests\test_inference_engine.py:131: in test_fg_output_range_is_zero_to_one
+    result = engine.process_frame(sample_frame_rgb, sample_mask, post_process_on_gpu=backend == "torch")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\venvs\CorridorKey\Lib\site-packages\torch\utils\_contextlib.py:120: in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+CorridorKeyModule\inference_engine.py:345: in process_frame
+    self._postprocess_opencv(
+CorridorKeyModule\inference_engine.py:177: in _postprocess_opencv
+    res_alpha = pred_alpha.permute(1, 2, 0).cpu().numpy()
+                ^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'numpy.ndarray' object has no attribute 'permute'</failure></testcase><testcase classname="tests.test_inference_engine.TestProcessFrameOutputs" name="test_fg_output_range_is_zero_to_one[False-torch]" time="0.028" /><testcase classname="tests.test_inference_engine.TestProcessFrameColorSpace" name="test_srgb_input_default[True-openCV]" time="0.006"><failure message="AttributeError: 'numpy.ndarray' object has no attribute 'permute'">tests\test_inference_engine.py:158: in test_srgb_input_default
+    result = engine.process_frame(
+..\..\venvs\CorridorKey\Lib\site-packages\torch\utils\_contextlib.py:120: in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+CorridorKeyModule\inference_engine.py:345: in process_frame
+    self._postprocess_opencv(
+CorridorKeyModule\inference_engine.py:177: in _postprocess_opencv
+    res_alpha = pred_alpha.permute(1, 2, 0).cpu().numpy()
+                ^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'numpy.ndarray' object has no attribute 'permute'</failure></testcase><testcase classname="tests.test_inference_engine.TestProcessFrameColorSpace" name="test_srgb_input_default[True-torch]" time="0.037" /><testcase classname="tests.test_inference_engine.TestProcessFrameColorSpace" name="test_srgb_input_default[False-openCV]" time="0.006"><failure message="AttributeError: 'numpy.ndarray' object has no attribute 'permute'">tests\test_inference_engine.py:162: in test_srgb_input_default
+    result = engine.process_frame(
+..\..\venvs\CorridorKey\Lib\site-packages\torch\utils\_contextlib.py:120: in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+CorridorKeyModule\inference_engine.py:345: in process_frame
+    self._postprocess_opencv(
+CorridorKeyModule\inference_engine.py:177: in _postprocess_opencv
+    res_alpha = pred_alpha.permute(1, 2, 0).cpu().numpy()
+                ^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'numpy.ndarray' object has no attribute 'permute'</failure></testcase><testcase classname="tests.test_inference_engine.TestProcessFrameColorSpace" name="test_srgb_input_default[False-torch]" time="0.034" /><testcase classname="tests.test_inference_engine.TestProcessFrameColorSpace" name="test_linear_input_path[True-openCV]" time="0.007"><failure message="AttributeError: 'numpy.ndarray' object has no attribute 'permute'">tests\test_inference_engine.py:176: in test_linear_input_path
+    result = engine.process_frame(
+..\..\venvs\CorridorKey\Lib\site-packages\torch\utils\_contextlib.py:120: in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+CorridorKeyModule\inference_engine.py:345: in process_frame
+    self._postprocess_opencv(
+CorridorKeyModule\inference_engine.py:177: in _postprocess_opencv
+    res_alpha = pred_alpha.permute(1, 2, 0).cpu().numpy()
+                ^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'numpy.ndarray' object has no attribute 'permute'</failure></testcase><testcase classname="tests.test_inference_engine.TestProcessFrameColorSpace" name="test_linear_input_path[True-torch]" time="0.031" /><testcase classname="tests.test_inference_engine.TestProcessFrameColorSpace" name="test_linear_input_path[False-openCV]" time="0.007"><failure message="AttributeError: 'numpy.ndarray' object has no attribute 'permute'">tests\test_inference_engine.py:180: in test_linear_input_path
+    result = engine.process_frame(
+..\..\venvs\CorridorKey\Lib\site-packages\torch\utils\_contextlib.py:120: in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+CorridorKeyModule\inference_engine.py:345: in process_frame
+    self._postprocess_opencv(
+CorridorKeyModule\inference_engine.py:177: in _postprocess_opencv
+    res_alpha = pred_alpha.permute(1, 2, 0).cpu().numpy()
+                ^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'numpy.ndarray' object has no attribute 'permute'</failure></testcase><testcase classname="tests.test_inference_engine.TestProcessFrameColorSpace" name="test_linear_input_path[False-torch]" time="0.027" /><testcase classname="tests.test_inference_engine.TestProcessFrameColorSpace" name="test_uint8_input_normalized[True-openCV]" time="0.006"><failure message="AttributeError: 'numpy.ndarray' object has no attribute 'permute'">tests\test_inference_engine.py:194: in test_uint8_input_normalized
+    result = engine.process_frame(img_uint8, sample_mask, post_process_on_gpu=backend == "torch")[0]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\venvs\CorridorKey\Lib\site-packages\torch\utils\_contextlib.py:120: in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+CorridorKeyModule\inference_engine.py:345: in process_frame
+    self._postprocess_opencv(
+CorridorKeyModule\inference_engine.py:177: in _postprocess_opencv
+    res_alpha = pred_alpha.permute(1, 2, 0).cpu().numpy()
+                ^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'numpy.ndarray' object has no attribute 'permute'</failure></testcase><testcase classname="tests.test_inference_engine.TestProcessFrameColorSpace" name="test_uint8_input_normalized[True-torch]" time="0.038" /><testcase classname="tests.test_inference_engine.TestProcessFrameColorSpace" name="test_uint8_input_normalized[False-openCV]" time="0.006"><failure message="AttributeError: 'numpy.ndarray' object has no attribute 'permute'">tests\test_inference_engine.py:196: in test_uint8_input_normalized
+    result = engine.process_frame(img_uint8, sample_mask, post_process_on_gpu=backend == "torch")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\venvs\CorridorKey\Lib\site-packages\torch\utils\_contextlib.py:120: in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+CorridorKeyModule\inference_engine.py:345: in process_frame
+    self._postprocess_opencv(
+CorridorKeyModule\inference_engine.py:177: in _postprocess_opencv
+    res_alpha = pred_alpha.permute(1, 2, 0).cpu().numpy()
+                ^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'numpy.ndarray' object has no attribute 'permute'</failure></testcase><testcase classname="tests.test_inference_engine.TestProcessFrameColorSpace" name="test_uint8_input_normalized[False-torch]" time="0.055" /><testcase classname="tests.test_inference_engine.TestProcessFrameColorSpace" name="test_model_called_exactly_once[True-openCV]" time="0.008"><failure message="AttributeError: 'numpy.ndarray' object has no attribute 'permute'">tests\test_inference_engine.py:207: in test_model_called_exactly_once
+    engine.process_frame(sample_frame_rgb, sample_mask, post_process_on_gpu=backend == "torch")
+..\..\venvs\CorridorKey\Lib\site-packages\torch\utils\_contextlib.py:120: in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+CorridorKeyModule\inference_engine.py:345: in process_frame
+    self._postprocess_opencv(
+CorridorKeyModule\inference_engine.py:177: in _postprocess_opencv
+    res_alpha = pred_alpha.permute(1, 2, 0).cpu().numpy()
+                ^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'numpy.ndarray' object has no attribute 'permute'</failure></testcase><testcase classname="tests.test_inference_engine.TestProcessFrameColorSpace" name="test_model_called_exactly_once[True-torch]" time="0.041" /><testcase classname="tests.test_inference_engine.TestProcessFrameColorSpace" name="test_model_called_exactly_once[False-openCV]" time="0.007"><failure message="AttributeError: 'numpy.ndarray' object has no attribute 'permute'">tests\test_inference_engine.py:207: in test_model_called_exactly_once
+    engine.process_frame(sample_frame_rgb, sample_mask, post_process_on_gpu=backend == "torch")
+..\..\venvs\CorridorKey\Lib\site-packages\torch\utils\_contextlib.py:120: in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+CorridorKeyModule\inference_engine.py:345: in process_frame
+    self._postprocess_opencv(
+CorridorKeyModule\inference_engine.py:177: in _postprocess_opencv
+    res_alpha = pred_alpha.permute(1, 2, 0).cpu().numpy()
+                ^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'numpy.ndarray' object has no attribute 'permute'</failure></testcase><testcase classname="tests.test_inference_engine.TestProcessFrameColorSpace" name="test_model_called_exactly_once[False-torch]" time="0.036" /><testcase classname="tests.test_inference_engine.TestProcessFramePostProcessing" name="test_despill_strength_reduces_green_in_spill_pixels[True-openCV]" time="0.006"><failure message="AttributeError: 'numpy.ndarray' object has no attribute 'permute'">tests\test_inference_engine.py:252: in test_despill_strength_reduces_green_in_spill_pixels
+    result_no_despill = engine.process_frame(
+..\..\venvs\CorridorKey\Lib\site-packages\torch\utils\_contextlib.py:120: in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+CorridorKeyModule\inference_engine.py:345: in process_frame
+    self._postprocess_opencv(
+CorridorKeyModule\inference_engine.py:177: in _postprocess_opencv
+    res_alpha = pred_alpha.permute(1, 2, 0).cpu().numpy()
+                ^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'numpy.ndarray' object has no attribute 'permute'</failure></testcase><testcase classname="tests.test_inference_engine.TestProcessFramePostProcessing" name="test_despill_strength_reduces_green_in_spill_pixels[True-torch]" time="0.071" /><testcase classname="tests.test_inference_engine.TestProcessFramePostProcessing" name="test_despill_strength_reduces_green_in_spill_pixels[False-openCV]" time="0.006"><failure message="AttributeError: 'numpy.ndarray' object has no attribute 'permute'">tests\test_inference_engine.py:259: in test_despill_strength_reduces_green_in_spill_pixels
+    result_no_despill = engine.process_frame(
+..\..\venvs\CorridorKey\Lib\site-packages\torch\utils\_contextlib.py:120: in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+CorridorKeyModule\inference_engine.py:345: in process_frame
+    self._postprocess_opencv(
+CorridorKeyModule\inference_engine.py:177: in _postprocess_opencv
+    res_alpha = pred_alpha.permute(1, 2, 0).cpu().numpy()
+                ^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'numpy.ndarray' object has no attribute 'permute'</failure></testcase><testcase classname="tests.test_inference_engine.TestProcessFramePostProcessing" name="test_despill_strength_reduces_green_in_spill_pixels[False-torch]" time="0.058" /><testcase classname="tests.test_inference_engine.TestProcessFramePostProcessing" name="test_auto_despeckle_toggle[True-openCV]" time="0.005"><failure message="AttributeError: 'numpy.ndarray' object has no attribute 'permute'">tests\test_inference_engine.py:287: in test_auto_despeckle_toggle
+    result = engine.process_frame(
+..\..\venvs\CorridorKey\Lib\site-packages\torch\utils\_contextlib.py:120: in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+CorridorKeyModule\inference_engine.py:345: in process_frame
+    self._postprocess_opencv(
+CorridorKeyModule\inference_engine.py:177: in _postprocess_opencv
+    res_alpha = pred_alpha.permute(1, 2, 0).cpu().numpy()
+                ^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'numpy.ndarray' object has no attribute 'permute'</failure></testcase><testcase classname="tests.test_inference_engine.TestProcessFramePostProcessing" name="test_auto_despeckle_toggle[True-torch]" time="0.007" /><testcase classname="tests.test_inference_engine.TestProcessFramePostProcessing" name="test_auto_despeckle_toggle[False-openCV]" time="0.008"><failure message="AttributeError: 'numpy.ndarray' object has no attribute 'permute'">tests\test_inference_engine.py:292: in test_auto_despeckle_toggle
+    result = engine.process_frame(
+..\..\venvs\CorridorKey\Lib\site-packages\torch\utils\_contextlib.py:120: in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+CorridorKeyModule\inference_engine.py:345: in process_frame
+    self._postprocess_opencv(
+CorridorKeyModule\inference_engine.py:177: in _postprocess_opencv
+    res_alpha = pred_alpha.permute(1, 2, 0).cpu().numpy()
+                ^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'numpy.ndarray' object has no attribute 'permute'</failure></testcase><testcase classname="tests.test_inference_engine.TestProcessFramePostProcessing" name="test_auto_despeckle_toggle[False-torch]" time="0.009" /><testcase classname="tests.test_inference_engine.TestProcessFramePostProcessing" name="test_processed_is_linear_premul_rgba[True-openCV]" time="0.006"><failure message="AttributeError: 'numpy.ndarray' object has no attribute 'permute'">tests\test_inference_engine.py:310: in test_processed_is_linear_premul_rgba
+    result = engine.process_frame(sample_frame_rgb, sample_mask, post_process_on_gpu=backend == "torch")[0]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\venvs\CorridorKey\Lib\site-packages\torch\utils\_contextlib.py:120: in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+CorridorKeyModule\inference_engine.py:345: in process_frame
+    self._postprocess_opencv(
+CorridorKeyModule\inference_engine.py:177: in _postprocess_opencv
+    res_alpha = pred_alpha.permute(1, 2, 0).cpu().numpy()
+                ^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'numpy.ndarray' object has no attribute 'permute'</failure></testcase><testcase classname="tests.test_inference_engine.TestProcessFramePostProcessing" name="test_processed_is_linear_premul_rgba[True-torch]" time="0.036" /><testcase classname="tests.test_inference_engine.TestProcessFramePostProcessing" name="test_processed_is_linear_premul_rgba[False-openCV]" time="0.005"><failure message="AttributeError: 'numpy.ndarray' object has no attribute 'permute'">tests\test_inference_engine.py:312: in test_processed_is_linear_premul_rgba
+    result = engine.process_frame(sample_frame_rgb, sample_mask, post_process_on_gpu=backend == "torch")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\venvs\CorridorKey\Lib\site-packages\torch\utils\_contextlib.py:120: in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+CorridorKeyModule\inference_engine.py:345: in process_frame
+    self._postprocess_opencv(
+CorridorKeyModule\inference_engine.py:177: in _postprocess_opencv
+    res_alpha = pred_alpha.permute(1, 2, 0).cpu().numpy()
+                ^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'numpy.ndarray' object has no attribute 'permute'</failure></testcase><testcase classname="tests.test_inference_engine.TestProcessFramePostProcessing" name="test_processed_is_linear_premul_rgba[False-torch]" time="0.033" /><testcase classname="tests.test_inference_engine.TestProcessFramePostProcessing" name="test_mask_2d_vs_3d_input[True-openCV]" time="0.006"><failure message="AttributeError: 'numpy.ndarray' object has no attribute 'permute'">tests\test_inference_engine.py:339: in test_mask_2d_vs_3d_input
+    result_2d = engine.process_frame(sample_frame_rgb, mask_2d, post_process_on_gpu=backend == "torch")[0]
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\venvs\CorridorKey\Lib\site-packages\torch\utils\_contextlib.py:120: in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+CorridorKeyModule\inference_engine.py:345: in process_frame
+    self._postprocess_opencv(
+CorridorKeyModule\inference_engine.py:177: in _postprocess_opencv
+    res_alpha = pred_alpha.permute(1, 2, 0).cpu().numpy()
+                ^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'numpy.ndarray' object has no attribute 'permute'</failure></testcase><testcase classname="tests.test_inference_engine.TestProcessFramePostProcessing" name="test_mask_2d_vs_3d_input[True-torch]" time="0.039"><failure message="RuntimeError: Tensors must have same number of dimensions: got 4 and 5">tests\test_inference_engine.py:340: in test_mask_2d_vs_3d_input
+    result_3d = engine.process_frame(sample_frame_rgb, mask_3d, post_process_on_gpu=backend == "torch")[0]
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\venvs\CorridorKey\Lib\site-packages\torch\utils\_contextlib.py:120: in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+CorridorKeyModule\inference_engine.py:325: in process_frame
+    inp_t = self._preprocess_input(img_t, msk_t, input_is_linear)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+CorridorKeyModule\inference_engine.py:159: in _preprocess_input
+    inp_concat = torch.concat((image_batch, mask_batch_linear), -3)  # [4, H, W]
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   RuntimeError: Tensors must have same number of dimensions: got 4 and 5</failure></testcase><testcase classname="tests.test_inference_engine.TestProcessFramePostProcessing" name="test_mask_2d_vs_3d_input[False-openCV]" time="0.007"><failure message="AttributeError: 'numpy.ndarray' object has no attribute 'permute'">tests\test_inference_engine.py:342: in test_mask_2d_vs_3d_input
+    result_2d = engine.process_frame(sample_frame_rgb, mask_2d, post_process_on_gpu=backend == "torch")
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\venvs\CorridorKey\Lib\site-packages\torch\utils\_contextlib.py:120: in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+CorridorKeyModule\inference_engine.py:345: in process_frame
+    self._postprocess_opencv(
+CorridorKeyModule\inference_engine.py:177: in _postprocess_opencv
+    res_alpha = pred_alpha.permute(1, 2, 0).cpu().numpy()
+                ^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'numpy.ndarray' object has no attribute 'permute'</failure></testcase><testcase classname="tests.test_inference_engine.TestProcessFramePostProcessing" name="test_mask_2d_vs_3d_input[False-torch]" time="0.025"><failure message="RuntimeError: Tensors must have same number of dimensions: got 4 and 5">tests\test_inference_engine.py:343: in test_mask_2d_vs_3d_input
+    result_3d = engine.process_frame(sample_frame_rgb, mask_3d, post_process_on_gpu=backend == "torch")
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\venvs\CorridorKey\Lib\site-packages\torch\utils\_contextlib.py:120: in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+CorridorKeyModule\inference_engine.py:325: in process_frame
+    inp_t = self._preprocess_input(img_t, msk_t, input_is_linear)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+CorridorKeyModule\inference_engine.py:159: in _preprocess_input
+    inp_concat = torch.concat((image_batch, mask_batch_linear), -3)  # [4, H, W]
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   RuntimeError: Tensors must have same number of dimensions: got 4 and 5</failure></testcase><testcase classname="tests.test_inference_engine.TestProcessFramePostProcessing" name="test_refiner_scale_parameter_accepted[True-openCV]" time="0.005"><failure message="AttributeError: 'numpy.ndarray' object has no attribute 'permute'">tests\test_inference_engine.py:356: in test_refiner_scale_parameter_accepted
+    result = engine.process_frame(
+..\..\venvs\CorridorKey\Lib\site-packages\torch\utils\_contextlib.py:120: in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+CorridorKeyModule\inference_engine.py:345: in process_frame
+    self._postprocess_opencv(
+CorridorKeyModule\inference_engine.py:177: in _postprocess_opencv
+    res_alpha = pred_alpha.permute(1, 2, 0).cpu().numpy()
+                ^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'numpy.ndarray' object has no attribute 'permute'</failure></testcase><testcase classname="tests.test_inference_engine.TestProcessFramePostProcessing" name="test_refiner_scale_parameter_accepted[True-torch]" time="0.036" /><testcase classname="tests.test_inference_engine.TestProcessFramePostProcessing" name="test_refiner_scale_parameter_accepted[False-openCV]" time="0.005"><failure message="AttributeError: 'numpy.ndarray' object has no attribute 'permute'">tests\test_inference_engine.py:361: in test_refiner_scale_parameter_accepted
+    result = engine.process_frame(
+..\..\venvs\CorridorKey\Lib\site-packages\torch\utils\_contextlib.py:120: in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+CorridorKeyModule\inference_engine.py:345: in process_frame
+    self._postprocess_opencv(
+CorridorKeyModule\inference_engine.py:177: in _postprocess_opencv
+    res_alpha = pred_alpha.permute(1, 2, 0).cpu().numpy()
+                ^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'numpy.ndarray' object has no attribute 'permute'</failure></testcase><testcase classname="tests.test_inference_engine.TestProcessFramePostProcessing" name="test_refiner_scale_parameter_accepted[False-torch]" time="0.031" /><testcase classname="tests.test_inference_engine.TestNvidiaGPUProcess" name="test_process_frame_on_gpu[True-openCV]" time="0.001"><skipped type="pytest.skip" message="No GPU available (neither CUDA nor MPS)">C:\Users\aiden\OneDrive\Desktop\personalprojects\ahmedlab\MPCO_REVISED\repos\projects\CorridorKey\tests\test_inference_engine.py:373: No GPU available (neither CUDA nor MPS)</skipped></testcase><testcase classname="tests.test_inference_engine.TestNvidiaGPUProcess" name="test_process_frame_on_gpu[True-torch]" time="0.000"><skipped type="pytest.skip" message="No GPU available (neither CUDA nor MPS)">C:\Users\aiden\OneDrive\Desktop\personalprojects\ahmedlab\MPCO_REVISED\repos\projects\CorridorKey\tests\test_inference_engine.py:373: No GPU available (neither CUDA nor MPS)</skipped></testcase><testcase classname="tests.test_inference_engine.TestNvidiaGPUProcess" name="test_process_frame_on_gpu[False-openCV]" time="0.000"><skipped type="pytest.skip" message="No GPU available (neither CUDA nor MPS)">C:\Users\aiden\OneDrive\Desktop\personalprojects\ahmedlab\MPCO_REVISED\repos\projects\CorridorKey\tests\test_inference_engine.py:373: No GPU available (neither CUDA nor MPS)</skipped></testcase><testcase classname="tests.test_inference_engine.TestNvidiaGPUProcess" name="test_process_frame_on_gpu[False-torch]" time="0.000"><skipped type="pytest.skip" message="No GPU available (neither CUDA nor MPS)">C:\Users\aiden\OneDrive\Desktop\personalprojects\ahmedlab\MPCO_REVISED\repos\projects\CorridorKey\tests\test_inference_engine.py:373: No GPU available (neither CUDA nor MPS)</skipped></testcase><testcase classname="tests.test_mlx_smoke" name="test_mlx_smoke_2048" time="0.000"><skipped type="pytest.skip" message="MLX not available (requires Apple Silicon + corridorkey_mlx)">C:\Users\aiden\OneDrive\Desktop\personalprojects\ahmedlab\MPCO_REVISED\repos\projects\CorridorKey\tests\test_mlx_smoke.py:17: MLX not available (requires Apple Silicon + corridorkey_mlx)</skipped></testcase><testcase classname="tests.test_pbt_auto_download.TestMissingCheckpointTriggersDownload" name="test_missing_pth_triggers_download_and_returns_valid_path" time="1.023" /><testcase classname="tests.test_pbt_auto_download.TestExistingCheckpointSkipsDownload" name="test_existing_pth_skips_download" time="0.406" /><testcase classname="tests.test_pbt_auto_download.TestAutoDownloadIsTorchOnly" name="test_non_pth_extension_raises_without_download" time="0.028" /><testcase classname="tests.test_pbt_auto_download.TestNetworkErrorsProduceActionableMessages" name="test_network_errors_produce_actionable_messages" time="0.264" /><testcase classname="tests.test_pbt_backend_resolution" name="test_backend_resolution_priority_chain" time="0.081" /><testcase classname="tests.test_pbt_dep_preservation" name="test_non_torch_dependency_preserved" time="0.042" /><testcase classname="tests.test_pyproject_structure.TestCudaExtra" name="test_cuda_extra_contains_torch" time="0.005" /><testcase classname="tests.test_pyproject_structure.TestCudaExtra" name="test_cuda_extra_contains_torchvision" time="0.004" /><testcase classname="tests.test_pyproject_structure.TestMlxExtra" name="test_mlx_extra_contains_corridorkey_mlx" time="0.004" /><testcase classname="tests.test_pyproject_structure.TestPytorchIndex" name="test_pytorch_index_has_cuda_extra" time="0.004" /><testcase classname="tests.test_pyproject_structure.TestUvSources" name="test_torch_source_has_cuda_extra" time="0.004" /><testcase classname="tests.test_pyproject_structure.TestUvSources" name="test_torchvision_source_has_cuda_extra" time="0.005" /><testcase classname="tests.test_pyproject_structure.TestConflicts" name="test_cuda_mlx_conflict_declared" time="0.006" /><testcase classname="tests.test_pyproject_structure.TestTimmSourcePreserved" name="test_timm_source_is_git" time="0.005" /><testcase classname="tests.test_pyproject_structure.TestTimmSourcePreserved" name="test_timm_git_url" time="0.004" /><testcase classname="tests.test_pyproject_structure.TestTimmSourcePreserved" name="test_timm_git_branch" time="0.004" /><testcase classname="tests.test_pyproject_structure.TestTritonWindowsPreserved" name="test_triton_windows_in_base_deps" time="0.004" /><testcase classname="tests.test_pyproject_structure.TestTritonWindowsPreserved" name="test_triton_windows_has_win32_marker" time="0.006" /><testcase classname="tests.test_pyproject_structure.TestDevDependencyGroup" name="test_dev_group_contains_pytest" time="0.004" /><testcase classname="tests.test_pyproject_structure.TestDevDependencyGroup" name="test_dev_group_contains_pytest_cov" time="0.005" /><testcase classname="tests.test_pyproject_structure.TestDevDependencyGroup" name="test_dev_group_contains_ruff" time="0.005" /><testcase classname="tests.test_pyproject_structure.TestDocsDependencyGroup" name="test_docs_group_contains_zensical" time="0.006" /></testsuite></testsuites>

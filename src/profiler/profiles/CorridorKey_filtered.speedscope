@@ -1,0 +1,1823 @@
+{
+  "$schema": "https://www.speedscope.app/file-format-schema.json",
+  "profiles": [
+    {
+      "type": "sampled",
+      "name": "Process 20596 Thread 13048 \"MainThread\"",
+      "unit": "seconds",
+      "startValue": 0.0,
+      "endValue": 22.09,
+      "samples": [
+        [
+          0
+        ],
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          5,
+          4,
+          1
+        ],
+        [
+          6
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          9
+        ],
+        [
+          10
+        ],
+        [
+          11
+        ],
+        [
+          9
+        ],
+        [
+          12
+        ],
+        [
+          14,
+          13
+        ],
+        [
+          16,
+          15
+        ],
+        [
+          19,
+          18,
+          17
+        ],
+        [
+          20
+        ],
+        [
+          21
+        ],
+        [
+          21
+        ],
+        [
+          21
+        ],
+        [
+          21
+        ],
+        [
+          21
+        ],
+        [
+          21
+        ],
+        [
+          21
+        ],
+        [
+          21
+        ],
+        [
+          21
+        ],
+        [
+          22
+        ],
+        [
+          22
+        ],
+        [
+          22
+        ],
+        [
+          22
+        ],
+        [
+          22
+        ],
+        [
+          22
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          23
+        ],
+        [
+          26,
+          25,
+          24
+        ],
+        [
+          26,
+          28,
+          27
+        ],
+        [
+          26,
+          25,
+          30,
+          29
+        ],
+        [
+          26,
+          25,
+          30,
+          29
+        ],
+        [
+          26,
+          25,
+          30,
+          29
+        ],
+        [
+          26,
+          25,
+          30,
+          29
+        ],
+        [
+          26,
+          25,
+          30,
+          31
+        ],
+        [
+          33,
+          32
+        ],
+        [
+          26,
+          25,
+          30,
+          29
+        ],
+        [
+          26,
+          25,
+          30,
+          29
+        ],
+        [
+          26,
+          25,
+          24
+        ],
+        [
+          26,
+          25,
+          30,
+          31
+        ],
+        [
+          26,
+          25,
+          30,
+          29
+        ],
+        [
+          26,
+          25,
+          30,
+          31
+        ],
+        [
+          26,
+          25,
+          30,
+          29
+        ],
+        [
+          26,
+          25,
+          30,
+          29
+        ],
+        [
+          34
+        ],
+        [
+          26,
+          25,
+          30,
+          35
+        ],
+        [
+          26,
+          25,
+          30,
+          29
+        ],
+        [
+          26,
+          25,
+          30,
+          31
+        ],
+        [
+          26,
+          25,
+          24
+        ],
+        [
+          33,
+          36
+        ],
+        [
+          26,
+          25,
+          30,
+          29
+        ],
+        [
+          26,
+          25,
+          30,
+          29
+        ],
+        [
+          26,
+          25,
+          30,
+          31
+        ],
+        [
+          26,
+          25,
+          30,
+          29
+        ],
+        [
+          26,
+          25,
+          24
+        ],
+        [
+          26,
+          25,
+          30,
+          29
+        ],
+        [
+          26,
+          25,
+          30,
+          29
+        ],
+        [
+          26,
+          25,
+          24
+        ],
+        [
+          26,
+          25,
+          30,
+          29
+        ],
+        [
+          26,
+          25,
+          30,
+          29
+        ],
+        [
+          26,
+          25,
+          30,
+          29
+        ],
+        [
+          26,
+          25,
+          30,
+          29
+        ],
+        [
+          26,
+          25,
+          30,
+          29
+        ],
+        [
+          33,
+          32
+        ],
+        [
+          26,
+          25,
+          30,
+          29
+        ],
+        [
+          26,
+          25,
+          30,
+          29
+        ],
+        [
+          33,
+          32
+        ],
+        [
+          26,
+          25,
+          37
+        ],
+        [
+          26,
+          25,
+          30,
+          31
+        ],
+        [
+          26,
+          25,
+          30,
+          29
+        ],
+        [
+          26,
+          25,
+          30,
+          29
+        ],
+        [
+          26,
+          25,
+          30,
+          29
+        ],
+        [
+          26,
+          25,
+          30,
+          31
+        ],
+        [
+          26,
+          25,
+          30,
+          29
+        ],
+        [
+          26,
+          25,
+          24
+        ],
+        [
+          26,
+          25,
+          30,
+          31
+        ],
+        [
+          26,
+          25,
+          24
+        ],
+        [
+          26,
+          25,
+          30,
+          29
+        ],
+        [
+          26,
+          25,
+          30,
+          29
+        ],
+        [
+          26,
+          25,
+          38
+        ],
+        [
+          26,
+          25,
+          24
+        ],
+        [
+          26,
+          25,
+          30,
+          29
+        ],
+        [
+          26,
+          25,
+          30,
+          29
+        ],
+        [
+          26,
+          25,
+          30,
+          31
+        ],
+        [
+          26,
+          25,
+          30,
+          29
+        ],
+        [
+          26,
+          25,
+          30,
+          29
+        ],
+        [
+          26,
+          25,
+          30,
+          29
+        ],
+        [
+          26,
+          25,
+          30,
+          39
+        ],
+        [
+          26,
+          25,
+          30,
+          31
+        ],
+        [
+          26,
+          25,
+          30,
+          29
+        ],
+        [
+          26,
+          25,
+          30,
+          29
+        ],
+        [
+          26,
+          41,
+          4,
+          40
+        ],
+        [
+          26,
+          25,
+          42
+        ],
+        [
+          26,
+          25,
+          30,
+          29
+        ],
+        [
+          26,
+          25,
+          30,
+          29
+        ],
+        [
+          33,
+          32
+        ],
+        [
+          26,
+          25,
+          30,
+          29
+        ],
+        [
+          26,
+          25,
+          30,
+          29
+        ],
+        [
+          26,
+          25,
+          38
+        ],
+        [
+          26,
+          25,
+          24
+        ],
+        [
+          26,
+          25,
+          24
+        ],
+        [
+          26,
+          25,
+          30,
+          31
+        ],
+        [
+          26,
+          25,
+          30,
+          31
+        ],
+        [
+          26,
+          25,
+          30,
+          29
+        ],
+        [
+          26,
+          25,
+          30,
+          29
+        ],
+        [
+          26,
+          25,
+          30,
+          29
+        ],
+        [
+          26,
+          25,
+          24
+        ],
+        [
+          26,
+          25,
+          24
+        ],
+        [
+          26,
+          25,
+          24
+        ],
+        [
+          43,
+          0
+        ],
+        [
+          43,
+          0
+        ],
+        [
+          43,
+          0
+        ],
+        [
+          44
+        ],
+        [
+          43,
+          0
+        ],
+        [
+          43,
+          0
+        ],
+        [
+          43,
+          0
+        ],
+        [
+          43,
+          0
+        ],
+        [
+          43,
+          0
+        ],
+        [
+          44
+        ],
+        [
+          44
+        ],
+        [
+          45
+        ],
+        [
+          46
+        ]
+      ],
+      "weights": [
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01
+      ]
+    }
+  ],
+  "shared": {
+    "frames": [
+      {
+        "name": "_ensure_torch_checkpoint",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\CorridorKey\\CorridorKeyModule\\backend.py",
+        "line": 150,
+        "col": null
+      },
+      {
+        "name": "_power",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\CorridorKey\\CorridorKeyModule\\core\\color_utils.py",
+        "line": 26,
+        "col": null
+      },
+      {
+        "name": "srgb_to_linear",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\CorridorKey\\CorridorKeyModule\\core\\color_utils.py",
+        "line": 69,
+        "col": null
+      },
+      {
+        "name": "_wrap_mlx_output",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\CorridorKey\\CorridorKeyModule\\backend.py",
+        "line": 223,
+        "col": null
+      },
+      {
+        "name": "linear_to_srgb",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\CorridorKey\\CorridorKeyModule\\core\\color_utils.py",
+        "line": 59,
+        "col": null
+      },
+      {
+        "name": "_wrap_mlx_output",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\CorridorKey\\CorridorKeyModule\\backend.py",
+        "line": 225,
+        "col": null
+      },
+      {
+        "name": "run_inference_cmd",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\CorridorKey\\corridorkey_cli.py",
+        "line": 338,
+        "col": null
+      },
+      {
+        "name": "_calculate_length",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\CorridorKey\\clip_manager.py",
+        "line": 97,
+        "col": null
+      },
+      {
+        "name": "__init__",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\CorridorKey\\clip_manager.py",
+        "line": 90,
+        "col": null
+      },
+      {
+        "name": "run_videomama",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\CorridorKey\\clip_manager.py",
+        "line": 502,
+        "col": null
+      },
+      {
+        "name": "run_videomama",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\CorridorKey\\clip_manager.py",
+        "line": 560,
+        "col": null
+      },
+      {
+        "name": "run_videomama",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\CorridorKey\\clip_manager.py",
+        "line": 555,
+        "col": null
+      },
+      {
+        "name": "run_videomama",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\CorridorKey\\clip_manager.py",
+        "line": 578,
+        "col": null
+      },
+      {
+        "name": "find_assets",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\CorridorKey\\clip_manager.py",
+        "line": 130,
+        "col": null
+      },
+      {
+        "name": "scan_clips",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\CorridorKey\\clip_manager.py",
+        "line": 981,
+        "col": null
+      },
+      {
+        "name": "organize_target",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\CorridorKey\\clip_manager.py",
+        "line": 914,
+        "col": null
+      },
+      {
+        "name": "organize_clips",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\CorridorKey\\clip_manager.py",
+        "line": 957,
+        "col": null
+      },
+      {
+        "name": "_calculate_length",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\CorridorKey\\clip_manager.py",
+        "line": 94,
+        "col": null
+      },
+      {
+        "name": "__init__",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\CorridorKey\\clip_manager.py",
+        "line": 90,
+        "col": null
+      },
+      {
+        "name": "find_assets",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\CorridorKey\\clip_manager.py",
+        "line": 159,
+        "col": null
+      },
+      {
+        "name": "read_image_frame",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\CorridorKey\\backend\\frame_io.py",
+        "line": 62,
+        "col": null
+      },
+      {
+        "name": "read_video_frame_at",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\CorridorKey\\backend\\frame_io.py",
+        "line": 86,
+        "col": null
+      },
+      {
+        "name": "read_video_mask_at",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\CorridorKey\\backend\\frame_io.py",
+        "line": 174,
+        "col": null
+      },
+      {
+        "name": "process_frame",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\CorridorKey\\CorridorKeyModule\\inference_engine.py",
+        "line": 315,
+        "col": null
+      },
+      {
+        "name": "clean_matte_torch",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\CorridorKey\\CorridorKeyModule\\core\\color_utils.py",
+        "line": 379,
+        "col": null
+      },
+      {
+        "name": "_postprocess_torch",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\CorridorKey\\CorridorKeyModule\\inference_engine.py",
+        "line": 267,
+        "col": null
+      },
+      {
+        "name": "process_frame",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\CorridorKey\\CorridorKeyModule\\inference_engine.py",
+        "line": 337,
+        "col": null
+      },
+      {
+        "name": "composite_straight",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\CorridorKey\\CorridorKeyModule\\core\\color_utils.py",
+        "line": 98,
+        "col": null
+      },
+      {
+        "name": "_postprocess_torch",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\CorridorKey\\CorridorKeyModule\\inference_engine.py",
+        "line": 287,
+        "col": null
+      },
+      {
+        "name": "connected_components",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\CorridorKey\\CorridorKeyModule\\core\\color_utils.py",
+        "line": 291,
+        "col": null
+      },
+      {
+        "name": "clean_matte_torch",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\CorridorKey\\CorridorKeyModule\\core\\color_utils.py",
+        "line": 367,
+        "col": null
+      },
+      {
+        "name": "connected_components",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\CorridorKey\\CorridorKeyModule\\core\\color_utils.py",
+        "line": 293,
+        "col": null
+      },
+      {
+        "name": "_preprocess_input",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\CorridorKey\\CorridorKeyModule\\inference_engine.py",
+        "line": 156,
+        "col": null
+      },
+      {
+        "name": "process_frame",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\CorridorKey\\CorridorKeyModule\\inference_engine.py",
+        "line": 325,
+        "col": null
+      },
+      {
+        "name": "process_frame",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\CorridorKey\\CorridorKeyModule\\inference_engine.py",
+        "line": 330,
+        "col": null
+      },
+      {
+        "name": "connected_components",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\CorridorKey\\CorridorKeyModule\\core\\color_utils.py",
+        "line": 282,
+        "col": null
+      },
+      {
+        "name": "_preprocess_input",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\CorridorKey\\CorridorKeyModule\\inference_engine.py",
+        "line": 159,
+        "col": null
+      },
+      {
+        "name": "clean_matte_torch",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\CorridorKey\\CorridorKeyModule\\core\\color_utils.py",
+        "line": 363,
+        "col": null
+      },
+      {
+        "name": "clean_matte_torch",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\CorridorKey\\CorridorKeyModule\\core\\color_utils.py",
+        "line": 372,
+        "col": null
+      },
+      {
+        "name": "connected_components",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\CorridorKey\\CorridorKeyModule\\core\\color_utils.py",
+        "line": 289,
+        "col": null
+      },
+      {
+        "name": "_where",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\CorridorKey\\CorridorKeyModule\\core\\color_utils.py",
+        "line": 36,
+        "col": null
+      },
+      {
+        "name": "_postprocess_torch",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\CorridorKey\\CorridorKeyModule\\inference_engine.py",
+        "line": 290,
+        "col": null
+      },
+      {
+        "name": "clean_matte_torch",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\CorridorKey\\CorridorKeyModule\\core\\color_utils.py",
+        "line": 384,
+        "col": null
+      },
+      {
+        "name": "_discover_checkpoint",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\CorridorKey\\CorridorKeyModule\\backend.py",
+        "line": 174,
+        "col": null
+      },
+      {
+        "name": "_discover_checkpoint",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\CorridorKey\\CorridorKeyModule\\backend.py",
+        "line": 170,
+        "col": null
+      },
+      {
+        "name": "_ensure_torch_checkpoint",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\CorridorKey\\CorridorKeyModule\\backend.py",
+        "line": 130,
+        "col": null
+      },
+      {
+        "name": "resolve_backend",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\CorridorKey\\CorridorKeyModule\\backend.py",
+        "line": 53,
+        "col": null
+      }
+    ]
+  },
+  "activeProfileIndex": null,
+  "exporter": "py-spy@0.4.1",
+  "name": "py-spy profile"
+}

@@ -1,0 +1,1435 @@
+{
+  "$schema": "https://www.speedscope.app/file-format-schema.json",
+  "profiles": [
+    {
+      "type": "sampled",
+      "name": "Process 7292 Thread 10572 \"Cyclic send task for 0x80\"",
+      "unit": "seconds",
+      "startValue": 0.0,
+      "endValue": 0.01,
+      "samples": [],
+      "weights": []
+    },
+    {
+      "type": "sampled",
+      "name": "Process 7292 Thread 12336 \"Thread-1\"",
+      "unit": "seconds",
+      "startValue": 0.0,
+      "endValue": 0.01,
+      "samples": [],
+      "weights": []
+    },
+    {
+      "type": "sampled",
+      "name": "Process 7292 Thread 17628 \"Notifier for bus \"Virtual bus channel test\"\"",
+      "unit": "seconds",
+      "startValue": 0.0,
+      "endValue": 0.01,
+      "samples": [],
+      "weights": []
+    },
+    {
+      "type": "sampled",
+      "name": "Process 7292 Thread 18300 \"Notifier for bus \"Virtual bus channel test\"\"",
+      "unit": "seconds",
+      "startValue": 0.0,
+      "endValue": 0.03,
+      "samples": [
+        [
+          40,
+          39,
+          38,
+          37,
+          36,
+          35
+        ],
+        [
+          40,
+          39,
+          42,
+          41,
+          36,
+          35
+        ]
+      ],
+      "weights": [
+        0.01,
+        0.01
+      ]
+    },
+    {
+      "type": "sampled",
+      "name": "Process 7292 Thread 1872 \"Notifier for bus \"Virtual bus channel test\"\"",
+      "unit": "seconds",
+      "startValue": 0.0,
+      "endValue": 0.01,
+      "samples": [
+        [
+          40,
+          39,
+          43
+        ]
+      ],
+      "weights": [
+        0.01
+      ]
+    },
+    {
+      "type": "sampled",
+      "name": "Process 7292 Thread 7496 \"MainThread\"",
+      "unit": "seconds",
+      "startValue": 0.0,
+      "endValue": 1.65,
+      "samples": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          1,
+          3
+        ],
+        [
+          5,
+          4,
+          1,
+          3
+        ],
+        [
+          5,
+          4,
+          1,
+          3
+        ],
+        [
+          5,
+          4,
+          1,
+          3
+        ],
+        [
+          13,
+          12,
+          11,
+          10,
+          9,
+          8,
+          7,
+          6
+        ],
+        [
+          5,
+          4,
+          1,
+          3
+        ],
+        [
+          5,
+          4,
+          1,
+          3
+        ],
+        [
+          5,
+          4,
+          1,
+          3
+        ],
+        [
+          5,
+          4,
+          1,
+          3
+        ],
+        [
+          5,
+          4,
+          1,
+          15,
+          14
+        ],
+        [
+          5,
+          4,
+          1,
+          15,
+          14
+        ],
+        [
+          17,
+          4,
+          1,
+          16
+        ],
+        [
+          17,
+          18
+        ],
+        [
+          19,
+          1,
+          3
+        ],
+        [
+          19,
+          1,
+          15,
+          20
+        ],
+        [
+          19,
+          1,
+          15,
+          21
+        ],
+        [
+          22,
+          1,
+          3
+        ],
+        [
+          23
+        ],
+        [
+          27,
+          26,
+          25,
+          24,
+          1,
+          3
+        ],
+        [
+          30,
+          29,
+          28,
+          24,
+          1,
+          3
+        ],
+        [
+          34,
+          33,
+          32,
+          31
+        ],
+        [
+          47,
+          46,
+          45,
+          44
+        ],
+        [
+          48,
+          25,
+          24,
+          1,
+          3
+        ],
+        [
+          48,
+          25,
+          24,
+          1,
+          3
+        ],
+        [
+          49,
+          25,
+          24,
+          1,
+          3
+        ],
+        [
+          50,
+          26,
+          25,
+          24,
+          1,
+          3
+        ],
+        [
+          51,
+          26,
+          25,
+          24,
+          1,
+          0
+        ],
+        [
+          51,
+          26,
+          25,
+          24,
+          1,
+          3
+        ],
+        [
+          52,
+          25,
+          24,
+          1,
+          3
+        ],
+        [
+          53
+        ],
+        [
+          53
+        ],
+        [
+          54,
+          26,
+          25,
+          24,
+          1,
+          3
+        ],
+        [
+          54,
+          26,
+          25,
+          24,
+          1,
+          3
+        ],
+        [
+          54,
+          26,
+          25,
+          24,
+          1,
+          3
+        ],
+        [
+          54,
+          26,
+          25,
+          24,
+          1,
+          3
+        ],
+        [
+          54,
+          26,
+          25,
+          24,
+          1,
+          3
+        ],
+        [
+          54,
+          26,
+          25,
+          24,
+          1,
+          3
+        ],
+        [
+          54,
+          26,
+          25,
+          24,
+          1,
+          3
+        ],
+        [
+          54,
+          26,
+          25,
+          24,
+          1,
+          3
+        ],
+        [
+          54,
+          26,
+          25,
+          24,
+          1,
+          3
+        ],
+        [
+          54,
+          26,
+          25,
+          24,
+          1,
+          3
+        ],
+        [
+          54,
+          26,
+          25,
+          24,
+          1,
+          3
+        ],
+        [
+          54,
+          26,
+          25,
+          24,
+          1,
+          3
+        ],
+        [
+          54,
+          26,
+          25,
+          24,
+          1,
+          3
+        ],
+        [
+          55,
+          26,
+          25,
+          24,
+          1,
+          3
+        ],
+        [
+          55,
+          26,
+          25,
+          24,
+          1,
+          15,
+          21
+        ],
+        [
+          56,
+          26,
+          25,
+          24,
+          1,
+          3
+        ],
+        [
+          56,
+          26,
+          25,
+          24,
+          1,
+          3
+        ],
+        [
+          55,
+          26,
+          25,
+          24,
+          1,
+          3
+        ],
+        [
+          57,
+          29,
+          28,
+          24,
+          1,
+          3
+        ],
+        [
+          57,
+          29,
+          28,
+          24,
+          1,
+          3
+        ],
+        [
+          58,
+          29,
+          28,
+          24,
+          1,
+          3
+        ],
+        [
+          59,
+          28,
+          24,
+          1,
+          0
+        ],
+        [
+          59,
+          28,
+          24,
+          1,
+          3
+        ],
+        [
+          59,
+          28,
+          24,
+          1,
+          3
+        ],
+        [
+          59,
+          28,
+          24,
+          1,
+          60
+        ],
+        [
+          59,
+          28,
+          24,
+          1,
+          16
+        ],
+        [
+          59,
+          28,
+          24,
+          1,
+          61
+        ],
+        [
+          59,
+          28,
+          24,
+          1,
+          15,
+          20
+        ],
+        [
+          59,
+          28,
+          24,
+          1,
+          15,
+          62
+        ],
+        [
+          59,
+          28,
+          24,
+          1,
+          3
+        ],
+        [
+          59,
+          28,
+          24,
+          1,
+          3
+        ],
+        [
+          59,
+          28,
+          24,
+          1,
+          3
+        ],
+        [
+          59,
+          28,
+          24,
+          1,
+          0
+        ],
+        [
+          59,
+          28,
+          24,
+          1,
+          15,
+          21
+        ],
+        [
+          59,
+          28,
+          24,
+          1,
+          15,
+          63
+        ],
+        [
+          59,
+          28,
+          24,
+          1,
+          15,
+          14
+        ],
+        [
+          64,
+          28,
+          24,
+          1,
+          3
+        ],
+        [
+          64,
+          28,
+          24,
+          1,
+          15,
+          65
+        ],
+        [
+          64,
+          28,
+          24,
+          1,
+          66,
+          21
+        ],
+        [
+          64,
+          28,
+          24,
+          1,
+          67
+        ],
+        [
+          64,
+          28,
+          24,
+          1,
+          15,
+          68
+        ],
+        [
+          64,
+          72,
+          71,
+          70,
+          69
+        ],
+        [
+          64,
+          72,
+          71,
+          73
+        ],
+        [
+          74,
+          26,
+          25,
+          24,
+          1,
+          16
+        ],
+        [
+          74,
+          26,
+          25,
+          24,
+          1,
+          3
+        ],
+        [
+          74,
+          26,
+          76,
+          75,
+          73
+        ],
+        [
+          80,
+          79,
+          78,
+          77
+        ],
+        [
+          74,
+          26,
+          25,
+          24,
+          1,
+          3
+        ],
+        [
+          74,
+          26,
+          25,
+          24,
+          1,
+          3
+        ],
+        [
+          74,
+          26,
+          25,
+          24,
+          1,
+          3
+        ],
+        [
+          74,
+          26,
+          25,
+          24,
+          1,
+          82,
+          81
+        ],
+        [
+          74,
+          26,
+          76,
+          75,
+          73
+        ],
+        [
+          74,
+          26,
+          84,
+          83
+        ],
+        [
+          74,
+          26,
+          25,
+          24,
+          1,
+          15
+        ],
+        [
+          74,
+          26,
+          25,
+          24,
+          1,
+          15,
+          68
+        ],
+        [
+          74,
+          26,
+          25,
+          24,
+          1,
+          15,
+          14
+        ],
+        [
+          74,
+          26,
+          25,
+          24,
+          1,
+          3
+        ],
+        [
+          74,
+          26,
+          25,
+          24,
+          1,
+          3
+        ],
+        [
+          74,
+          26,
+          25,
+          24,
+          1,
+          3
+        ],
+        [
+          85,
+          26,
+          25,
+          24,
+          1,
+          0
+        ],
+        [
+          85,
+          26,
+          25,
+          24,
+          1,
+          3
+        ],
+        [
+          85,
+          26,
+          25,
+          24,
+          1,
+          3
+        ],
+        [
+          85,
+          26,
+          87,
+          71,
+          73,
+          86
+        ],
+        [
+          89,
+          88
+        ],
+        [
+          90
+        ],
+        [
+          89,
+          88
+        ]
+      ],
+      "weights": [
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01
+      ]
+    }
+  ],
+  "shared": {
+    "frames": [
+      {
+        "name": "import_eds",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\objectdictionary\\eds.py",
+        "line": 34,
+        "col": null
+      },
+      {
+        "name": "import_od",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\objectdictionary\\__init__.py",
+        "line": 114,
+        "col": null
+      },
+      {
+        "name": "setUp",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\test\\test_eds.py",
+        "line": 55,
+        "col": null
+      },
+      {
+        "name": "import_eds",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\objectdictionary\\eds.py",
+        "line": 36,
+        "col": null
+      },
+      {
+        "name": "verify_od",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\test\\test_eds.py",
+        "line": 305,
+        "col": null
+      },
+      {
+        "name": "test_export_eds_to_file",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\test\\test_eds.py",
+        "line": 238,
+        "col": null
+      },
+      {
+        "name": "export_variable",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\objectdictionary\\eds.py",
+        "line": 378,
+        "col": null
+      },
+      {
+        "name": "export_record",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\objectdictionary\\eds.py",
+        "line": 412,
+        "col": null
+      },
+      {
+        "name": "export_object",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\objectdictionary\\eds.py",
+        "line": 352,
+        "col": null
+      },
+      {
+        "name": "add_list",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\objectdictionary\\eds.py",
+        "line": 517,
+        "col": null
+      },
+      {
+        "name": "export_eds",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\objectdictionary\\eds.py",
+        "line": 520,
+        "col": null
+      },
+      {
+        "name": "export_dcf",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\objectdictionary\\eds.py",
+        "line": 344,
+        "col": null
+      },
+      {
+        "name": "export_od",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\objectdictionary\\__init__.py",
+        "line": 68,
+        "col": null
+      },
+      {
+        "name": "test_export_eds_to_file",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\test\\test_eds.py",
+        "line": 237,
+        "col": null
+      },
+      {
+        "name": "build_variable",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\objectdictionary\\eds.py",
+        "line": 261,
+        "col": null
+      },
+      {
+        "name": "import_eds",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\objectdictionary\\eds.py",
+        "line": 159,
+        "col": null
+      },
+      {
+        "name": "import_eds",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\objectdictionary\\eds.py",
+        "line": 133,
+        "col": null
+      },
+      {
+        "name": "test_export_eds_to_filelike_object",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\test\\test_eds.py",
+        "line": 287,
+        "col": null
+      },
+      {
+        "name": "verify_od",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\test\\test_eds.py",
+        "line": 354,
+        "col": null
+      },
+      {
+        "name": "test_load_file_object",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\test\\test_eds.py",
+        "line": 68,
+        "col": null
+      },
+      {
+        "name": "build_variable",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\objectdictionary\\eds.py",
+        "line": 264,
+        "col": null
+      },
+      {
+        "name": "build_variable",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\objectdictionary\\eds.py",
+        "line": 281,
+        "col": null
+      },
+      {
+        "name": "test_load_implicit_nodeid",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\test\\test_eds.py",
+        "line": 73,
+        "col": null
+      },
+      {
+        "name": "test_signed_int_from_hex",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\test\\test_eds.py",
+        "line": 157,
+        "col": null
+      },
+      {
+        "name": "__init__",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\node\\base.py",
+        "line": 32,
+        "col": null
+      },
+      {
+        "name": "__init__",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\node\\remote.py",
+        "line": 37,
+        "col": null
+      },
+      {
+        "name": "add_node",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\network.py",
+        "line": 163,
+        "col": null
+      },
+      {
+        "name": "setUpClass",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\test\\test_local.py",
+        "line": 191,
+        "col": null
+      },
+      {
+        "name": "__init__",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\node\\local.py",
+        "line": 26,
+        "col": null
+      },
+      {
+        "name": "create_node",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\network.py",
+        "line": 189,
+        "col": null
+      },
+      {
+        "name": "setUpClass",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\test\\test_local.py",
+        "line": 196,
+        "col": null
+      },
+      {
+        "name": "add_variable",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\pdo\\base.py",
+        "line": 532,
+        "col": null
+      },
+      {
+        "name": "read",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\pdo\\base.py",
+        "line": 412,
+        "col": null
+      },
+      {
+        "name": "read",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\pdo\\base.py",
+        "line": 66,
+        "col": null
+      },
+      {
+        "name": "test_read",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\test\\test_local.py",
+        "line": 206,
+        "col": null
+      },
+      {
+        "name": "send_message",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\network.py",
+        "line": 218,
+        "col": null
+      },
+      {
+        "name": "send_response",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\sdo\\server.py",
+        "line": 184,
+        "col": null
+      },
+      {
+        "name": "init_upload",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\sdo\\server.py",
+        "line": 85,
+        "col": null
+      },
+      {
+        "name": "on_request",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\sdo\\server.py",
+        "line": 37,
+        "col": null
+      },
+      {
+        "name": "notify",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\network.py",
+        "line": 256,
+        "col": null
+      },
+      {
+        "name": "on_message_received",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\network.py",
+        "line": 378,
+        "col": null
+      },
+      {
+        "name": "init_download",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\sdo\\server.py",
+        "line": 158,
+        "col": null
+      },
+      {
+        "name": "on_request",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\sdo\\server.py",
+        "line": 41,
+        "col": null
+      },
+      {
+        "name": "on_response",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\sdo\\client.py",
+        "line": 47,
+        "col": null
+      },
+      {
+        "name": "raw",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\variable.py",
+        "line": 90,
+        "col": null
+      },
+      {
+        "name": "save",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\pdo\\base.py",
+        "line": 422,
+        "col": null
+      },
+      {
+        "name": "save",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\pdo\\base.py",
+        "line": 71,
+        "col": null
+      },
+      {
+        "name": "test_save",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\test\\test_local.py",
+        "line": 212,
+        "col": null
+      },
+      {
+        "name": "test_network_add_node",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\test\\test_network.py",
+        "line": 34,
+        "col": null
+      },
+      {
+        "name": "test_network_create_node",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\test\\test_network.py",
+        "line": 60,
+        "col": null
+      },
+      {
+        "name": "test_network_item_access",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\test\\test_network.py",
+        "line": 212,
+        "col": null
+      },
+      {
+        "name": "test_network_item_access",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\test\\test_network.py",
+        "line": 213,
+        "col": null
+      },
+      {
+        "name": "test_network_item_access",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\test\\test_network.py",
+        "line": 225,
+        "col": null
+      },
+      {
+        "name": "test_scanner_search",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\test\\test_network.py",
+        "line": 342,
+        "col": null
+      },
+      {
+        "name": "setUp",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\test\\test_nmt.py",
+        "line": 55,
+        "col": null
+      },
+      {
+        "name": "setUp",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\test\\test_nmt.py",
+        "line": 144,
+        "col": null
+      },
+      {
+        "name": "setUp",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\test\\test_nmt.py",
+        "line": 151,
+        "col": null
+      },
+      {
+        "name": "setUp",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\test\\test_nmt.py",
+        "line": 150,
+        "col": null
+      },
+      {
+        "name": "setUp",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\test\\test_nmt.py",
+        "line": 152,
+        "col": null
+      },
+      {
+        "name": "setUp",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\test\\test_pdo.py",
+        "line": 10,
+        "col": null
+      },
+      {
+        "name": "import_eds",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\objectdictionary\\eds.py",
+        "line": 103,
+        "col": null
+      },
+      {
+        "name": "import_eds",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\objectdictionary\\eds.py",
+        "line": 125,
+        "col": null
+      },
+      {
+        "name": "build_variable",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\objectdictionary\\eds.py",
+        "line": 268,
+        "col": null
+      },
+      {
+        "name": "build_variable",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\objectdictionary\\eds.py",
+        "line": 303,
+        "col": null
+      },
+      {
+        "name": "setUp",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\test\\test_sdo.py",
+        "line": 21,
+        "col": null
+      },
+      {
+        "name": "build_variable",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\objectdictionary\\eds.py",
+        "line": 283,
+        "col": null
+      },
+      {
+        "name": "import_eds",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\objectdictionary\\eds.py",
+        "line": 135,
+        "col": null
+      },
+      {
+        "name": "import_eds",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\objectdictionary\\eds.py",
+        "line": 130,
+        "col": null
+      },
+      {
+        "name": "build_variable",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\objectdictionary\\eds.py",
+        "line": 267,
+        "col": null
+      },
+      {
+        "name": "__init__",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\pdo\\base.py",
+        "line": 225,
+        "col": null
+      },
+      {
+        "name": "__init__",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\pdo\\base.py",
+        "line": 168,
+        "col": null
+      },
+      {
+        "name": "__init__",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\pdo\\__init__.py",
+        "line": 89,
+        "col": null
+      },
+      {
+        "name": "__init__",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\node\\local.py",
+        "line": 33,
+        "col": null
+      },
+      {
+        "name": "__init__",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\pdo\\base.py",
+        "line": 164,
+        "col": null
+      },
+      {
+        "name": "setUp",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\test\\test_sdo.py",
+        "line": 77,
+        "col": null
+      },
+      {
+        "name": "__init__",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\pdo\\__init__.py",
+        "line": 64,
+        "col": null
+      },
+      {
+        "name": "__init__",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\node\\remote.py",
+        "line": 45,
+        "col": null
+      },
+      {
+        "name": "__init__",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\sdo\\client.py",
+        "line": 494,
+        "col": null
+      },
+      {
+        "name": "open",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\sdo\\client.py",
+        "line": 206,
+        "col": null
+      },
+      {
+        "name": "open",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\sdo\\base.py",
+        "line": 207,
+        "col": null
+      },
+      {
+        "name": "test_block_upload",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\test\\test_sdo.py",
+        "line": 205,
+        "col": null
+      },
+      {
+        "name": "__init__",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\objectdictionary\\__init__.py",
+        "line": 345,
+        "col": null
+      },
+      {
+        "name": "import_eds",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\objectdictionary\\eds.py",
+        "line": 118,
+        "col": null
+      },
+      {
+        "name": "__init__",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\pdo\\__init__.py",
+        "line": 41,
+        "col": null
+      },
+      {
+        "name": "__init__",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\node\\remote.py",
+        "line": 46,
+        "col": null
+      },
+      {
+        "name": "setUp",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\test\\test_sdo.py",
+        "line": 567,
+        "col": null
+      },
+      {
+        "name": "__contains__",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\objectdictionary\\__init__.py",
+        "line": 171,
+        "col": null
+      },
+      {
+        "name": "__init__",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\node\\remote.py",
+        "line": 44,
+        "col": null
+      },
+      {
+        "name": "connect",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\canopen\\network.py",
+        "line": 108,
+        "col": null
+      },
+      {
+        "name": "setUp",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\test\\test_sync.py",
+        "line": 17,
+        "col": null
+      },
+      {
+        "name": "setUp",
+        "file": "C:\\Users\\aiden\\OneDrive\\Desktop\\personalprojects\\ahmedlab\\MPCO_REVISED\\repos\\projects\\canopen\\test\\test_sync.py",
+        "line": 19,
+        "col": null
+      }
+    ]
+  },
+  "activeProfileIndex": null,
+  "exporter": "py-spy@0.4.1",
+  "name": "py-spy profile"
+}
