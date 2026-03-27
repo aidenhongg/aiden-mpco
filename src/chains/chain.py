@@ -28,7 +28,7 @@ class MetaChain:
     def invoke(self, inputs: dict, *, regenerate: bool = False, langsmith_extra: dict | None = None) -> OptimizedCode:
         if self._cached_prompt is None or regenerate:
             gen_chain = self._meta_prompt | self._meta_llm.with_structured_output(GeneratedPrompt)
-            self._cached_prompt = gen_chain.invoke(inputs).prompt
+            self._cached_prompt = gen_chain.invoke({}).prompt
 
         prompt = ChatPromptTemplate.from_messages([
             ("system", self._cached_prompt),
