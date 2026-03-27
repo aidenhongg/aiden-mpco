@@ -1,0 +1,12 @@
+PyGithub
+tomlkit
+python-dotenv
+pydantic
+langsmith
+langchain-core
+langchain-openai
+langchain-anthropic
+langchain-google-genai
+ragas
+matplotlib
+numpy

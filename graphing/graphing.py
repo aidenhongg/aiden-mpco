@@ -117,9 +117,9 @@ GRAPHS: list[dict] = [
     {
         "extract": lambda s: 1 if s.get("failed_regenerations") == 10 else 0,
         "reduce": sum,
-        "ylabel": "Total Failed Generations",
-        "title": "Total Failed Generations by Prompt Type and Optimizer",
-        "filename": "total_failed_generations.png",
+        "ylabel": "Total Failed Revisions",
+        "title": "Total Failed Revisions by Prompt Type and Optimizer",
+        "filename": "total_failed_revisions.png",
     },
     {
         "extract": lambda s: s.get("cognitive_complexity"),
