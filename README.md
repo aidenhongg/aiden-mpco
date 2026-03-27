@@ -79,6 +79,20 @@ more readable and maintainable.
   <img src="graphing/graphs/avg_cognitive_complexity.png" width="420"/>
 </p>
 
+# 
+
+## Analysis
+
+- Meta-prompting did not yield significantly higher significance scores. It lowered cognitive complexity scores when using GPT-4o.
+
+- Meta-prompting yielded the highest optimization % across all models. However, GPT-4o with 'Base' prompting gave the greatest optimizations.
+
+- As expected, meta-prompting consumed more tokens in general.
+
+- Meta-prompting AND revising with 4o appears to have greatly lowered the failed attempt count and made all revisions possible (0 failed revisions), suggesting that meta-prompting may be best when the same model is used for the meta-prompt as well as for the final generation.
+
+#
+
 ## Assumptions & Constraints
 
 - The developers' provided test suites & their runtimes were used to benchmark repositories, both optimized or unoptimized.
@@ -88,7 +102,11 @@ more readable and maintainable.
 
 `'37' -> '40'`
 
+- Only repositories created after the latest training cutoff date of all 3 models (March 2025) were selected.
+
 #
+
+## Setup
 
 `{task_considerations}` : Algorithmic complexity and big O notation; data structures and their efficiency; loop optimizations and redundant iterations; memory access patterns and cache utilization; I/O operations and system calls; parallel processing and multi-threading; redundant computations.
 
@@ -101,8 +119,6 @@ more readable and maintainable.
 `{task_description}` : Synthesize a single, best-runtime optimized version of the given object, preserving its signature.
 
 `{Objective}` : Optimize the specific code object provided. Return ONLY the optimized version of that object, preserving its exact signature and interface.
-
-#
 
 Prompts to the final models that committed the revisions were assembled as follows:
 
@@ -118,18 +134,3 @@ Enclosing scope of object:
 {scope}
 ```
 
-# 
-
-## Analysis
-
-- Meta-prompting did not yield significantly higher significance scores. It lowered cognitive complexity scores when using GPT-4o.
-
-- Meta-prompting yielded the highest optimization % across all models. However, GPT-4o with 'Base' prompting gave the greatest optimizations.
-
-- As expected, meta-prompting consumed more tokens in general.
-
-- Meta-prompting AND revising with 4o appears to have greatly lowered the failed attempt count and made all revisions possible (0 failed revisions), suggesting that meta-prompting may be best when the same model is used for the meta-prompt as well as for the final generation.
-
-#
-
-Only repositories created after the latest training cutoff date of all 3 models (March 2025) were selected. 
