@@ -116,10 +116,11 @@ def meta_generator(proj_name: str, agent_name: str) -> ChatPromptTemplate:
 
         ## Target LLM Context
         - Target Model: {ctx['llm_name']}
-        - Considerations: {ctx['llm_cons']}""")
+        - Considerations: {ctx['llm_cons']}
+
+        Generate a system prompt that instructs the target LLM to optimize Python code for runtime performance. The prompt should be general-purpose and not reference any specific code snippet.""")
     return ChatPromptTemplate.from_messages([
         ("system", system),
-        ("human", _HUMAN),
     ])
 
 PROMPTS: dict[str, callable] = {
