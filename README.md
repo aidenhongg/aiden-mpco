@@ -103,8 +103,7 @@ more readable and maintainable.
 - Only repositories created after the latest training cutoff date of all 3 models (March 2025) were selected.
 
 ## Random Metaprompting Samples
-1. With Sonnet 4.0 on Memori
-   Original:
+1. Original:
    ```
    def search_facts(
     self,
@@ -159,7 +158,6 @@ more readable and maintainable.
         ),
     )
    ```
-
    Revised:
    ```
    def search_facts(
@@ -213,22 +211,456 @@ more readable and maintainable.
     )
    ```
 
-3. ```
-   
+2. Original
+   ```
+   async def augmentation_async(self, payload: dict) -> dict:
+    url = self.url("sdk/augmentation")
+    headers = self.headers()
+    ssl_context = ssl.create_default_context(cafile=certifi.where())
+    logger.debug("Sending augmentation request to %s", url)
+
+    def _default_client_error_message(status_code: int) -> str:
+        if status_code == 422:
+            return (
+                "Memori API rejected the request (422 validation error). "
+                "Check your augmentation payload structure."
+            )
+        if status_code == 433:
+            return (
+                "The request was rejected (433). "
+                "This can sometimes be caused by certificate/SSL inspection or proxy issues. "
+                "If this persists, contact Memori Labs support via email at support@memorilabs.ai."
+            )
+        return f"Memori API request failed with status {status_code}."
+
+    async def _read_error_payload(response: aiohttp.ClientResponse):
+        try:
+            data = await response.json()
+        except Exception:
+            return None, None
+
+        if isinstance(data, dict):
+            return data.get("message") or data.get("detail"), data
+        return None, data
+
+    async with aiohttp.ClientSession(
+        connector=aiohttp.TCPConnector(ssl=ssl_context)
+    ) as session:
+        try:
+            async with session.post(
+                url,
+                headers=headers,
+                json=payload,
+                timeout=aiohttp.ClientTimeout(total=30),
+            ) as r:
+                logger.debug("Augmentation response - status: %d", r.status)
+
+                if r.status == 429:
+                    logger.warning("Rate limit exceeded (429)")
+                    if self._is_anonymous():
+                        message, _data = await _read_error_payload(r)
+
+                        if message:
+                            raise QuotaExceededError(message)
+                        raise QuotaExceededError()
+                    else:
+                        return {}
+
+                if r.status == 422:
+                    message, data = await _read_error_payload(r)
+                    logger.error("Validation error (422): %s", message)
+                    raise MemoriApiValidationError(
+                        status_code=422,
+                        message=message or _default_client_error_message(422),
+                        details=data,
+                    )
+
+                if r.status == 433:
+                    message, data = await _read_error_payload(r)
+                    logger.error("Request rejected (433): %s", message)
+                    raise MemoriApiRequestRejectedError(
+                        status_code=433,
+                        message=message or _default_client_error_message(433),
+                        details=data,
+                    )
+
+                if 400 <= r.status <= 499:
+                    message, data = await _read_error_payload(r)
+                    logger.error("Client error (%d): %s", r.status, message)
+                    raise MemoriApiClientError(
+                        status_code=r.status,
+                        message=message or _default_client_error_message(r.status),
+                        details=data,
+                    )
+
+                r.raise_for_status()
+                logger.debug("Augmentation request successful")
+                return await r.json()
+        except aiohttp.ClientResponseError:
+            raise
+        except (ssl.SSLError, aiohttp.ClientSSLError) as e:
+            logger.error("SSL/TLS error during augmentation request: %s", e)
+            raise MemoriApiError(
+                "Memori API request failed due to an SSL/TLS certificate error. "
+                "This is often caused by corporate proxies/SSL inspection. "
+                "Try updating your CA certificates and try again."
+            ) from e
+        except (aiohttp.ClientError, asyncio.TimeoutError) as e:
+            logger.error("Network/timeout error during augmentation request: %s", e)
+            raise MemoriApiError(
+                "Memori API request failed (network/timeout). "
+                "Check your connection and try again."
+            ) from e
+   ```
+   Revised:
+   ```
+   async def augmentation_async(self, payload: dict) -> dict:
+    url = self.url("sdk/augmentation")
+    headers = self.headers()
+    timeout = aiohttp.ClientTimeout(total=30)
+    session = getattr(self, '_aug_session', None)
+    if session is None or session.closed:
+        ssl_ctx = ssl.create_default_context(cafile=certifi.where())
+        connector = aiohttp.TCPConnector(ssl=ssl_ctx)
+        session = aiohttp.ClientSession(connector=connector)
+        self._aug_session = session
+    default_msgs = {
+        422: "Memori API rejected the request (422 validation error). Check your augmentation payload structure.",
+        433: "The request was rejected (433). This can sometimes be caused by certificate/SSL inspection or proxy issues. If this persists, contact Memori Labs support via email at support@memorilabs.ai."
+    }
+    async def read_error(response: aiohttp.ClientResponse):
+        try:
+            data = await response.json()
+        except Exception:
+            return None, None
+        if isinstance(data, dict):
+            return data.get("message") or data.get("detail"), data
+        return None, data
+    try:
+        async with session.post(url, headers=headers, json=payload, timeout=timeout) as r:
+            status = r.status
+            logger.debug("Augmentation response - status: %d", status)
+            if 400 <= status < 500:
+                message, data = await read_error(r)
+                if status == 429:
+                    logger.warning("Rate limit exceeded (429)")
+                    if self._is_anonymous():
+                        if message:
+                            raise QuotaExceededError(message)
+                        raise QuotaExceededError()
+                    return {}
+                if status in (422, 433):
+                    logger.error("%s error (%d): %s", 'Validation' if status == 422 else 'Request rejected', status, message)
+                    exc = MemoriApiValidationError if status == 422 else MemoriApiRequestRejectedError
+                    raise exc(
+                        status_code=status,
+                        message=message or default_msgs[status],
+                        details=data,
+                    )
+                logger.error("Client error (%d): %s", status, message)
+                raise MemoriApiClientError(
+                    status_code=status,
+                    message=message or default_msgs.get(status, f"Memori API request failed with status {status}."),
+                    details=data,
+                )
+            r.raise_for_status()
+            logger.debug("Augmentation request successful")
+            return await r.json()
+    except aiohttp.ClientResponseError:
+        raise
+    except (ssl.SSLError, aiohttp.ClientSSLError) as e:
+        logger.error("SSL/TLS error during augmentation request: %s", e)
+        raise MemoriApiError(
+            "Memori API request failed due to an SSL/TLS certificate error. "
+            "This is often caused by corporate proxies/SSL inspection. "
+            "Try updating your CA certificates and try again."
+        ) from e
+    except (aiohttp.ClientError, asyncio.TimeoutError) as e:
+        logger.error("Network/timeout error during augmentation request: %s", e)
+        raise MemoriApiError(
+            "Memori API request failed (network/timeout). "
+            "Check your connection and try again."
+        ) from e
    ```
    
-4. ```
-   
+3. Original:
+   ```
+   def __init__(self, path: str, asset_type: str) -> None:
+    self.path = path
+    self.type = asset_type  # 'sequence' or 'video'
+    self.frame_count = 0
+    self._calculate_length()
+   ```
+   Revised:
+   ```
+   def __init__(self, path: str, asset_type: str) -> None:
+    d = self.__dict__
+    d['path'] = path
+    d['type'] = asset_type
+    d['frame_count'] = 0
+    self._calculate_length()
    ```
    
-5. ```
-   
+4. Original:
    ```
-   
-6. ```
-   
+   @torch.inference_mode()
+  def process_frame(
+      self,
+      image: np.ndarray,
+      mask_linear: np.ndarray,
+      refiner_scale: float = 1.0,
+      input_is_linear: bool = False,
+      fg_is_straight: bool = True,
+      despill_strength: float = 1.0,
+      auto_despeckle: bool = True,
+      despeckle_size: int = 400,
+      generate_comp: bool = True,
+      post_process_on_gpu: bool = True,
+    ) -> dict[str, np.ndarray] | list[dict[str, np.ndarray]]:
+    """
+    Process a single frame.
+    Args:
+        image: Numpy array [H, W, 3] or [B, H, W, 3] (0.0-1.0 or 0-255).
+               - If input_is_linear=False (Default): Assumed sRGB.     
+               - If input_is_linear=True: Assumed Linear.
+        mask_linear: Numpy array [H, W] or [B, H, W] or [H, W, 1] or [B, H, W, 1] (0.0-1.0). Assumed Linear.
+        refiner_scale: Multiplier for Refiner Deltas (default 1.0).    
+        input_is_linear: bool. If True, resizes in Linear then transforms to sRGB.
+                         If False, resizes in sRGB (standard).
+        fg_is_straight: bool. If True, assumes FG output is Straight (unpremultiplied).
+                        If False, assumes FG output is Premultiplied.  
+        despill_strength: float. 0.0 to 1.0 multiplier for the despill effect.
+        auto_despeckle: bool. If True, cleans up small disconnected components from the predicted alpha matte.
+        despeckle_size: int. Minimum number of consecutive pixels required to keep an island.
+        generate_comp: bool. If True, also generates a composite on checkerboard for quick checking.
+        post_process_on_gpu: bool. If True, performs post-processing on GPU using PyTorch instead of OpenCV.
+    Returns:
+         dict: {'alpha': np, 'fg': np (sRGB), 'comp': np (sRGB on Gray)}
+    """
+    torch.compiler.cudagraph_mark_step_begin()
+
+    # If input is a single image, add batch dimension
+    if image.ndim == 3:
+        image = image[np.newaxis, :]
+        mask_linear = mask_linear[np.newaxis, :]
+
+    bs, h, w = image.shape[:3]
+
+    # 1. Inputs Check & Normalization
+    image = TF.to_dtype(
+        torch.from_numpy(image).permute((0, 3, 1, 2)),
+        self.model_precision,
+        scale=True,
+    ).to(self.device, non_blocking=True)
+    mask_linear = TF.to_dtype(
+        torch.from_numpy(mask_linear.reshape((bs, h, w, 1))).permute((0, 3, 1, 2)),
+        self.model_precision,
+        scale=True,
+    ).to(self.device, non_blocking=True)
+
+    inp_t = self._preprocess_input(image, mask_linear, input_is_linear)
+
+    # Free up unused VRAM in order to keep peak usage down and avoid OOM errors
+    del image, mask_linear
+
+    # 5. Inference
+    # Hook for Refiner Scaling
+    handle = None
+    if refiner_scale != 1.0 and self.model.refiner is not None:        
+
+        def scale_hook(module, input, output):
+            return output * refiner_scale
+
+        handle = self.model.refiner.register_forward_hook(scale_hook)  
+
+    with torch.autocast(device_type=self.device.type, dtype=torch.float16, enabled=self.mixed_precision):
+        prediction = self.model(inp_t)
+
+    # Free up unused VRAM in order to keep peak usage down and avoid OOM errors
+    del inp_t
+
+    if handle:
+        handle.remove()
+
+    if post_process_on_gpu:
+        out = self._postprocess_torch(
+            prediction["alpha"],
+            prediction["fg"],
+            w,
+            h,
+            fg_is_straight,
+            despill_strength,
+            auto_despeckle,
+            despeckle_size,
+            generate_comp,
+        )
+    else:
+        # Move prediction to CPU before post-processing
+        pred_alpha = prediction["alpha"].cpu().float()
+        pred_fg = prediction["fg"].cpu().float()
+
+        out = []
+        for i in range(bs):
+            result = self._postprocess_opencv(
+                pred_alpha[i],
+                pred_fg[i],
+                w,
+                h,
+                fg_is_straight,
+                despill_strength,
+                auto_despeckle,
+                despeckle_size,
+                generate_comp,
+            )
+            out.append(result)
+
+    if bs == 1:
+        return out[0]
+
+    return out
    ```
-   
+   Revised:
+```
+@torch.inference_mode()
+def process_frame(
+    self,
+    image: np.ndarray,
+    mask_linear: np.ndarray,
+    refiner_scale: float = 1.0,
+    input_is_linear: bool = False,
+    fg_is_straight: bool = True,
+    despill_strength: float = 1.0,
+    auto_despeckle: bool = True,
+    despeckle_size: int = 400,
+    generate_comp: bool = True,
+    post_process_on_gpu: bool = True,
+) -> dict[str, np.ndarray] | list[dict[str, np.ndarray]]:
+    torch.compiler.cudagraph_mark_step_begin()
+
+    if image.ndim == 3:
+        image = image[np.newaxis, :]
+        mask_linear = mask_linear[np.newaxis, :]
+
+    bs, h, w = image.shape[:3]
+
+    image_tensor = TF.to_dtype(
+        torch.as_tensor(image, device=self.device).permute(0, 3, 1, 2),
+        self.model_precision,
+        scale=True,
+    )
+
+    if mask_linear.ndim == 3:
+        mask_linear = mask_linear[..., np.newaxis]
+
+    mask_tensor = TF.to_dtype(
+        torch.as_tensor(mask_linear, device=self.device).permute(0, 3, 1, 2),
+        self.model_precision,
+        scale=True,
+    )
+
+    inp_t = self._preprocess_input(image_tensor, mask_tensor, input_is_linear)
+    del image_tensor, mask_tensor
+
+    handle = None
+    if refiner_scale != 1.0 and self.model.refiner is not None:        
+        def scale_hook(module, input, output):
+            return output * refiner_scale
+        handle = self.model.refiner.register_forward_hook(scale_hook)  
+
+    with torch.autocast(
+        device_type=self.device.type, dtype=torch.float16, enabled=self.mixed_precision
+    ):
+        prediction = self.model(inp_t)
+
+    del inp_t
+
+    if handle:
+        handle.remove()
+
+    if post_process_on_gpu:
+        out = self._postprocess_torch(
+            prediction["alpha"],
+            prediction["fg"],
+            w,
+            h,
+            fg_is_straight,
+            despill_strength,
+            auto_despeckle,
+            despeckle_size,
+            generate_comp,
+        )
+    else:
+        pred_alpha = prediction["alpha"].cpu().float()
+        pred_fg = prediction["fg"].cpu().float()
+        out = [
+            self._postprocess_opencv(
+                pred_alpha[i],
+                pred_fg[i],
+                w,
+                h,
+                fg_is_straight,
+                despill_strength,
+                auto_despeckle,
+                despeckle_size,
+                generate_comp,
+            )
+            for i in range(bs)
+        ]
+
+    if bs == 1:
+        return out[0]
+    return out
+```
+5. Original:
+```
+   def _discover_checkpoint(ext: str) -> Path:
+    """Find exactly one checkpoint with the given extension.
+
+    Raises FileNotFoundError (0 found) or ValueError (>1 found).
+    Includes cross-reference hints when wrong extension files exist.
+    """
+    matches = glob.glob(os.path.join(CHECKPOINT_DIR, f"*{ext}"))
+
+    if len(matches) == 0:
+        if ext == TORCH_EXT:
+            return _ensure_torch_checkpoint()
+        other_ext = MLX_EXT if ext == TORCH_EXT else TORCH_EXT
+        other_files = glob.glob(os.path.join(CHECKPOINT_DIR, f"*{other_ext}"))
+        hint = ""
+        if other_files:
+            other_backend = "mlx" if other_ext == MLX_EXT else "torch" 
+            hint = f" (Found {other_ext} files — did you mean --backend={other_backend}?)"
+        raise FileNotFoundError(f"No {ext} checkpoint found in {CHECKPOINT_DIR}.{hint}")
+
+    if len(matches) > 1:
+        names = [os.path.basename(f) for f in matches]
+        raise ValueError(f"Multiple {ext} checkpoints in {CHECKPOINT_DIR}: {names}. Keep exactly one.")
+
+    return Path(matches[0])
+   ```
+   Revised:
+```
+from pathlib import Path
+
+def _discover_checkpoint(ext: str) -> Path:
+    p = Path(CHECKPOINT_DIR)
+    files = [f for f in p.iterdir() if f.is_file()]
+    matches = [f for f in files if f.name.endswith(ext)]
+    if not matches:
+        if ext == TORCH_EXT:
+            return _ensure_torch_checkpoint()
+        other_ext = MLX_EXT if ext == TORCH_EXT else TORCH_EXT
+        other_matches = [f for f in files if f.name.endswith(other_ext)]
+        hint = ""
+        if other_matches:
+            other_backend = "mlx" if other_ext == MLX_EXT else "torch" 
+            hint = f" (Found {other_ext} files — did you mean --backend={other_backend}?)"
+        raise FileNotFoundError(f"No {ext} checkpoint found in {CHECKPOINT_DIR}.{hint}")
+    if len(matches) > 1:
+        names = [f.name for f in matches]
+        raise ValueError(f"Multiple {ext} checkpoints in {CHECKPOINT_DIR}: {names}. Keep exactly one.")
+    return matches[0]
+```
 
 ## Setup
 
