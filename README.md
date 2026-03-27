@@ -404,7 +404,7 @@ more readable and maintainable.
 4. Original:
    ```
    @torch.inference_mode()
-  def process_frame(
+   def process_frame(
       self,
       image: np.ndarray,
       mask_linear: np.ndarray,
@@ -416,7 +416,7 @@ more readable and maintainable.
       despeckle_size: int = 400,
       generate_comp: bool = True,
       post_process_on_gpu: bool = True,
-    ) -> dict[str, np.ndarray] | list[dict[str, np.ndarray]]:
+     ) -> dict[str, np.ndarray] | list[dict[str, np.ndarray]]:
     """
     Process a single frame.
     Args:
@@ -518,11 +518,11 @@ more readable and maintainable.
         return out[0]
 
     return out
-   ```
+    ```
    Revised:
-```
-@torch.inference_mode()
-def process_frame(
+   ```
+   @torch.inference_mode()
+   def process_frame(
     self,
     image: np.ndarray,
     mask_linear: np.ndarray,
@@ -534,7 +534,7 @@ def process_frame(
     despeckle_size: int = 400,
     generate_comp: bool = True,
     post_process_on_gpu: bool = True,
-) -> dict[str, np.ndarray] | list[dict[str, np.ndarray]]:
+   ) -> dict[str, np.ndarray] | list[dict[str, np.ndarray]]:
     torch.compiler.cudagraph_mark_step_begin()
 
     if image.ndim == 3:
@@ -610,9 +610,9 @@ def process_frame(
     if bs == 1:
         return out[0]
     return out
-```
+   ```
 5. Original:
-```
+   ```
    def _discover_checkpoint(ext: str) -> Path:
     """Find exactly one checkpoint with the given extension.
 
@@ -639,10 +639,10 @@ def process_frame(
     return Path(matches[0])
    ```
    Revised:
-```
-from pathlib import Path
+   ```
+   from pathlib import Path
 
-def _discover_checkpoint(ext: str) -> Path:
+   def _discover_checkpoint(ext: str) -> Path:
     p = Path(CHECKPOINT_DIR)
     files = [f for f in p.iterdir() if f.is_file()]
     matches = [f for f in files if f.name.endswith(ext)]
@@ -660,7 +660,7 @@ def _discover_checkpoint(ext: str) -> Path:
         names = [f.name for f in matches]
         raise ValueError(f"Multiple {ext} checkpoints in {CHECKPOINT_DIR}: {names}. Keep exactly one.")
     return matches[0]
-```
+   ```
 
 ## Setup
 
