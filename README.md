@@ -120,8 +120,7 @@ more readable and maintainable.
 
 `{Objective}` : Optimize the specific code object provided. Return ONLY the optimized version of that object, preserving its exact signature and interface.
 
-Prompts to the final models that committed the revisions were assembled as follows:
-
+Final prompts were assembled as follows:
 ```
 {prompt}
 
