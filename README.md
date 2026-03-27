@@ -79,7 +79,6 @@ more readable and maintainable.
   <img src="graphing/graphs/avg_cognitive_complexity.png" width="420"/>
 </p>
 
-# 
 
 ## Analysis
 
@@ -91,7 +90,6 @@ more readable and maintainable.
 
 - Meta-prompting AND revising with 4o appears to have greatly lowered the failed attempt count and made all revisions possible (0 failed revisions), suggesting that meta-prompting may be best when the same model is used for the meta-prompt as well as for the final generation.
 
-#
 
 ## Assumptions & Constraints
 
@@ -104,7 +102,133 @@ more readable and maintainable.
 
 - Only repositories created after the latest training cutoff date of all 3 models (March 2025) were selected.
 
-#
+## Random Metaprompting Samples
+1. With Sonnet 4.0 on Memori
+   Original:
+   ```
+   def search_facts(
+    self,
+    query: str,
+    limit: int | None = None,
+    entity_id: int | None = None,
+    cloud: bool = False,
+   ) -> list[RecallFact] | CloudRecallResponse:
+
+    logger.debug(
+        "Recall started - query: %s (%d chars), limit: %s",
+        truncate(query, 50),
+        len(query),
+        limit,
+    )
+    if self.config.cloud:
+        if self.config.entity_id is None:
+            logger.debug("Recall aborted - no entity_id configured")
+            return {"facts": []}
+
+        logger.debug(
+            "Recall started - query: %s (%d chars), limit: %s, cloud: true",
+            truncate(query, 50),
+            len(query),
+            limit,
+        )
+
+        resolved_limit = self._resolve_limit(limit)
+        response = self._search_with_retries_cloud(
+            query=query, limit=resolved_limit
+        )
+
+        return self._filter_cloud_recall_response(response)
+
+    if self.config.storage is None or self.config.storage.driver is None:
+        logger.debug("Recall aborted - storage not configured")
+        return []
+   
+    entity_id = self._resolve_entity_id(entity_id)
+    if entity_id is None:
+        return []
+
+    limit = self._resolve_limit(limit)
+    query_embedding = self._embed_query(query)
+    return cast(
+        list[FactSearchResult | Mapping[str, object] | str],
+        self._search_with_retries(
+            entity_id=entity_id,
+            query=query,
+            query_embedding=query_embedding,
+            limit=limit,
+        ),
+    )
+   ```
+
+   Revised:
+   ```
+   def search_facts(
+    self,
+    query: str,
+    limit: int | None = None,
+    entity_id: int | None = None,
+    cloud: bool = False,
+   ) -> list[RecallFact] | CloudRecallResponse:
+    query_len = len(query)
+    truncated_query = truncate(query, 50)
+
+    if self.config.cloud:
+        if self.config.entity_id is None:
+            logger.debug("Recall aborted - no entity_id configured")
+            return {"facts": []}
+
+        logger.debug(
+            "Recall started - query: %s (%d chars), limit: %s, cloud: true",
+            truncated_query,
+            query_len,
+            limit,
+        )
+
+        resolved_limit = self._resolve_limit(limit)
+        response = self._search_with_retries_cloud(
+            query=query, limit=resolved_limit
+        )
+        return self._filter_cloud_recall_response(response)
+
+    logger.debug(
+        "Recall started - query: %s (%d chars), limit: %s",
+        truncated_query,
+        query_len,
+        limit,
+    )
+
+    if self.config.storage is None or self.config.storage.driver is None:
+        logger.debug("Recall aborted - storage not configured")
+        return []
+
+    entity_id = self._resolve_entity_id(entity_id)
+    if entity_id is None:
+        return []
+
+    resolved_limit = self._resolve_limit(limit)
+    query_embedding = self._embed_query(query=query,
+            query_embedding=query_embedding,
+            limit=resolved_limit,
+        ),
+    )
+   ```
+
+3. ```
+   
+   ```
+   
+4. ```
+   
+   ```
+   
+5. ```
+   
+   ```
+   
+6. ```
+   
+   ```
+   
 
 ## Setup
 
