@@ -6,15 +6,15 @@
 
 Results in `src/results.json`
 
-## Configurations:
-Any combination of the following models:
+## Configurations
+Any combination of the following models
 ```
 gemini-2.5-pro
-o4-mini
+4o-mini
 claude-sonnet-4
 ```
 
-And the following prompt techniques:
+and prompt techniques:
 ```
 Simple prompting (Base)
 CoT prompting
@@ -41,7 +41,7 @@ Preview with `MemoriLabs/Memori` and `nikopueringer/CorridorKey`
 - **Total Tokens Used :** Average of total tokens used per configuration revision, including completion and prompt tokens
 
 
-- **Average Significance and Cognitive Complexity :** Average of scores (1 - 5) awarded by o4 in Ragas with the following judge prompts:
+- **Average Significance and Cognitive Complexity :** Average of scores (1 - 5) awarded by 4o in Ragas with the following judge prompts:
 
 For 'Significance' scoring:
 ```
@@ -119,7 +119,17 @@ Enclosing scope of object:
 ```
 
 # 
-I don't think the results turned out the way it did in the paper for a few reasons:
-1. Not having access to ARTEMIS meant that I was constrained in how I could prompt the models - I ended up needing to greatly emphasize the scope of each object and what I needed as the return, and the prompts I used turned out different as a result
-   - I also needed to use json prompting, which likely occupied extra tokens and skewed the prompts
-2. Testing may have been skewed due to benchmarking at different times or loads on my personal computer
+
+## Analysis
+
+- Meta-prompting did not yield significantly higher significance scores. It lowered cognitive complexity scores when using GPT-4o.
+
+- Meta-prompting yielded the highest optimization % across all models. However, GPT-4o with 'Base' prompting gave the greatest optimizations.
+
+- As expected, meta-prompting consumed more tokens in general.
+
+- Meta-prompting AND revising with 4o appears to have greatly lowered the failed attempt count and made all revisions possible (0 failed revisions), suggesting that meta-prompting may be best when the same model is used for the meta-prompt as well as for the final generation.
+
+#
+
+Only repositories created after the latest training cutoff date of all 3 models (March 2025) were selected. 
