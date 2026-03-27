@@ -9,7 +9,7 @@ from langchain_openai import ChatOpenAI
 from langchain_anthropic import ChatAnthropic
 from langchain_google_genai import ChatGoogleGenerativeAI
 
-from .prompts import PROMPTS, meta_generator, GeneratedPrompt
+from .prompts import PROMPTS, meta_generator, GeneratedPrompt, _HUMAN
 
 
 class OptimizedCode(BaseModel):
@@ -32,7 +32,7 @@ class MetaChain:
 
         prompt = ChatPromptTemplate.from_messages([
             ("system", self._cached_prompt),
-            ("human", "{code}"),
+            ("human", _HUMAN),
         ])
         return (prompt | self._llm.with_structured_output(OptimizedCode)).invoke(inputs)
 
