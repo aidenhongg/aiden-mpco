@@ -61,18 +61,18 @@ more readable and maintainable.
 ```
 
 <p align="center">
-  <img src="graphing/graphs/avg_optimization.png" width="420"/>
-  <img src="graphing/graphs/avg_runtime_diff.png" width="420"/>
+  <img src="graphing/graphs/avg_optimization.png" width="330"/>
+  <img src="graphing/graphs/avg_runtime_diff.png" width="330"/>
 </p>
 
 <p align="center">
-  <img src="graphing/graphs/avg_total_tokens.png" width="420"/>
-  <img src="graphing/graphs/avg_tokens_per_second.png" width="420"/>
+  <img src="graphing/graphs/avg_total_tokens.png" width="330"/>
+  <img src="graphing/graphs/avg_tokens_per_second.png" width="330"/>
 </p>
 
 <p align="center">
-  <img src="graphing/graphs/avg_total_latency.png" width="420"/>
-  <img src="graphing/graphs/avg_significance.png" width="420"/>
+  <img src="graphing/graphs/avg_total_latency.png" width="330"/>
+  <img src="graphing/graphs/avg_significance.png" width="330"/>
 </p>
 
 <p align="center">
