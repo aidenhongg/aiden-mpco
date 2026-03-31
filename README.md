@@ -76,6 +76,11 @@ more readable and maintainable.
 </p>
 
 <p align="center">
+  <img src="graphing/graphs/total_failed_attempts.png" width="330"/>
+  <img src="graphing/graphs/total_failed_revisions.png" width="330"/>
+</p>
+
+<p align="center">
   <img src="graphing/graphs/avg_cognitive_complexity.png" width="420"/>
 </p>
 
