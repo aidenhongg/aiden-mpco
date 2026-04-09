@@ -25,9 +25,28 @@ class MetaChain:
         self._cached_prompt: str | None = None
 
     @traceable(name="MetaChain")
-    def invoke(self, inputs: dict, *, regenerate: bool = False, langsmith_extra: dict | None = None) -> OptimizedCode:
+    def invoke(self, inputs: dict, *, regenerate: bool = False,
+               error_context: list[dict] | None = None,
+               langsmith_extra: dict | None = None) -> OptimizedCode:
         if self._cached_prompt is None or regenerate:
-            gen_chain = self._meta_prompt | self._meta_llm.with_structured_output(GeneratedPrompt)
+            if error_context:
+                error_lines = "\n".join(
+                    f"- {f['classname']}::{f['testcase']}: {f['message']}"
+                    for f in error_context
+                )
+                error_addendum = (
+                    "\n\nThe prompt you previously generated led to code that "
+                    "caused these test failures:\n"
+                    f"{error_lines}\n"
+                    "Generate an improved prompt that guides the target LLM "
+                    "to avoid these regressions."
+                )
+                augmented = ChatPromptTemplate.from_messages([
+                    ("system", self._meta_prompt.messages[0].prompt.template + error_addendum),
+                ])
+                gen_chain = augmented | self._meta_llm.with_structured_output(GeneratedPrompt)
+            else:
+                gen_chain = self._meta_prompt | self._meta_llm.with_structured_output(GeneratedPrompt)
             self._cached_prompt = gen_chain.invoke({}).prompt
 
         prompt = ChatPromptTemplate.from_messages([
@@ -56,14 +75,34 @@ def _escape(text: str) -> str:
     return text.replace("{", "{{").replace("}", "}}")
 
 
-def invoke(chain, code: str, scope: list[dict], *, regenerate: bool = False, run_id: UUID | None = None) -> str:
+def _format_error_context(error_context: list[dict]) -> str:
+    """Format error context for injection into the human message."""
+    error_lines = "\n".join(
+        f"- {f['classname']}::{f['testcase']}: {f['message']}"
+        for f in error_context
+    )
+    return (
+        "\n\nYour previous optimization caused these test failures:\n"
+        f"{error_lines}\n"
+        "Generate a corrected optimization that avoids these regressions."
+    )
+
+
+def invoke(chain, code: str, scope: list[dict], *, regenerate: bool = False,
+           run_id: UUID | None = None, error_context: list[dict] | None = None) -> str:
     scope_str = (
         " > ".join(f"{s['type']} {s['name']}" for s in scope)
         if scope else "module-level"
     )
     inputs = {"code": _escape(code), "scope": _escape(scope_str)}
+
+    if error_context and not isinstance(chain, MetaChain):
+        inputs["code"] += _escape(_format_error_context(error_context))
+
     config = {"run_id": run_id} if run_id else {}
     if isinstance(chain, MetaChain):
         extra = {"run_id": run_id} if run_id else {}
-        return chain.invoke(inputs, regenerate=regenerate, langsmith_extra=extra).code
+        return chain.invoke(inputs, regenerate=regenerate,
+                            error_context=error_context,
+                            langsmith_extra=extra).code
     return chain.invoke(inputs, config=config).code

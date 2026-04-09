@@ -5,7 +5,7 @@ from uuid import uuid4
 
 from . import chains, telemetry
 from .chains import MetaChain, evaluation
-from .profiler.profile import ProjProfile
+from .profiler.profile import ProjProfile, TestRegressionError
 from .patches.patch import Patch, PatchStack
 
 REPOS_PATH = Path("./repos.json")
@@ -75,6 +75,7 @@ def run():
                     failures = 0
                     success = False
                     patch = None
+                    error_context = None
 
                     while failures < MAX_RETRIES:
                         optimized = None
@@ -83,6 +84,7 @@ def run():
                             optimized = chains.invoke(
                                 chain, original_code, snippet.scope,
                                 regenerate=failures > 0, run_id=run_id,
+                                error_context=error_context,
                             )
 
                             patch = Patch(
@@ -109,14 +111,26 @@ def run():
                             patch_stack.push(patch)
                             success = True
                             break
+                        except TestRegressionError as e:
+                            print(f"Test regression: {e}")
+                            print(f"  Baseline failures: {e.baseline_count}")
+                            print(f"  New failures: {e.new_count}")
+                            for f in e.failures:
+                                print(f"  FAILED: {f['classname']}::{f['testcase']} - {f['message']}")
+                            error_context = e.failures
+                            if patch is not None:
+                                patch.revert_patch()
+                            failures += 1
+
                         except Exception as e:
                             traceback.print_exc()
+                            print(f"Error type: {type(e).__name__}")
+                            print(f"Error value: {e}")
                             print(snippet.code)
-                            if optimized:
-                                print("Failed optimization: ")
+                            if optimized is not None:
+                                print(f"Failed optimization (type={type(optimized).__name__}):")
                                 print(optimized)
-                                
-                            print(f"{failures+1} failed attempts!")
+                            error_context = None
                             if patch is not None:
                                 patch.revert_patch()
                             failures += 1

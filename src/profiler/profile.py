@@ -17,6 +17,48 @@ PROJECTS_DIR = Path("./repos/projects")
 
 NODE_TYPES = (FunctionDef, AsyncFunctionDef, ClassDef)
 
+
+class TestRegressionError(RuntimeError):
+    """Raised when a patch introduces new test failures."""
+
+    def __init__(
+        self,
+        proj_name: str,
+        baseline_count: int,
+        new_count: int,
+        failures: list[dict],
+    ) -> None:
+        self.proj_name = proj_name
+        self.baseline_count = baseline_count
+        self.new_count = new_count
+        self.failures = failures
+
+        failure_lines = "\n".join(
+            f"  - {f['classname']}::{f['testcase']}: {f['message']}"
+            for f in failures
+        )
+        message = (
+            f"Patch increased failures for {proj_name}: "
+            f"{baseline_count} -> {new_count}\n"
+            f"Failing tests:\n{failure_lines}"
+        )
+        super().__init__(message)
+
+
+def _extract_failures(report: ET.Element) -> list[dict]:
+    """Extract per-test failure details from a parsed junit XML element."""
+    failures: list[dict] = []
+    for tc in report.iter("testcase"):
+        failure_elem = tc.find("failure")
+        if failure_elem is not None:
+            failures.append({
+                "testcase": tc.get("name", ""),
+                "classname": tc.get("classname", ""),
+                "message": failure_elem.get("message", ""),
+            })
+    return failures
+
+
 def _venv_python_path(proj_name: str) -> Path:
     if platform.system() == "Windows":
         return VENVS_DIR / proj_name / "Scripts" / "python.exe"
@@ -52,7 +94,7 @@ class ProjProfile:
         last_failure_count = None
         profile_count = self.baseline_runs if not setup else 1
         for _ in range(profile_count):
-            last_failure_count, duration = _construct_profile(
+            last_failure_count, duration, _ = _construct_profile(
                 proj_name=self.proj_name,
                 venv_python=self.venv_python,
                 output_file=self.raw_profile_path,
@@ -73,7 +115,7 @@ class ProjProfile:
             yield _node_to_obj(node, self.repo_path)
 
     def check_patch(self):
-        new_failure_count, new_runtime = _construct_profile(
+        new_failure_count, new_runtime, failure_details = _construct_profile(
             proj_name=self.proj_name,
             venv_python=self.venv_python,
             output_file=self.raw_profile_path,
@@ -87,8 +129,11 @@ class ProjProfile:
         if self.failure_count is None:
             raise RuntimeError("Baseline failure count is not initialized")
         if new_failure_count > self.failure_count:
-            raise RuntimeError(
-                f"Patch increased failures for {self.proj_name}: {self.failure_count} -> {new_failure_count}"
+            raise TestRegressionError(
+                proj_name=self.proj_name,
+                baseline_count=self.failure_count,
+                new_count=new_failure_count,
+                failures=failure_details,
             )
 
         self.failure_count = new_failure_count
@@ -145,6 +190,7 @@ def _construct_profile(
     
     failure_count = int(report.get('failures', 0))
     duration = float(report.get('time', 0.0))
+    failure_details = _extract_failures(root)
 
     # finally generate filtered speedscope
     _filter_speedscope(
@@ -153,7 +199,7 @@ def _construct_profile(
         output_file=filtered_output_file,
         project_path=repo_path,
     )
-    return failure_count, duration
+    return failure_count, duration, failure_details
 
 
 def _filter_speedscope(proj_name: str, input_file: Path, output_file: Path, project_path: Path):
