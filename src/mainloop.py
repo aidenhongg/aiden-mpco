@@ -1,11 +1,10 @@
 import json
 import traceback
 from pathlib import Path
-from uuid import uuid4
 
 from . import chains, telemetry
-from .chains import MetaChain, evaluation
-from .profiler.profile import ProjProfile, TestRegressionError
+from .chains import RMPChain, evaluation
+from .profiler.profile import ProjProfile
 from .patches.patch import Patch, PatchStack
 
 REPOS_PATH = Path("./repos.json")
@@ -22,7 +21,7 @@ def run():
     with open(REPOS_PATH) as f:
         projects = list(json.load(f).keys())
 
-    prompt_names = list(chains.PROMPTS) + ["meta"]
+    prompt_names = list(chains.PROMPTS) + ["rmp"]
     results = {}
 
     # Profile each project once upfront to avoid redundant baseline runs.
@@ -36,119 +35,112 @@ def run():
             continue
         baselines[proj_name] = profile
 
-    for agent_name in chains.AGENTS:
-        for prompt_name in prompt_names:
-            combo_key = f"{agent_name}/{prompt_name}"
-            print(f"\n{'#'*60}\nAgent: {combo_key}\n{'#'*60}")
-            agent_results = {}
-            results[combo_key] = agent_results
+    agent_name = next(iter(chains.AGENTS))
+    for prompt_name in prompt_names:
+        combo_key = f"{agent_name}/{prompt_name}"
+        print(f"\n{'#'*60}\nAgent: {combo_key}\n{'#'*60}")
+        agent_results = {}
+        results[combo_key] = agent_results
 
-            for proj_name in projects:
-                if proj_name not in baselines:
-                    continue
+        for proj_name in projects:
+            if proj_name not in baselines:
+                continue
 
-                print(f"\n{'='*60}\nProject: {proj_name}\n{'='*60}")
+            print(f"\n{'='*60}\nProject: {proj_name}\n{'='*60}")
 
-                chain = chains.build_chain(agent_name, prompt_name, proj_name)
+            chain = chains.build_chain(agent_name, prompt_name, proj_name)
 
-                profile = baselines[proj_name]
+            profile = baselines[proj_name]
 
-                patch_stack = PatchStack()
-                proj_data = {
-                    "start_runtime_avg": profile.start_runtime,
-                    "end_runtime_avg": None,
-                    "snippets": [],
+            patch_stack = PatchStack()
+            proj_data = {
+                "start_runtime_avg": profile.start_runtime,
+                "end_runtime_avg": None,
+                "snippets": [],
+            }
+            agent_results[proj_name] = proj_data
+            last_runtime = profile.start_runtime
+
+            for snippet in profile.yield_snippet():
+                original_code = snippet.code
+                record = {
+                    "original_code": original_code,
+                    "optimized_code": original_code,
+                    "project_name": proj_name,
+                    "failed_regenerations": 0,
+                    "runtime_diff": 0.0,
                 }
-                agent_results[proj_name] = proj_data
-                last_runtime = profile.start_runtime
 
-                for snippet in profile.yield_snippet():
-                    original_code = snippet.code
-                    record = {
-                        "original_code": original_code,
-                        "optimized_code": original_code,
-                        "project_name": proj_name,
-                        "failed_regenerations": 0,
-                        "runtime_diff": 0.0,
-                    }
+                failures = 0
+                success = False
+                patch = None
 
-                    failures = 0
-                    success = False
-                    patch = None
-                    error_context = None
-
-                    while failures < MAX_RETRIES:
-                        optimized = None
-                        try:
-                            run_id = uuid4()
+                while failures < MAX_RETRIES:
+                    optimized = None
+                    try:
+                        with telemetry.track_run() as stats:
                             optimized = chains.invoke(
                                 chain, original_code, snippet.scope,
-                                regenerate=failures > 0, run_id=run_id,
-                                error_context=error_context,
+                                regenerate=failures > 0,
                             )
 
-                            patch = Patch(
-                                code_object=snippet._asdict(),
-                                optimized_code=optimized,
-                                root=str(profile.repo_path),
-                            )
+                        patch = Patch(
+                            code_object=snippet._asdict(),
+                            optimized_code=optimized,
+                            root=str(profile.repo_path),
+                        )
 
-                            if not patch.apply_patch():
-                                failures += 1
-                                continue
-
-                            new_runtime = profile.check_patch()
-                            record.update(
-                                optimized_code=optimized,
-                                runtime_diff=new_runtime - last_runtime,
-                                failed_regenerations=failures,
-                            )
-                            if isinstance(chain, MetaChain):
-                                record["generated_prompt"] = chain._cached_prompt
-                            record.update(evaluation.score(original_code, optimized))
-                            record.update(telemetry.fetch_run_stats(run_id))
-                            last_runtime = new_runtime
-                            patch_stack.push(patch)
-                            success = True
-                            break
-                        except TestRegressionError as e:
-                            print(f"Test regression: {e}")
-                            print(f"  Baseline failures: {e.baseline_count}")
-                            print(f"  New failures: {e.new_count}")
-                            for f in e.failures:
-                                print(f"  FAILED: {f['classname']}::{f['testcase']} - {f['message']}")
-                            error_context = e.failures
-                            if patch is not None:
-                                patch.revert_patch()
+                        if not patch.apply_patch():
                             failures += 1
+                            continue
 
-                        except Exception as e:
-                            traceback.print_exc()
-                            print(f"Error type: {type(e).__name__}")
-                            print(f"Error value: {e}")
-                            print(snippet.code)
-                            if optimized is not None:
-                                print(f"Failed optimization (type={type(optimized).__name__}):")
-                                print(optimized)
-                            error_context = None
-                            if patch is not None:
-                                patch.revert_patch()
-                            failures += 1
+                        new_runtime = profile.check_patch()
+                        record.update(
+                            optimized_code=optimized,
+                            runtime_diff=new_runtime - last_runtime,
+                            failed_regenerations=failures,
+                        )
+                        if isinstance(chain, RMPChain):
+                            record["generated_prompt"] = chain._cached_prompt
+                        record.update(evaluation.score(original_code, optimized))
+                        record.update(stats)
+                        last_runtime = new_runtime
+                        patch_stack.push(patch)
+                        success = True
+                        break
+                    except Exception as e:
+                        traceback.print_exc()
+                        print(snippet.code)
+                        if optimized:
+                            print("Failed optimization: ")
+                            print(optimized)
 
-                    if not success:
-                        record["failed_regenerations"] = failures
-                        print(f"  Snippet failed after {MAX_RETRIES} retries, skipping")
+                        print(f"{failures+1} failed attempts!")
+                        if patch is not None:
+                            patch.revert_patch()
+                        failures += 1
 
-                    proj_data["snippets"].append(record)
-                    _save(results)
+                if not success:
+                    record["failed_regenerations"] = failures
+                    print(f"  Snippet failed after {MAX_RETRIES} retries, skipping")
 
-                try:
-                    proj_data["end_runtime_avg"] = profile.new_average_runtime()
-                except RuntimeError:
-                    pass
-
+                proj_data["snippets"].append(record)
                 _save(results)
-                patch_stack.revert_all()
+
+            if isinstance(chain, RMPChain) and chain._cached_prompt is not None:
+                proj_data["meta_meta_prompt"] = chain._meta_meta_prompt
+                proj_data["generated_prompt"] = chain._cached_prompt
+                proj_data["refinement_trace"] = chain._refinement_trace
+                proj_data["converged"] = chain._converged
+                proj_data["refinement_iterations"] = max(0, len(chain._refinement_trace) - 1)
+
+            try:
+                proj_data["end_runtime_avg"] = profile.new_average_runtime()
+            except RuntimeError:
+                pass
+
+            _save(results)
+            patch_stack.revert_all()
 
     print("\nComplete. Results saved to src/results.json")
     return results

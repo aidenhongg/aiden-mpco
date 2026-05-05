@@ -99,29 +99,59 @@ def _cot_prompt(proj_name: str, agent_name: str) -> ChatPromptTemplate:
     ])
 
 
-def meta_generator(proj_name: str, agent_name: str) -> ChatPromptTemplate:
+def rmp_proposer(proj_name: str, agent_name: str) -> ChatPromptTemplate:
+    """L3 meta-meta-prompt: instructs GPT-4o HOW to design optimization prompts."""
     ctx = _context(proj_name, agent_name)
     system = dedent(f"""\
-        You are an expert in code optimization. Please generate a prompt that will instruct the target LLM {ctx['llm_name']} to optimize code for {ctx['objective']}.
-        Consider the project context, task context, and adapt the prompt complexity and style based on the target LLM's capabilities.
+        Task: Design a Code Optimization Prompt
 
-        ## Project Context
-        Project Name: {ctx['p_name']}
-        Project Description: {ctx['p_desc']}
-        Primary Languages: {ctx['p_lang']}
+        1. Context Analysis:
+           - Project: {ctx['p_name']} — {ctx['p_desc']}
+           - Languages: {ctx['p_lang']}
+           - Target model: {ctx['llm_name']}
+           - Objective: {ctx['objective']}
 
-        ## Task Context
-        - Description: {ctx['t_desc']}
-        - Considerations: {ctx['t_cons']}
+        2. Task Interpretation:
+           - The prompt must instruct the target LLM to optimize Python functions
+             for runtime performance while preserving correctness.
+           - Considerations: {ctx['t_cons']}
+           - Model-specific considerations: {ctx['llm_cons']}
 
-        ## Target LLM Context
-        - Target Model: {ctx['llm_name']}
-        - Considerations: {ctx['llm_cons']}
+        3. Prompt Design:
+           - Design a structured system prompt for the target LLM.
+           - Include: optimization objectives, step-by-step reasoning guidance,
+             relevant techniques (algorithmic complexity, data structures,
+             Python-specific optimizations like list comprehensions, generators,
+             built-in functions, numpy vectorization).
+           - The prompt should be general-purpose for any Python function in
+             this project, not tied to a specific code snippet.
 
-        Generate a system prompt that instructs the target LLM to optimize Python code for runtime performance. The prompt should be general-purpose and not reference any specific code snippet.""")
-    return ChatPromptTemplate.from_messages([
-        ("system", system),
-    ])
+        4. Output: Generate the system prompt.""")
+    return ChatPromptTemplate.from_messages([("system", system)])
+
+
+def rmp_refiner(proj_name: str, agent_name: str) -> ChatPromptTemplate:
+    """Refinement prompt: asks GPT-4o to improve an existing optimization prompt."""
+    ctx = _context(proj_name, agent_name)
+    system = dedent(f"""\
+        You are refining a code optimization prompt. Your goal is to make it more
+        specific, structured, and effective for the target model.
+
+        Project: {ctx['p_name']} — {ctx['p_desc']}
+        Target model: {ctx['llm_name']}
+        Objective: {ctx['objective']}
+
+        Review the current prompt below and refine it. Consider:
+        - Is the reasoning structure clear and actionable?
+        - Are optimization techniques specific enough for Python?
+        - Does it account for the target model's strengths and tendencies?
+        - Is the output format unambiguous?
+
+        If the prompt is already optimal, return it unchanged.
+
+        Current prompt to refine:
+        {{p_current}}""")
+    return ChatPromptTemplate.from_messages([("system", system)])
 
 PROMPTS: dict[str, callable] = {
     "base": _base_prompt,

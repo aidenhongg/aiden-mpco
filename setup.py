@@ -22,7 +22,7 @@ PROJECT_INFO_PATH = Path('./prompts/project_info.json')
 PROJECTS_DIR = Path('./repos/projects')
 VENVS_DIR = Path('./repos/venvs')
 
-CREATED_AFTER = '2025-04-01'
+CREATED_AFTER = '2025-12-01'
 MIN_STARS = 100
 
 def _remove_readonly(func, path, _):

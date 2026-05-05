@@ -55,3 +55,33 @@ async def _score(original: str, optimized: str) -> dict:
 
 def score(original: str, optimized: str) -> dict:
     return asyncio.run(_score(original, optimized))
+
+
+# ---------------------------------------------------------------------------
+# IsConverged — Ragas-based semantic difference detection for RMP
+# ---------------------------------------------------------------------------
+
+_convergence_metric = SimpleCriteriaScore(
+    name="prompt_difference",
+    definition=(
+        "Compare the refined prompt (response) against the previous prompt (user_input). "
+        "Evaluate how DIFFERENT they are in structure, content, specificity, and reasoning "
+        "guidance. Score 1 if the prompts are essentially identical or nearly unchanged. "
+        "Score 5 if they are substantially different in structure, approach, or content."
+    ),
+    llm=_llm,
+)
+
+CONVERGENCE_THRESHOLD = 2.0
+
+
+async def _is_converged(p_current: str, p_refined: str) -> tuple[bool, float]:
+    if p_current == p_refined:
+        return True, 0.0
+    sample = SingleTurnSample(user_input=p_current, response=p_refined)
+    score = await _convergence_metric.single_turn_ascore(sample)
+    return score <= CONVERGENCE_THRESHOLD, score
+
+
+def is_converged(p_current: str, p_refined: str) -> tuple[bool, float]:
+    return asyncio.run(_is_converged(p_current, p_refined))
