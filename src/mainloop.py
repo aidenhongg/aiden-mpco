@@ -1,7 +1,6 @@
 import json
 import traceback
 from pathlib import Path
-from uuid import uuid4
 
 from . import chains, telemetry
 from .chains import RMPChain, evaluation
@@ -79,11 +78,11 @@ def run():
                     while failures < MAX_RETRIES:
                         optimized = None
                         try:
-                            run_id = uuid4()
-                            optimized = chains.invoke(
-                                chain, original_code, snippet.scope,
-                                regenerate=failures > 0, run_id=run_id,
-                            )
+                            with telemetry.track_run() as stats:
+                                optimized = chains.invoke(
+                                    chain, original_code, snippet.scope,
+                                    regenerate=failures > 0,
+                                )
 
                             patch = Patch(
                                 code_object=snippet._asdict(),
@@ -104,7 +103,7 @@ def run():
                             if isinstance(chain, RMPChain):
                                 record["generated_prompt"] = chain._cached_prompt
                             record.update(evaluation.score(original_code, optimized))
-                            record.update(telemetry.fetch_run_stats(run_id))
+                            record.update(stats)
                             last_runtime = new_runtime
                             patch_stack.push(patch)
                             success = True
