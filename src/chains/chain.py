@@ -5,9 +5,10 @@ from langchain_community.callbacks import get_openai_callback
 
 from langchain_core.prompts import ChatPromptTemplate
 
-from ..llm import local_llm
+from ..llm import local_llm, MAX_INPUT_TOKENS
 from .prompts import PROMPTS, rmp_proposer, rmp_refiner, GeneratedPrompt, _HUMAN
 from .evaluation import is_converged
+from .truncate import truncate_head, truncate_tail
 
 
 class OptimizedCode(BaseModel):
@@ -32,8 +33,9 @@ class RMPChain:
         if self._cached_prompt is None or regenerate:
             self._refine_prompt()
 
+        capped = truncate_head(self._cached_prompt, MAX_INPUT_TOKENS, label="rmp.cached_prompt")
         prompt = ChatPromptTemplate.from_messages([
-            ("system", _escape(self._cached_prompt)),
+            ("system", _escape(capped)),
             ("human", _HUMAN),
         ])
         return (prompt | self._llm.with_structured_output(OptimizedCode)).invoke(inputs)
@@ -49,10 +51,11 @@ class RMPChain:
         for i in range(1, self.MAX_REFINEMENT_ITERS + 1):
             try:
                 t0 = time.time()
+                p_current_capped = truncate_head(p_current, MAX_INPUT_TOKENS, label=f"rmp.refiner.iter{i}")
                 refine_chain = self._refiner_template | self._meta_llm.with_structured_output(GeneratedPrompt)
                 with get_openai_callback() as cb:
                     p_refined = refine_chain.invoke({
-                        "p_current": p_current
+                        "p_current": p_current_capped
                     }).prompt
                 refine_latency = time.time() - t0
 
@@ -107,6 +110,7 @@ def invoke(chain, code: str, scope: list[dict], *, regenerate: bool = False) -> 
         " > ".join(f"{s['type']} {s['name']}" for s in scope)
         if scope else "module-level"
     )
+    code = truncate_tail(code, MAX_INPUT_TOKENS, label="invoke.code")
     inputs = {"code": code, "scope": scope_str}
     if isinstance(chain, RMPChain):
         return chain.invoke(inputs, regenerate=regenerate).code
