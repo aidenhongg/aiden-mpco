@@ -3,6 +3,7 @@
 **Status:** IN_PROGRESS
 **Created:** 2026-05-05
 **Owner:** aidenhong77@gmail.com
+**Last update:** 2026-05-05 — P1–P5 landed in commits 91ab9db, 4f4c0ca, b488df4, 02c1fb9, e32258f. P6 is the operator gate (resample + run).
 
 ## Goal
 
@@ -97,20 +98,22 @@ JSON-mode discipline, no thinking tags in code output).
 
 ## Phases
 
-- [ ] **P1 — Scaffolding.** Create `src/llm.py`, `src/chains/truncate.py`. Update
-  `requirements.txt`. Smoke-test `local_llm()` against a running Ollama instance with a
-  trivial prompt.
-- [ ] **P2 — Wire chain + telemetry.** Update `chain.py`, `telemetry.py`, drop the deps and
-  `@traceable`. Update `tests/test_rmp.py` mocks. Run pytest on `tests/`.
-- [ ] **P3 — Mainloop + truncation.** Drop the agent loop, integrate `track_run`, apply
-  truncation utilities at the three sites. End-to-end smoke test on one snippet.
-- [ ] **P4 — Considerations + graphing.** Update `prompts/considerations.json`, simplify
-  `graphing/graphing.py` to flat bars.
-- [ ] **P5 — Resample repos.** Bump `CREATED_AFTER`, wipe old `repos.json` /
-  `src/profiler/profiles/` / `repos/`, run `python setup.py -s 10`. Confirm yield ≥ ~5
-  repos; if not, drop `MIN_STARS` to 50 and retry.
-- [ ] **P6 — Full run.** `python main.py`, regenerate graphs, sanity-check `results.json`
-  schema is intact and metrics are populated.
+- [x] **P1 — Scaffolding.** Created `src/llm.py`, `src/chains/truncate.py`. Updated
+  `requirements.txt`. Live Ollama smoke-test deferred to operator (no Ollama in code env).
+- [x] **P2 — Wire chain + telemetry.** Rewrote `chain.py`, `telemetry.py`, dropped the deps
+  and `@traceable`. Updated `tests/test_rmp.py` mocks (and fixed a pre-existing patch-lifetime
+  bug in the test helper). All 12 tests pass.
+- [x] **P3 — Mainloop + truncation.** Dropped agent loop, integrated `track_run`, applied
+  truncation at the three sites. Tests still green. End-to-end smoke deferred to P6.
+- [x] **P4 — Considerations + graphing.** Shrunk `prompts/considerations.json` to single
+  qwen entry; flattened `graphing/graphing.py` to one bar per prompt.
+- [x] **P5 — Resample repos (code-only).** Bumped `CREATED_AFTER` to `2025-12-01`. Operator
+  follow-up: wipe `repos.json` / `repos/` / `src/profiler/profiles/`, run
+  `python setup.py -s 10`. If yield < 5, drop `MIN_STARS` to 50 and retry.
+- [ ] **P6 — Full run (operator).** Set `LOCAL_LLM_BASE_URL` + `LOCAL_LLM_MODEL` in `.env`,
+  start Ollama on the RTX box with `OLLAMA_KV_CACHE_TYPE=q4_0` + flash attention, then
+  `python main.py` and regenerate graphs. Sanity-check `results.json` schema is intact and
+  metrics are populated.
 
 ## Open questions / risks
 
