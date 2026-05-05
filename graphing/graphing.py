@@ -16,7 +16,7 @@ AGENT_LABELS = {
     "claude-sonnet-4": "Claude Sonnet 4.0",
 }
 PROMPT_LABELS = {
-    "meta": "Metaprompted",
+    "rmp": "Recursive Meta",
     "few_shot": "Few-shot",
     "cot": "Chain-of-thought",
     "base": "Base content",

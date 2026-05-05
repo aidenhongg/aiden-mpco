@@ -4,7 +4,7 @@ from pathlib import Path
 from uuid import uuid4
 
 from . import chains, telemetry
-from .chains import MetaChain, evaluation
+from .chains import RMPChain, evaluation
 from .profiler.profile import ProjProfile
 from .patches.patch import Patch, PatchStack
 
@@ -22,7 +22,7 @@ def run():
     with open(REPOS_PATH) as f:
         projects = list(json.load(f).keys())
 
-    prompt_names = list(chains.PROMPTS) + ["meta"]
+    prompt_names = list(chains.PROMPTS) + ["rmp"]
     results = {}
 
     # Profile each project once upfront to avoid redundant baseline runs.
@@ -101,7 +101,7 @@ def run():
                                 runtime_diff=new_runtime - last_runtime,
                                 failed_regenerations=failures,
                             )
-                            if isinstance(chain, MetaChain):
+                            if isinstance(chain, RMPChain):
                                 record["generated_prompt"] = chain._cached_prompt
                             record.update(evaluation.score(original_code, optimized))
                             record.update(telemetry.fetch_run_stats(run_id))
@@ -127,6 +127,13 @@ def run():
 
                     proj_data["snippets"].append(record)
                     _save(results)
+
+                if isinstance(chain, RMPChain) and chain._cached_prompt is not None:
+                    proj_data["meta_meta_prompt"] = chain._meta_meta_prompt
+                    proj_data["generated_prompt"] = chain._cached_prompt
+                    proj_data["refinement_trace"] = chain._refinement_trace
+                    proj_data["converged"] = chain._converged
+                    proj_data["refinement_iterations"] = max(0, len(chain._refinement_trace) - 1)
 
                 try:
                     proj_data["end_runtime_avg"] = profile.new_average_runtime()
