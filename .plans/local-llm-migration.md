@@ -8,9 +8,10 @@
 ## Goal
 
 Replace cloud API calls (OpenAI / Anthropic / Google) with a single local Qwen3.5 9B Q4
-served from a remote RTX 2070 (8GB VRAM) box. Drop multi-model dupe trials. Set
-`temperature=0` (and `seed`) for reproducibility. Adjust repo sampling to post-training-cutoff
-to prevent data leakage.
+served by Ollama on the same machine that runs the experiment (RTX 2070, 8GB VRAM —
+no remote box, `LOCAL_LLM_BASE_URL` points at `http://localhost:11434/v1`). Drop
+multi-model dupe trials. Set `temperature=0` (and `seed`) for reproducibility. Adjust
+repo sampling to post-training-cutoff to prevent data leakage.
 
 ## Decisions locked in
 
