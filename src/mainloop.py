@@ -1,4 +1,6 @@
+import copy
 import json
+import os
 import traceback
 from pathlib import Path
 
@@ -22,7 +24,25 @@ def run():
         projects = list(json.load(f).keys())
 
     prompt_names = list(chains.PROMPTS) + ["rmp"]
-    results = {}
+
+    # Resume support: RUN_PROMPTS env var narrows this session to a subset of
+    # prompts (comma-separated). Existing results.json is loaded so other
+    # combos are preserved; the filtered combos get overwritten on re-run.
+    only = os.environ.get("RUN_PROMPTS", "").strip()
+    if only:
+        wanted = {n.strip() for n in only.split(",") if n.strip()}
+        prompt_names = [p for p in prompt_names if p in wanted]
+        print(f"RUN_PROMPTS filter active: {prompt_names}")
+
+    results: dict = {}
+    if RESULTS_PATH.exists():
+        try:
+            with open(RESULTS_PATH) as f:
+                results = json.load(f)
+            print(f"Loaded existing results: {list(results.keys())}")
+        except (json.JSONDecodeError, OSError) as e:
+            print(f"Could not load existing results.json ({e}); starting fresh")
+            results = {}
 
     # Profile each project once upfront to avoid redundant baseline runs.
     baselines: dict[str, ProjProfile] = {}
@@ -79,10 +99,13 @@ def run():
                     optimized = None
                     try:
                         with telemetry.track_run() as stats:
-                            optimized = chains.invoke(
+                            optimized, usage = chains.invoke(
                                 chain, original_code, snippet.scope,
                                 regenerate=failures > 0,
                             )
+                            if usage:
+                                stats["prompt_tokens"]     = usage.get("input_tokens",  0)
+                                stats["completion_tokens"] = usage.get("output_tokens", 0)
 
                         patch = Patch(
                             code_object=snippet._asdict(),
@@ -101,7 +124,11 @@ def run():
                             failed_regenerations=failures,
                         )
                         if isinstance(chain, RMPChain):
-                            record["generated_prompt"] = chain._cached_prompt
+                            record["generated_prompt"]      = chain._cached_prompt
+                            record["meta_meta_prompt"]      = chain._meta_meta_prompt
+                            record["refinement_trace"]      = copy.deepcopy(chain._refinement_trace)
+                            record["converged"]             = chain._converged
+                            record["refinement_iterations"] = max(0, len(chain._refinement_trace) - 1)
                         record.update(evaluation.score(original_code, optimized))
                         record.update(stats)
                         last_runtime = new_runtime

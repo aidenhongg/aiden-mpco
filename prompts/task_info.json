@@ -1,5 +1,5 @@
 {
     "objective": "runtime performance",
-    "description": "Optimize the specific code object provided. Return ONLY the optimized version of that object, preserving its exact signature and interface.",
-    "considerations": "Algorithmic complexity and big O notation; data structures and their efficiency; loop optimizations and redundant iterations; memory access patterns and cache utilization; I/O operations and system calls; parallel processing and multi-threading; redundant computations."
+    "description": "Optimize the provided code object in place. Preserve its exact signature and interface so it remains a drop-in replacement.",
+    "considerations": "algorithmic complexity, data structure choice, loop reduction, redundant computation, builtin and numpy vectorization, I/O minimization."
 }

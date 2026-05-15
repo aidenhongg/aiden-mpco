@@ -19,11 +19,15 @@ def track_run():
             yield stats
         finally:
             total_latency = time.time() - t0
-            tps = cb.completion_tokens / total_latency if total_latency > 0 else 0.0
-            stats.update({
-                "prompt_tokens": cb.prompt_tokens,
-                "completion_tokens": cb.completion_tokens,
-                "ttft": None,
-                "total_latency": total_latency,
-                "tokens_per_second": tps,
-            })
+            # Caller may have populated prompt_tokens / completion_tokens from
+            # raw.usage_metadata. Prefer those if non-zero; else fall back to
+            # the langchain callback (which can be lossy on non-OpenAI backends).
+            if not stats.get("prompt_tokens"):
+                stats["prompt_tokens"] = cb.prompt_tokens
+            if not stats.get("completion_tokens"):
+                stats["completion_tokens"] = cb.completion_tokens
+            stats["ttft"] = None
+            stats["total_latency"] = total_latency
+            stats["tokens_per_second"] = (
+                stats["completion_tokens"] / total_latency if total_latency > 0 else 0.0
+            )

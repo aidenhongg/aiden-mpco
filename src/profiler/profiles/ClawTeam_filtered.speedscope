@@ -1,0 +1,1782 @@
+{
+  "$schema": "https://www.speedscope.app/file-format-schema.json",
+  "profiles": [
+    {
+      "type": "sampled",
+      "name": "Process 9464 Thread 18684 \"Thread-40 (increment)\"",
+      "unit": "seconds",
+      "startValue": 0.0,
+      "endValue": 0.08,
+      "samples": [
+        [
+          108
+        ],
+        [
+          93
+        ],
+        [
+          108
+        ],
+        [
+          93
+        ],
+        [
+          93
+        ],
+        [
+          108
+        ],
+        [
+          109
+        ]
+      ],
+      "weights": [
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01
+      ]
+    },
+    {
+      "type": "sampled",
+      "name": "Process 9464 Thread 20088 \"Thread-3 (_readerthread)\"",
+      "unit": "seconds",
+      "startValue": 0.0,
+      "endValue": 0.01,
+      "samples": [],
+      "weights": []
+    },
+    {
+      "type": "sampled",
+      "name": "Process 9464 Thread 25456 \"Thread-35 (writer)\"",
+      "unit": "seconds",
+      "startValue": 0.0,
+      "endValue": 0.03,
+      "samples": [
+        [
+          98
+        ],
+        [
+          98
+        ],
+        [
+          106
+        ]
+      ],
+      "weights": [
+        0.01,
+        0.01,
+        0.01
+      ]
+    },
+    {
+      "type": "sampled",
+      "name": "Process 9464 Thread 28264 \"Thread-38 (writer)\"",
+      "unit": "seconds",
+      "startValue": 0.0,
+      "endValue": 0.01,
+      "samples": [
+        [
+          106
+        ]
+      ],
+      "weights": [
+        0.01
+      ]
+    },
+    {
+      "type": "sampled",
+      "name": "Process 9464 Thread 2932 \"Thread-39 (increment)\"",
+      "unit": "seconds",
+      "startValue": 0.0,
+      "endValue": 0.04,
+      "samples": [
+        [
+          107
+        ],
+        [
+          93
+        ]
+      ],
+      "weights": [
+        0.01,
+        0.01
+      ]
+    },
+    {
+      "type": "sampled",
+      "name": "Process 9464 Thread 7272 \"Thread-37 (writer)\"",
+      "unit": "seconds",
+      "startValue": 0.0,
+      "endValue": 0.02,
+      "samples": [
+        [
+          98
+        ],
+        [
+          52
+        ]
+      ],
+      "weights": [
+        0.01,
+        0.01
+      ]
+    },
+    {
+      "type": "sampled",
+      "name": "Process 9464 Thread 9656 \"MainThread\"",
+      "unit": "seconds",
+      "startValue": 0.0,
+      "endValue": 4.72,
+      "samples": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          7,
+          6
+        ],
+        [
+          9,
+          8
+        ],
+        [
+          13,
+          12,
+          11,
+          10
+        ],
+        [
+          15,
+          14,
+          11,
+          10
+        ],
+        [
+          20,
+          19,
+          18,
+          17,
+          16
+        ],
+        [
+          25,
+          24,
+          23,
+          22,
+          21
+        ],
+        [
+          27,
+          26
+        ],
+        [
+          31,
+          18,
+          30,
+          29,
+          28,
+          10
+        ],
+        [
+          36,
+          35,
+          34,
+          33,
+          32,
+          21
+        ],
+        [
+          36,
+          35,
+          41,
+          40,
+          39,
+          38,
+          37
+        ],
+        [
+          42,
+          12,
+          8
+        ],
+        [
+          42,
+          21
+        ],
+        [
+          44,
+          43
+        ],
+        [
+          49,
+          48,
+          47,
+          46,
+          45,
+          10
+        ],
+        [
+          51,
+          50
+        ],
+        [
+          51,
+          50,
+          52
+        ],
+        [
+          56,
+          55,
+          54,
+          53,
+          12,
+          8
+        ],
+        [
+          58,
+          44,
+          57
+        ],
+        [
+          58,
+          60,
+          59
+        ],
+        [
+          61,
+          53,
+          12,
+          8
+        ],
+        [
+          61,
+          53,
+          12,
+          8
+        ],
+        [
+          63,
+          62,
+          21
+        ],
+        [
+          42,
+          12,
+          8
+        ],
+        [
+          42,
+          8
+        ],
+        [
+          64
+        ],
+        [
+          66,
+          65,
+          53,
+          12,
+          21
+        ],
+        [
+          70,
+          69,
+          68,
+          54,
+          53,
+          12,
+          67
+        ],
+        [
+          70,
+          69,
+          68,
+          54,
+          53,
+          12,
+          8
+        ],
+        [
+          73,
+          72,
+          71,
+          16
+        ],
+        [
+          75,
+          74,
+          54,
+          53,
+          12,
+          8
+        ],
+        [
+          75,
+          74,
+          76
+        ],
+        [
+          9,
+          10
+        ],
+        [
+          77,
+          54,
+          53,
+          12,
+          8
+        ],
+        [
+          7,
+          65,
+          53,
+          12,
+          11,
+          10
+        ],
+        [
+          9,
+          21
+        ],
+        [
+          80,
+          36,
+          35,
+          41,
+          40,
+          79,
+          78,
+          37
+        ],
+        [
+          83,
+          82,
+          81
+        ],
+        [
+          83,
+          82,
+          81
+        ],
+        [
+          87,
+          86,
+          85,
+          84,
+          8
+        ],
+        [
+          89,
+          7,
+          88
+        ],
+        [
+          61,
+          53,
+          12,
+          90
+        ],
+        [
+          50,
+          91
+        ],
+        [
+          92,
+          45,
+          8
+        ],
+        [
+          95,
+          94,
+          93
+        ],
+        [
+          92,
+          45,
+          21
+        ],
+        [
+          97,
+          96
+        ],
+        [
+          95,
+          100,
+          99,
+          98
+        ],
+        [
+          92,
+          45,
+          21
+        ],
+        [
+          95,
+          100,
+          99,
+          52
+        ],
+        [
+          92,
+          45,
+          21
+        ],
+        [
+          95,
+          102,
+          101,
+          46,
+          45,
+          8
+        ],
+        [
+          95,
+          102,
+          101,
+          46,
+          45,
+          8
+        ],
+        [
+          95,
+          100,
+          103,
+          46,
+          45,
+          10
+        ],
+        [
+          95,
+          102,
+          101,
+          46,
+          45,
+          10
+        ],
+        [
+          105,
+          104
+        ],
+        [
+          91
+        ],
+        [
+          91
+        ],
+        [
+          110
+        ],
+        [
+          112,
+          111
+        ],
+        [
+          112,
+          111
+        ],
+        [
+          116,
+          115,
+          114,
+          23,
+          113
+        ],
+        [
+          118,
+          117
+        ],
+        [
+          119,
+          44,
+          57
+        ],
+        [
+          31,
+          18,
+          121,
+          120
+        ],
+        [
+          36,
+          124,
+          123,
+          34,
+          33,
+          122
+        ],
+        [
+          60,
+          59
+        ],
+        [
+          61,
+          53,
+          12,
+          8
+        ],
+        [
+          42,
+          12,
+          11,
+          10
+        ],
+        [
+          66,
+          65,
+          53,
+          12,
+          8
+        ],
+        [
+          125,
+          44,
+          57
+        ],
+        [
+          127,
+          126
+        ],
+        [
+          128,
+          54,
+          53,
+          12,
+          67
+        ],
+        [
+          119,
+          44,
+          130,
+          129
+        ],
+        [
+          26
+        ],
+        [
+          62,
+          10
+        ],
+        [
+          62,
+          10
+        ],
+        [
+          62,
+          21
+        ],
+        [
+          60,
+          131
+        ],
+        [
+          44,
+          130,
+          129
+        ],
+        [
+          44,
+          57
+        ],
+        [
+          44,
+          130,
+          29,
+          28,
+          10
+        ],
+        [
+          127,
+          132
+        ],
+        [
+          127,
+          132
+        ],
+        [
+          60,
+          59
+        ],
+        [
+          44,
+          43
+        ],
+        [
+          44,
+          43
+        ],
+        [
+          72,
+          71,
+          16
+        ],
+        [
+          66,
+          65,
+          53,
+          12,
+          11,
+          10
+        ],
+        [
+          66,
+          65,
+          53,
+          12,
+          21
+        ],
+        [
+          26
+        ],
+        [
+          133,
+          69,
+          68,
+          76
+        ],
+        [
+          26
+        ],
+        [
+          26
+        ],
+        [
+          135,
+          69,
+          68,
+          54,
+          53,
+          12,
+          11,
+          134
+        ],
+        [
+          127,
+          136,
+          16
+        ],
+        [
+          62,
+          21
+        ],
+        [
+          127,
+          140,
+          139,
+          138,
+          137
+        ],
+        [
+          72,
+          142,
+          141,
+          21
+        ],
+        [
+          72,
+          144,
+          143
+        ],
+        [
+          146,
+          145
+        ],
+        [
+          146,
+          145
+        ],
+        [
+          146,
+          145
+        ],
+        [
+          10
+        ],
+        [
+          147
+        ],
+        [
+          147
+        ],
+        [
+          146,
+          145
+        ]
+      ],
+      "weights": [
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01
+      ]
+    }
+  ],
+  "shared": {
+    "frames": [
+      {
+        "name": "<module>",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\models.py",
+        "line": 65,
+        "col": null
+      },
+      {
+        "name": "<module>",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\events\\types.py",
+        "line": 123,
+        "col": null
+      },
+      {
+        "name": "<module>",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\events\\types.py",
+        "line": 170,
+        "col": null
+      },
+      {
+        "name": "<module>",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\events\\types.py",
+        "line": 182,
+        "col": null
+      },
+      {
+        "name": "_tool",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\mcp\\server.py",
+        "line": 25,
+        "col": null
+      },
+      {
+        "name": "<module>",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\mcp\\server.py",
+        "line": 29,
+        "col": null
+      },
+      {
+        "name": "_save_config",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\manager.py",
+        "line": 43,
+        "col": null
+      },
+      {
+        "name": "create_team",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\manager.py",
+        "line": 103,
+        "col": null
+      },
+      {
+        "name": "ensure_within_root",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\paths.py",
+        "line": 27,
+        "col": null
+      },
+      {
+        "name": "create_team",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\manager.py",
+        "line": 109,
+        "col": null
+      },
+      {
+        "name": "get_data_dir",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\models.py",
+        "line": 22,
+        "col": null
+      },
+      {
+        "name": "_teams_root",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\manager.py",
+        "line": 15,
+        "col": null
+      },
+      {
+        "name": "_team_dir",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\manager.py",
+        "line": 21,
+        "col": null
+      },
+      {
+        "name": "add_member",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\manager.py",
+        "line": 164,
+        "col": null
+      },
+      {
+        "name": "discover_teams",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\manager.py",
+        "line": 115,
+        "col": null
+      },
+      {
+        "name": "collect_overview",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\board\\collector.py",
+        "line": 199,
+        "col": null
+      },
+      {
+        "name": "_claimable_paths",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\transport\\file.py",
+        "line": 76,
+        "col": null
+      },
+      {
+        "name": "count",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\transport\\file.py",
+        "line": 250,
+        "col": null
+      },
+      {
+        "name": "peek_count",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\mailbox.py",
+        "line": 217,
+        "col": null
+      },
+      {
+        "name": "collect_team_summary",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\board\\collector.py",
+        "line": 49,
+        "col": null
+      },
+      {
+        "name": "collect_overview",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\board\\collector.py",
+        "line": 204,
+        "col": null
+      },
+      {
+        "name": "ensure_within_root",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\paths.py",
+        "line": 29,
+        "col": null
+      },
+      {
+        "name": "_tasks_root",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\store\\file.py",
+        "line": 27,
+        "col": null
+      },
+      {
+        "name": "_list_tasks_unlocked",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\store\\file.py",
+        "line": 266,
+        "col": null
+      },
+      {
+        "name": "list_tasks",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\store\\file.py",
+        "line": 252,
+        "col": null
+      },
+      {
+        "name": "collect_team",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\board\\collector.py",
+        "line": 95,
+        "col": null
+      },
+      {
+        "name": "__init__",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\mailbox.py",
+        "line": 46,
+        "col": null
+      },
+      {
+        "name": "collect_team",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\board\\collector.py",
+        "line": 73,
+        "col": null
+      },
+      {
+        "name": "_teams_root",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\transport\\file.py",
+        "line": 50,
+        "col": null
+      },
+      {
+        "name": "_inbox_dir",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\transport\\file.py",
+        "line": 55,
+        "col": null
+      },
+      {
+        "name": "count",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\transport\\file.py",
+        "line": 247,
+        "col": null
+      },
+      {
+        "name": "collect_team",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\board\\collector.py",
+        "line": 88,
+        "col": null
+      },
+      {
+        "name": "_registry_repo_root",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\workspace\\context.py",
+        "line": 18,
+        "col": null
+      },
+      {
+        "name": "_resolve_repo_path",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\workspace\\context.py",
+        "line": 33,
+        "col": null
+      },
+      {
+        "name": "_ws_manager",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\workspace\\context.py",
+        "line": 37,
+        "col": null
+      },
+      {
+        "name": "detect_overlaps",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\workspace\\conflicts.py",
+        "line": 25,
+        "col": null
+      },
+      {
+        "name": "collect_team",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\board\\collector.py",
+        "line": 163,
+        "col": null
+      },
+      {
+        "name": "_run",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\workspace\\git.py",
+        "line": 15,
+        "col": null
+      },
+      {
+        "name": "current_branch",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\workspace\\git.py",
+        "line": 43,
+        "col": null
+      },
+      {
+        "name": "__init__",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\workspace\\manager.py",
+        "line": 59,
+        "col": null
+      },
+      {
+        "name": "try_create",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\workspace\\manager.py",
+        "line": 303,
+        "col": null
+      },
+      {
+        "name": "_ws_manager",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\workspace\\context.py",
+        "line": 39,
+        "col": null
+      },
+      {
+        "name": "create_team",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\manager.py",
+        "line": 106,
+        "col": null
+      },
+      {
+        "name": "deliver",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\transport\\file.py",
+        "line": 146,
+        "col": null
+      },
+      {
+        "name": "send",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\mailbox.py",
+        "line": 120,
+        "col": null
+      },
+      {
+        "name": "_costs_root",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\costs.py",
+        "line": 77,
+        "col": null
+      },
+      {
+        "name": "_summary_cache_path",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\costs.py",
+        "line": 83,
+        "col": null
+      },
+      {
+        "name": "_sync_summary_cache",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\costs.py",
+        "line": 164,
+        "col": null
+      },
+      {
+        "name": "summary",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\costs.py",
+        "line": 277,
+        "col": null
+      },
+      {
+        "name": "collect_team",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\board\\collector.py",
+        "line": 148,
+        "col": null
+      },
+      {
+        "name": "save_config",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\config.py",
+        "line": 95,
+        "col": null
+      },
+      {
+        "name": "config_set",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\cli\\commands.py",
+        "line": 223,
+        "col": null
+      },
+      {
+        "name": "atomic_write_text",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\fileutil.py",
+        "line": 41,
+        "col": null
+      },
+      {
+        "name": "_config_path",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\manager.py",
+        "line": 25,
+        "col": null
+      },
+      {
+        "name": "_load_config",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\manager.py",
+        "line": 29,
+        "col": null
+      },
+      {
+        "name": "get_leader_inbox",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\manager.py",
+        "line": 248,
+        "col": null
+      },
+      {
+        "name": "team_request_join",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\cli\\commands.py",
+        "line": 1240,
+        "col": null
+      },
+      {
+        "name": "deliver",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\transport\\file.py",
+        "line": 148,
+        "col": null
+      },
+      {
+        "name": "team_request_join",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\cli\\commands.py",
+        "line": 1250,
+        "col": null
+      },
+      {
+        "name": "_log_event",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\mailbox.py",
+        "line": 59,
+        "col": null
+      },
+      {
+        "name": "send",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\mailbox.py",
+        "line": 122,
+        "col": null
+      },
+      {
+        "name": "create_team",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\manager.py",
+        "line": 88,
+        "col": null
+      },
+      {
+        "name": "__init__",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\mailbox.py",
+        "line": 45,
+        "col": null
+      },
+      {
+        "name": "inbox_send",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\cli\\commands.py",
+        "line": 1725,
+        "col": null
+      },
+      {
+        "name": "create_team",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\manager.py",
+        "line": 107,
+        "col": null
+      },
+      {
+        "name": "_save_config",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\manager.py",
+        "line": 39,
+        "col": null
+      },
+      {
+        "name": "add_member",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\manager.py",
+        "line": 162,
+        "col": null
+      },
+      {
+        "name": "_teams_root",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\manager.py",
+        "line": 16,
+        "col": null
+      },
+      {
+        "name": "get_member",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\manager.py",
+        "line": 64,
+        "col": null
+      },
+      {
+        "name": "resolve_inbox",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\manager.py",
+        "line": 240,
+        "col": null
+      },
+      {
+        "name": "lifecycle_should_keepalive",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\cli\\commands.py",
+        "line": 2950,
+        "col": null
+      },
+      {
+        "name": "fetch",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\transport\\file.py",
+        "line": 235,
+        "col": null
+      },
+      {
+        "name": "peek",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\mailbox.py",
+        "line": 213,
+        "col": null
+      },
+      {
+        "name": "lifecycle_should_keepalive",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\cli\\commands.py",
+        "line": 2952,
+        "col": null
+      },
+      {
+        "name": "get_team",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\manager.py",
+        "line": 136,
+        "col": null
+      },
+      {
+        "name": "team_status",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\cli\\commands.py",
+        "line": 1534,
+        "col": null
+      },
+      {
+        "name": "_load_config",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\manager.py",
+        "line": 33,
+        "col": null
+      },
+      {
+        "name": "list_members",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\manager.py",
+        "line": 224,
+        "col": null
+      },
+      {
+        "name": "repo_root",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\workspace\\git.py",
+        "line": 37,
+        "col": null
+      },
+      {
+        "name": "__init__",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\workspace\\manager.py",
+        "line": 58,
+        "col": null
+      },
+      {
+        "name": "board_update",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\cli\\commands.py",
+        "line": 3364,
+        "col": null
+      },
+      {
+        "name": "_fmt",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\cli\\commands.py",
+        "line": 3002,
+        "col": null
+      },
+      {
+        "name": "_output",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\cli\\commands.py",
+        "line": 81,
+        "col": null
+      },
+      {
+        "name": "lifecycle_check_zombies",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\cli\\commands.py",
+        "line": 3015,
+        "col": null
+      },
+      {
+        "name": "_registry_path",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\spawn\\registry.py",
+        "line": 22,
+        "col": null
+      },
+      {
+        "name": "get_registry",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\spawn\\registry.py",
+        "line": 52,
+        "col": null
+      },
+      {
+        "name": "_resolve_runtime_backend",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\cli\\commands.py",
+        "line": 1909,
+        "col": null
+      },
+      {
+        "name": "runtime_watch",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\cli\\commands.py",
+        "line": 1979,
+        "col": null
+      },
+      {
+        "name": "_save_config",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\manager.py",
+        "line": 40,
+        "col": null
+      },
+      {
+        "name": "run_command",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\cli\\commands.py",
+        "line": 4517,
+        "col": null
+      },
+      {
+        "name": "ensure_within_root",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\paths.py",
+        "line": 31,
+        "col": null
+      },
+      {
+        "name": "atomic_write_text",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\fileutil.py",
+        "line": 44,
+        "col": null
+      },
+      {
+        "name": "report",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\costs.py",
+        "line": 251,
+        "col": null
+      },
+      {
+        "name": "file_locked",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\fileutil.py",
+        "line": 66,
+        "col": null
+      },
+      {
+        "name": "_record_event_in_summary_cache",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\costs.py",
+        "line": 204,
+        "col": null
+      },
+      {
+        "name": "report",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\costs.py",
+        "line": 259,
+        "col": null
+      },
+      {
+        "name": "_read_event_file",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\costs.py",
+        "line": 88,
+        "col": null
+      },
+      {
+        "name": "list_events",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\costs.py",
+        "line": 268,
+        "col": null
+      },
+      {
+        "name": "atomic_write_text",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\fileutil.py",
+        "line": 42,
+        "col": null
+      },
+      {
+        "name": "_write_summary_cache",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\costs.py",
+        "line": 115,
+        "col": null
+      },
+      {
+        "name": "_record_event_in_summary_cache",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\costs.py",
+        "line": 208,
+        "col": null
+      },
+      {
+        "name": "_load_summary_cache",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\costs.py",
+        "line": 99,
+        "col": null
+      },
+      {
+        "name": "_record_event_in_summary_cache",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\costs.py",
+        "line": 205,
+        "col": null
+      },
+      {
+        "name": "_write_summary_cache",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\costs.py",
+        "line": 114,
+        "col": null
+      },
+      {
+        "name": "handler",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\events\\hooks.py",
+        "line": 91,
+        "col": null
+      },
+      {
+        "name": "emit",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\events\\bus.py",
+        "line": 97,
+        "col": null
+      },
+      {
+        "name": "atomic_write_text",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\fileutil.py",
+        "line": 46,
+        "col": null
+      },
+      {
+        "name": "file_locked",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\fileutil.py",
+        "line": 78,
+        "col": null
+      },
+      {
+        "name": "file_locked",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\fileutil.py",
+        "line": 65,
+        "col": null
+      },
+      {
+        "name": "file_locked",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\fileutil.py",
+        "line": 81,
+        "col": null
+      },
+      {
+        "name": "record_exit",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\harness\\exit_journal.py",
+        "line": 34,
+        "col": null
+      },
+      {
+        "name": "write",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\harness\\artifacts.py",
+        "line": 28,
+        "col": null
+      },
+      {
+        "name": "write_sprint_contract",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\harness\\artifacts.py",
+        "line": 74,
+        "col": null
+      },
+      {
+        "name": "_tasks_root",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\store\\file.py",
+        "line": 29,
+        "col": null
+      },
+      {
+        "name": "_validate_blocked_by_unlocked",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\store\\file.py",
+        "line": 297,
+        "col": null
+      },
+      {
+        "name": "create",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\store\\file.py",
+        "line": 96,
+        "col": null
+      },
+      {
+        "name": "create_tasks_from_contracts",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\harness\\contract_executor.py",
+        "line": 82,
+        "col": null
+      },
+      {
+        "name": "_env",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\identity.py",
+        "line": 32,
+        "col": null
+      },
+      {
+        "name": "from_env",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\identity.py",
+        "line": 78,
+        "col": null
+      },
+      {
+        "name": "send_idle",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\lifecycle.py",
+        "line": 73,
+        "col": null
+      },
+      {
+        "name": "<genexpr>",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\transport\\file.py",
+        "line": 251,
+        "col": null
+      },
+      {
+        "name": "count",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\transport\\file.py",
+        "line": 248,
+        "col": null
+      },
+      {
+        "name": "_registry_repo_root",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\workspace\\context.py",
+        "line": 16,
+        "col": null
+      },
+      {
+        "name": "file_owners",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\workspace\\context.py",
+        "line": 126,
+        "col": null
+      },
+      {
+        "name": "detect_overlaps",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\workspace\\conflicts.py",
+        "line": 24,
+        "col": null
+      },
+      {
+        "name": "approve_shutdown",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\lifecycle.py",
+        "line": 40,
+        "col": null
+      },
+      {
+        "name": "_parse_claimed_messages",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\mailbox.py",
+        "line": 185,
+        "col": null
+      },
+      {
+        "name": "receive",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\mailbox.py",
+        "line": 196,
+        "col": null
+      },
+      {
+        "name": "add_member",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\manager.py",
+        "line": 149,
+        "col": null
+      },
+      {
+        "name": "_inbox_dir",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\transport\\file.py",
+        "line": 60,
+        "col": null
+      },
+      {
+        "name": "deliver",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\transport\\file.py",
+        "line": 139,
+        "col": null
+      },
+      {
+        "name": "_log_event",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\mailbox.py",
+        "line": 54,
+        "col": null
+      },
+      {
+        "name": "claim_messages",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\transport\\file.py",
+        "line": 162,
+        "col": null
+      },
+      {
+        "name": "broadcast",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\mailbox.py",
+        "line": 152,
+        "col": null
+      },
+      {
+        "name": "get_data_dir",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\models.py",
+        "line": 21,
+        "col": null
+      },
+      {
+        "name": "send",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\mailbox.py",
+        "line": 95,
+        "col": null
+      },
+      {
+        "name": "claim_messages",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\transport\\file.py",
+        "line": 156,
+        "col": null
+      },
+      {
+        "name": "_dead_letter_dir",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\transport\\file.py",
+        "line": 71,
+        "col": null
+      },
+      {
+        "name": "_quarantine_bytes",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\transport\\file.py",
+        "line": 200,
+        "col": null
+      },
+      {
+        "name": "_quarantine",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\transport\\file.py",
+        "line": 128,
+        "col": null
+      },
+      {
+        "name": "_parse_claimed_messages",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\team\\mailbox.py",
+        "line": 187,
+        "col": null
+      },
+      {
+        "name": "_inbox_dir",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\transport\\file.py",
+        "line": 58,
+        "col": null
+      },
+      {
+        "name": "fetch",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\transport\\file.py",
+        "line": 227,
+        "col": null
+      },
+      {
+        "name": "_is_locked",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\transport\\file.py",
+        "line": 90,
+        "col": null
+      },
+      {
+        "name": "fetch",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\transport\\file.py",
+        "line": 238,
+        "col": null
+      },
+      {
+        "name": "_is_local_host",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\transport\\p2p.py",
+        "line": 83,
+        "col": null
+      },
+      {
+        "name": "_get_peer_addr",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\transport\\p2p.py",
+        "line": 156,
+        "col": null
+      },
+      {
+        "name": "_get_peer_addr",
+        "file": "D:\\aiden-mpco\\repos\\projects\\ClawTeam\\clawteam\\transport\\p2p.py",
+        "line": 152,
+        "col": null
+      }
+    ]
+  },
+  "activeProfileIndex": null,
+  "exporter": "py-spy@0.4.1",
+  "name": "py-spy profile"
+}

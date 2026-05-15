@@ -13,7 +13,7 @@ _task_info: dict = json.loads((_PROMPTS_DIR / "task_info.json").read_text())
 
 
 class GeneratedPrompt(BaseModel):
-    prompt: str = Field(description="The optimization system prompt to send to the agent")
+    prompt: str = Field(description="A system prompt that instructs an LLM to optimize Python code for runtime. Plain text, no markdown.")
 
 def _context(proj_name: str, agent_name: str) -> dict:
     proj = _project_info.get(proj_name, {})
@@ -31,23 +31,17 @@ def _context(proj_name: str, agent_name: str) -> dict:
 def _base_system(objective, p_name, p_desc, p_lang,
                  t_desc, t_cons, llm_name, llm_cons) -> str:
     return dedent(f"""\
-        You are an expert in code optimization. Please optimize the provided code for {objective}. Consider the project context, task context, and adapt your optimization approach accordingly.
+        Optimize the given code for {objective}.
 
-        ## Project Context
-        Project Name: {p_name}
-        Project Description: {p_desc}
-        Primary Languages: {p_lang}
+        Project: {p_name} ({p_lang}) — {p_desc}
+        Task: {t_desc}
+        Optimization levers: {t_cons}
+        Model ({llm_name}) notes: {llm_cons}
 
-        ## Task Context
-        - Description: {t_desc}
-        - Considerations: {t_cons}
-
-        ## Target LLM Context
-        - Target Model: {llm_name}
-        - Considerations: {llm_cons}""")
+        Output: only the optimized code, preserving the original signature. No markdown, comments, or prose.""")
 
 
-_HUMAN = "Enclosing scope: {scope}\n\nObject to be optimized: {code}"
+_HUMAN = "Scope: {scope}\nCode:\n{code}"
 
 def _base_prompt(proj_name: str, agent_name: str) -> ChatPromptTemplate:
     system = _base_system(**_context(proj_name, agent_name))
@@ -60,20 +54,29 @@ def _base_prompt(proj_name: str, agent_name: str) -> ChatPromptTemplate:
 def _few_shot_prompt(proj_name: str, agent_name: str) -> ChatPromptTemplate:
     system = _base_system(**_context(proj_name, agent_name))
     few_shot = dedent("""\
-        Here are examples of code optimization:
-        Example 1 - Loop optimization:
-        Original: for i in range(len(arr)): if arr[i] > threshold: result.append(arr[i])
-        Optimized: result = [x for x in arr if x > threshold]
+        Examples (Original -> Optimized):
 
-        Example 2 - Algorithm optimization:
-        Original: for i in range(n): for j in range(n): if matrix[i][j] > 0: count += 1
-        Optimized: count = np.sum(matrix > 0)
+        1) Loop:
+        for i in range(len(arr)):
+            if arr[i] > threshold: result.append(arr[i])
+        ->
+        result = [x for x in arr if x > threshold]
 
-        Example 3 - Data structure optimization:
-        Original: items = []; for x in data: items.append(x); return sorted(items)
-        Optimized: return sorted(data)
+        2) Algorithm:
+        for i in range(n):
+            for j in range(n):
+                if matrix[i][j] > 0: count += 1
+        ->
+        count = np.sum(matrix > 0)
 
-        Now optimize the code for better runtime performance, then provide only the final optimized code.""")
+        3) Data structure:
+        items = []
+        for x in data: items.append(x)
+        return sorted(items)
+        ->
+        return sorted(data)
+
+        Apply the same pattern. Emit only the optimized code.""")
     return ChatPromptTemplate.from_messages([
         ("system", system),
         ("human", few_shot + "\n\n" + _HUMAN),
@@ -83,16 +86,12 @@ def _few_shot_prompt(proj_name: str, agent_name: str) -> ChatPromptTemplate:
 def _cot_prompt(proj_name: str, agent_name: str) -> ChatPromptTemplate:
     system = _base_system(**_context(proj_name, agent_name))
     cot = dedent("""\
-        Let's optimize the following code step by step:
+        Before emitting code, work through these steps internally (do not write them out):
+        1. Locate the bottleneck (loops, redundant work, bad data structure, O(n^2) where O(n) exists).
+        2. Pick one optimization (vectorization, comprehension, builtin, better structure, hoisted invariant).
+        3. Verify the rewrite preserves the signature and behavior.
 
-        Please follow these reasoning steps:
-        1. First, analyze the current code to identify performance bottlenecks
-        2. Consider different optimization strategies (algorithmic, data structure, loop optimization, etc.)
-        3. Evaluate the trade-offs of each approach
-        4. Select the best optimization strategy
-        5. Implement the optimized version
-
-        Think through each step, then provide only the final optimized code.""")
+        Emit only the optimized code. No reasoning, no steps, no prose.""")
     return ChatPromptTemplate.from_messages([
         ("system", system),
         ("human", cot + "\n\n" + _HUMAN),
@@ -100,58 +99,58 @@ def _cot_prompt(proj_name: str, agent_name: str) -> ChatPromptTemplate:
 
 
 def rmp_proposer(proj_name: str, agent_name: str) -> ChatPromptTemplate:
-    """L3 meta-meta-prompt: instructs GPT-4o HOW to design optimization prompts."""
+    """L3 meta-meta-prompt: instructs the proposer LLM HOW to design an optimization prompt."""
     ctx = _context(proj_name, agent_name)
     system = dedent(f"""\
-        Task: Design a Code Optimization Prompt
+        Write a system prompt that instructs an LLM to optimize Python functions for {ctx['objective']} while preserving the original signature and behavior.
 
-        1. Context Analysis:
-           - Project: {ctx['p_name']} — {ctx['p_desc']}
-           - Languages: {ctx['p_lang']}
-           - Target model: {ctx['llm_name']}
-           - Objective: {ctx['objective']}
+        Inputs to weave in:
+        - Project: {ctx['p_name']} — {ctx['p_desc']} (langs: {ctx['p_lang']})
+        - Target model: {ctx['llm_name']}; constraints: {ctx['llm_cons']}
+        - Optimization levers to mention: {ctx['t_cons']}
 
-        2. Task Interpretation:
-           - The prompt must instruct the target LLM to optimize Python functions
-             for runtime performance while preserving correctness.
-           - Considerations: {ctx['t_cons']}
-           - Model-specific considerations: {ctx['llm_cons']}
+        The prompt you produce must contain these sections, in order, each on its own line(s):
+        Objective: <one sentence stating the goal>
+        Steps:
+        1) Identify the runtime bottleneck.
+        2) Apply the strongest applicable optimization (vectorization, comprehension, builtin, better data structure, reduced complexity).
+        3) Preserve the function signature and external behavior.
+        Output: only the optimized code, no markdown, no comments, no prose.
 
-        3. Prompt Design:
-           - Design a structured system prompt for the target LLM.
-           - Include: optimization objectives, step-by-step reasoning guidance,
-             relevant techniques (algorithmic complexity, data structures,
-             Python-specific optimizations like list comprehensions, generators,
-             built-in functions, numpy vectorization).
-           - The prompt should be general-purpose for any Python function in
-             this project, not tied to a specific code snippet.
-
-        4. Output: Generate the system prompt.""")
-    return ChatPromptTemplate.from_messages([("system", system)])
+        Keep the prompt under 200 words. Make it general for any Python function in this project, not tied to one snippet. Emit only the prompt text.""")
+    # A human turn is required: without one, Qwen3.5-9B-Q4 emits the answer as
+    # plain assistant text and never produces the tool_call that
+    # with_structured_output(method="function_calling") expects, leaving
+    # parsed=None at chain.py:52 and breaking every RMP retry.
+    return ChatPromptTemplate.from_messages([
+        ("system", system),
+        ("human", "Generate the optimization prompt now."),
+    ])
 
 
 def rmp_refiner(proj_name: str, agent_name: str) -> ChatPromptTemplate:
-    """Refinement prompt: asks GPT-4o to improve an existing optimization prompt."""
+    """Refinement prompt: asks the refiner LLM to verify or edit an existing optimization prompt."""
     ctx = _context(proj_name, agent_name)
     system = dedent(f"""\
-        You are refining a code optimization prompt. Your goal is to make it more
-        specific, structured, and effective for the target model.
+        Verify the prompt below against this checklist:
+        [A] Has an "Objective:" line naming runtime/{ctx['objective']} as the goal.
+        [B] Has a numbered "Steps:" list (>= 2 steps) covering bottleneck identification and at least one concrete optimization technique.
+        [C] Has an "Output:" line restricting output to code only with no markdown or prose.
+        [D] Mentions preserving the original function signature/behavior.
+        [E] Is general for any Python function in {ctx['p_name']}, not tied to a single snippet.
 
-        Project: {ctx['p_name']} — {ctx['p_desc']}
-        Target model: {ctx['llm_name']}
-        Objective: {ctx['objective']}
+        Decision rule:
+        - If every item [A]-[E] is present and concrete, return the prompt UNCHANGED, byte-for-byte.
+        - Otherwise, return a revised prompt that adds the missing items, keeping all existing concrete content.
 
-        Review the current prompt below and refine it. Consider:
-        - Is the reasoning structure clear and actionable?
-        - Are optimization techniques specific enough for Python?
-        - Does it account for the target model's strengths and tendencies?
-        - Is the output format unambiguous?
+        Do not add prose around the prompt. Do not wrap it in markdown. Emit only the prompt text.
 
-        If the prompt is already optimal, return it unchanged.
-
-        Current prompt to refine:
+        Prompt to verify:
         {{p_current}}""")
-    return ChatPromptTemplate.from_messages([("system", system)])
+    return ChatPromptTemplate.from_messages([
+        ("system", system),
+        ("human", "Verify or revise the prompt now per the checklist."),
+    ])
 
 PROMPTS: dict[str, callable] = {
     "base": _base_prompt,

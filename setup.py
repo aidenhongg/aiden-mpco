@@ -36,7 +36,7 @@ def _remove_readonly(func, path, _):
 def _clone_repo(author, name):
     repo_path = PROJECTS_DIR / name
     if repo_path.is_dir():
-        shutil.rmtree(repo_path, onexc=_remove_readonly)
+        shutil.rmtree(repo_path, onerror=_remove_readonly)
 
     try:
         subprocess.run(
@@ -73,13 +73,19 @@ def _clone_repo(author, name):
 
     except Exception:
         if repo_path.is_dir():
-            shutil.rmtree(repo_path, onexc=_remove_readonly)
+            shutil.rmtree(repo_path, onerror=_remove_readonly)
         raise
 
 
-def _run_cmd(cmd, cwd=None, shell=False, check=True):
+PYTEST_TIMEOUT = 1200  # 20 min cap per screening pytest run
+
+
+def _run_cmd(cmd, cwd=None, shell=False, check=True, timeout=None):
     str_cmd = [str(arg) for arg in cmd] if not shell else cmd
-    return subprocess.run(str_cmd, cwd=cwd, check=check, capture_output=False, shell=shell)
+    return subprocess.run(
+        str_cmd, cwd=cwd, check=check, capture_output=False, shell=shell,
+        timeout=timeout,
+    )
 
 
 def _parse_missing_modules(report):
@@ -118,11 +124,17 @@ def _create_venv(name):
         "&& python -m ensurepip --upgrade && python -m pip install pytest"
     )), shell=True)
 
-    result = _run_cmd([venvpy, '-m', 'pytest', f"--junitxml={report_path}"], cwd=repo_path, check=False)
+    result = _run_cmd(
+        [venvpy, '-m', 'pytest', f"--junitxml={report_path}"],
+        cwd=repo_path, check=False, timeout=PYTEST_TIMEOUT,
+    )
     if result.returncode > 1:
         modules = _parse_missing_modules(report_path)
         _run_cmd([venvpy, '-m', 'pip', 'install', *modules])
-        result = _run_cmd([venvpy, '-m', 'pytest'], cwd=repo_path, check=False)
+        result = _run_cmd(
+            [venvpy, '-m', 'pytest'], cwd=repo_path, check=False,
+            timeout=PYTEST_TIMEOUT,
+        )
         if result.returncode > 1:
             raise RuntimeError(f"Tests failed to run in {name}")
 
@@ -130,7 +142,7 @@ def _create_venv(name):
 def _cleanup(name):
     for path in (PROJECTS_DIR / name, VENVS_DIR / name):
         if path.is_dir():
-            shutil.rmtree(path, onexc=_remove_readonly)
+            shutil.rmtree(path, onerror=_remove_readonly)
 
 
 def _fetch_project_info(gh, author, name):
@@ -145,7 +157,9 @@ def _setup_repo(gh, author, name):
     _clone_repo(author, name)
     _create_venv(name)
     profile = ProjProfile(name)
-    profile.initialize()
+    # setup=True does a single profile pass for screening; mainloop.py
+    # re-runs initialize() to get the full 10-run baseline at experiment time.
+    profile.initialize(setup=True)
     if len(profile.top_bottlenecks) <= 6:
         raise ValueError(f"Insufficient bottlenecks ({len(profile.top_bottlenecks)})")
     return _fetch_project_info(gh, author, name)

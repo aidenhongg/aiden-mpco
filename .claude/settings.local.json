@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(pip show *)"
+      "Bash(pip show *)",
+      "Bash(rm -f /d/aiden-mpco/setup_p6.log)",
+      "Bash(rm -rf /d/aiden-mpco/repos/projects/* /d/aiden-mpco/repos/venvs/*)"
     ]
   }
 }

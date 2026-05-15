@@ -9,20 +9,33 @@ Snippet = namedtuple(
     ["rel_path", "base_indent", "code", "start_line", "end_line", "scope"],
 )
 
-def _node_to_obj(node, root_dir : Path):
+
+class SnippetNotFoundError(RuntimeError):
+    """Raised when an AST node from a stale top_bottlenecks list can't be re-resolved
+    in the current file state — typically because an earlier patch reshaped it."""
+
+
+def _node_to_obj(node, root_dir: Path):
     abs_path = node.filename
 
     with open(abs_path, 'r', encoding='utf-8') as f:
         lines = f.readlines()
     relative_path = Path(abs_path).relative_to(root_dir)
-    
+
     tree = ast.parse(''.join(lines), abs_path)
     node_dump = ast.dump(node, include_attributes=False)
 
-    for node_tmp in ast.walk(tree):
-        if node_dump == ast.dump(node_tmp, include_attributes=False):
-            node = node_tmp
-            break
+    fresh = next(
+        (n for n in ast.walk(tree)
+         if node_dump == ast.dump(n, include_attributes=False)),
+        None,
+    )
+    if fresh is None:
+        raise SnippetNotFoundError(
+            f"Snippet '{getattr(node, 'name', '?')}' not found in current state of "
+            f"{abs_path} — likely shifted or removed by an earlier patch"
+        )
+    node = fresh
 
     if hasattr(node, 'decorator_list') and node.decorator_list:
         start_line = node.decorator_list[0].lineno

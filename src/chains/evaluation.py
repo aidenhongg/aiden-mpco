@@ -1,5 +1,6 @@
 import os
 import asyncio
+import difflib
 
 from ragas.metrics import SimpleCriteriaScore
 from ragas.llms import LangchainLLMWrapper
@@ -58,30 +59,21 @@ def score(original: str, optimized: str) -> dict:
 
 
 # ---------------------------------------------------------------------------
-# IsConverged — Ragas-based semantic difference detection for RMP
+# IsConverged — judge-independent prompt convergence via difflib
 # ---------------------------------------------------------------------------
 
-_convergence_metric = SimpleCriteriaScore(
-    name="prompt_difference",
-    definition=(
-        "Compare the refined prompt (response) against the previous prompt (user_input). "
-        "Evaluate how DIFFERENT they are in structure, content, specificity, and reasoning "
-        "guidance. Score 1 if the prompts are essentially identical or nearly unchanged. "
-        "Score 5 if they are substantially different in structure, approach, or content."
-    ),
-    llm=_llm,
-)
-
-CONVERGENCE_THRESHOLD = 2.0
-
-
-async def _is_converged(p_current: str, p_refined: str) -> tuple[bool, float]:
-    if p_current == p_refined:
-        return True, 0.0
-    sample = SingleTurnSample(user_input=p_current, response=p_refined)
-    score = await _convergence_metric.single_turn_ascore(sample)
-    return score <= CONVERGENCE_THRESHOLD, score
+CONVERGENCE_THRESHOLD = 0.95   # similarity ratio: >= 0.95 means converged
 
 
 def is_converged(p_current: str, p_refined: str) -> tuple[bool, float]:
-    return asyncio.run(_is_converged(p_current, p_refined))
+    """Return (converged, ratio).
+
+    Convergence is judged by structural similarity (difflib.SequenceMatcher.ratio,
+    0.0 = totally different, 1.0 = identical). This implements the paper's
+    "no-op detection + max iterations" interpretation (see meta_prompting_paper_analysis.md).
+    Judge-independent: no LLM call, deterministic, free.
+    """
+    if p_current == p_refined:
+        return True, 1.0
+    ratio = difflib.SequenceMatcher(None, p_current, p_refined).ratio()
+    return ratio >= CONVERGENCE_THRESHOLD, ratio

@@ -1,0 +1,392 @@
+{
+  "$schema": "https://www.speedscope.app/file-format-schema.json",
+  "profiles": [
+    {
+      "type": "sampled",
+      "name": "Process 8084 Thread 24072 \"Thread-8 (serve_forever)\"",
+      "unit": "seconds",
+      "startValue": 0.0,
+      "endValue": 0.01,
+      "samples": [],
+      "weights": []
+    },
+    {
+      "type": "sampled",
+      "name": "Process 8084 Thread 24744 \"MainThread\"",
+      "unit": "seconds",
+      "startValue": 0.0,
+      "endValue": 5.63,
+      "samples": [
+        [
+          1,
+          0
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          11,
+          10,
+          9,
+          8,
+          7,
+          6,
+          5,
+          4
+        ],
+        [
+          14,
+          11,
+          13,
+          12
+        ],
+        [
+          14,
+          11,
+          10,
+          9,
+          15
+        ],
+        [
+          16
+        ],
+        [
+          18,
+          17
+        ],
+        [
+          20,
+          19
+        ],
+        [
+          15
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          21
+        ],
+        [
+          11,
+          22,
+          17
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          11,
+          10,
+          9,
+          8,
+          7,
+          21
+        ],
+        [
+          11,
+          24,
+          6,
+          5,
+          23
+        ],
+        [
+          11,
+          24,
+          6,
+          25
+        ],
+        [
+          11,
+          13,
+          26
+        ],
+        [
+          11,
+          24,
+          6,
+          25
+        ],
+        [
+          28,
+          27,
+          0
+        ],
+        [
+          11,
+          10,
+          9,
+          15
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          15
+        ]
+      ],
+      "weights": [
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01
+      ]
+    },
+    {
+      "type": "sampled",
+      "name": "Process 8084 Thread 28324 \"ThreadPoolExecutor-9_0\"",
+      "unit": "seconds",
+      "startValue": 0.0,
+      "endValue": 0.01,
+      "samples": [],
+      "weights": []
+    },
+    {
+      "type": "sampled",
+      "name": "Process 8084 Thread 29788 \"ThreadPoolExecutor-11_2\"",
+      "unit": "seconds",
+      "startValue": 0.0,
+      "endValue": 0.01,
+      "samples": [
+        [
+          29
+        ]
+      ],
+      "weights": [
+        0.01
+      ]
+    },
+    {
+      "type": "sampled",
+      "name": "Process 8084 Thread 30984 \"Thread-4 (serve_forever)\"",
+      "unit": "seconds",
+      "startValue": 0.0,
+      "endValue": 0.04,
+      "samples": [],
+      "weights": []
+    },
+    {
+      "type": "sampled",
+      "name": "Process 8084 Thread 6672 \"Thread-10 (serve_forever)\"",
+      "unit": "seconds",
+      "startValue": 0.0,
+      "endValue": 0.01,
+      "samples": [],
+      "weights": []
+    }
+  ],
+  "shared": {
+    "frames": [
+      {
+        "name": "cleanup",
+        "file": "D:\\aiden-mpco\\repos\\projects\\rlm\\rlm\\environments\\local_repl.py",
+        "line": 547,
+        "col": null
+      },
+      {
+        "name": "__del__",
+        "file": "D:\\aiden-mpco\\repos\\projects\\rlm\\rlm\\environments\\local_repl.py",
+        "line": 556,
+        "col": null
+      },
+      {
+        "name": "__init__",
+        "file": "D:\\aiden-mpco\\repos\\projects\\rlm\\rlm\\environments\\base_env.py",
+        "line": 266,
+        "col": null
+      },
+      {
+        "name": "__init__",
+        "file": "D:\\aiden-mpco\\repos\\projects\\rlm\\rlm\\environments\\local_repl.py",
+        "line": 142,
+        "col": null
+      },
+      {
+        "name": "_temp_cwd",
+        "file": "D:\\aiden-mpco\\repos\\projects\\rlm\\rlm\\environments\\local_repl.py",
+        "line": 476,
+        "col": null
+      },
+      {
+        "name": "execute_code",
+        "file": "D:\\aiden-mpco\\repos\\projects\\rlm\\rlm\\environments\\local_repl.py",
+        "line": 507,
+        "col": null
+      },
+      {
+        "name": "add_context",
+        "file": "D:\\aiden-mpco\\repos\\projects\\rlm\\rlm\\environments\\local_repl.py",
+        "line": 390,
+        "col": null
+      },
+      {
+        "name": "load_context",
+        "file": "D:\\aiden-mpco\\repos\\projects\\rlm\\rlm\\environments\\local_repl.py",
+        "line": 376,
+        "col": null
+      },
+      {
+        "name": "__init__",
+        "file": "D:\\aiden-mpco\\repos\\projects\\rlm\\rlm\\environments\\local_repl.py",
+        "line": 165,
+        "col": null
+      },
+      {
+        "name": "get_environment",
+        "file": "D:\\aiden-mpco\\repos\\projects\\rlm\\rlm\\environments\\__init__.py",
+        "line": 54,
+        "col": null
+      },
+      {
+        "name": "_spawn_completion_context",
+        "file": "D:\\aiden-mpco\\repos\\projects\\rlm\\rlm\\core\\rlm.py",
+        "line": 228,
+        "col": null
+      },
+      {
+        "name": "completion",
+        "file": "D:\\aiden-mpco\\repos\\projects\\rlm\\rlm\\core\\rlm.py",
+        "line": 273,
+        "col": null
+      },
+      {
+        "name": "start",
+        "file": "D:\\aiden-mpco\\repos\\projects\\rlm\\rlm\\core\\lm_handler.py",
+        "line": 194,
+        "col": null
+      },
+      {
+        "name": "_spawn_completion_context",
+        "file": "D:\\aiden-mpco\\repos\\projects\\rlm\\rlm\\core\\rlm.py",
+        "line": 203,
+        "col": null
+      },
+      {
+        "name": "_subcall",
+        "file": "D:\\aiden-mpco\\repos\\projects\\rlm\\rlm\\core\\rlm.py",
+        "line": 683,
+        "col": null
+      },
+      {
+        "name": "__init__",
+        "file": "D:\\aiden-mpco\\repos\\projects\\rlm\\rlm\\environments\\local_repl.py",
+        "line": 152,
+        "col": null
+      },
+      {
+        "name": "<module>",
+        "file": "D:\\aiden-mpco\\repos\\projects\\rlm\\rlm\\clients\\__init__.py",
+        "line": 8,
+        "col": null
+      },
+      {
+        "name": "stop",
+        "file": "D:\\aiden-mpco\\repos\\projects\\rlm\\rlm\\core\\lm_handler.py",
+        "line": 200,
+        "col": null
+      },
+      {
+        "name": "__exit__",
+        "file": "D:\\aiden-mpco\\repos\\projects\\rlm\\rlm\\core\\lm_handler.py",
+        "line": 212,
+        "col": null
+      },
+      {
+        "name": "<listcomp>",
+        "file": "D:\\aiden-mpco\\repos\\projects\\rlm\\rlm\\core\\comms_utils.py",
+        "line": 260,
+        "col": null
+      },
+      {
+        "name": "send_lm_request_batched",
+        "file": "D:\\aiden-mpco\\repos\\projects\\rlm\\rlm\\core\\comms_utils.py",
+        "line": 259,
+        "col": null
+      },
+      {
+        "name": "add_context",
+        "file": "D:\\aiden-mpco\\repos\\projects\\rlm\\rlm\\environments\\local_repl.py",
+        "line": 388,
+        "col": null
+      },
+      {
+        "name": "_spawn_completion_context",
+        "file": "D:\\aiden-mpco\\repos\\projects\\rlm\\rlm\\core\\rlm.py",
+        "line": 234,
+        "col": null
+      },
+      {
+        "name": "_temp_cwd",
+        "file": "D:\\aiden-mpco\\repos\\projects\\rlm\\rlm\\environments\\local_repl.py",
+        "line": 473,
+        "col": null
+      },
+      {
+        "name": "_spawn_completion_context",
+        "file": "D:\\aiden-mpco\\repos\\projects\\rlm\\rlm\\core\\rlm.py",
+        "line": 213,
+        "col": null
+      },
+      {
+        "name": "execute_code",
+        "file": "D:\\aiden-mpco\\repos\\projects\\rlm\\rlm\\environments\\local_repl.py",
+        "line": 510,
+        "col": null
+      },
+      {
+        "name": "start",
+        "file": "D:\\aiden-mpco\\repos\\projects\\rlm\\rlm\\core\\lm_handler.py",
+        "line": 190,
+        "col": null
+      },
+      {
+        "name": "close",
+        "file": "D:\\aiden-mpco\\repos\\projects\\rlm\\rlm\\core\\rlm.py",
+        "line": 749,
+        "col": null
+      },
+      {
+        "name": "__exit__",
+        "file": "D:\\aiden-mpco\\repos\\projects\\rlm\\rlm\\core\\rlm.py",
+        "line": 756,
+        "col": null
+      },
+      {
+        "name": "_run_subcall",
+        "file": "D:\\aiden-mpco\\repos\\projects\\rlm\\rlm\\environments\\local_repl.py",
+        "line": 350,
+        "col": null
+      }
+    ]
+  },
+  "activeProfileIndex": null,
+  "exporter": "py-spy@0.4.1",
+  "name": "py-spy profile"
+}

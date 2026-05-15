@@ -91,10 +91,15 @@ class ProjProfile:
 
     def initialize(self, setup=False):
         running_total = 0.0
-        last_failure_count = None
+        # Take the worst (max) failure count across baseline runs as the
+        # threshold, not just the last sample. A flaky test that fails
+        # intermittently shows up in some baseline runs but not others; using
+        # the max absorbs that variance so post-optimization runs aren't
+        # rejected when the same flake recurs.
+        max_failure_count: int | None = None
         profile_count = self.baseline_runs if not setup else 1
         for _ in range(profile_count):
-            last_failure_count, duration, _ = _construct_profile(
+            sample_failure_count, duration, _ = _construct_profile(
                 proj_name=self.proj_name,
                 venv_python=self.venv_python,
                 output_file=self.raw_profile_path,
@@ -103,16 +108,23 @@ class ProjProfile:
                 report_path=self.report_path,
             )
             running_total += duration
+            if max_failure_count is None or sample_failure_count > max_failure_count:
+                max_failure_count = sample_failure_count
         self.start_runtime = running_total / (profile_count)
 
-        self.failure_count = last_failure_count
+        self.failure_count = max_failure_count
         if self.failure_count is None:
             raise RuntimeError(f"No failure count available for project {self.proj_name}")
         self.top_bottlenecks = _speedscope_bottlenecks(self.filtered_profile_path, self.top_k)
 
     def yield_snippet(self):
+        from .snippets import SnippetNotFoundError
         for node in self.top_bottlenecks:
-            yield _node_to_obj(node, self.repo_path)
+            try:
+                yield _node_to_obj(node, self.repo_path)
+            except SnippetNotFoundError as e:
+                print(f"  [SKIP-STALE] {e}")
+                continue
 
     def check_patch(self):
         new_failure_count, new_runtime, failure_details = _construct_profile(
@@ -128,6 +140,12 @@ class ProjProfile:
             raise RuntimeError(f"No failure count available for project {self.proj_name}")
         if self.failure_count is None:
             raise RuntimeError("Baseline failure count is not initialized")
+        # Compare against the immutable baseline captured in initialize(), not a
+        # drifting "last successful" count. Mutating self.failure_count after
+        # each accepted patch let lucky flake-passes lower the bar; subsequent
+        # check_patch calls — including the 10-run new_average_runtime sweep —
+        # would then flag normal flake recurrence as regression and silently
+        # null out end_runtime_avg.
         if new_failure_count > self.failure_count:
             raise TestRegressionError(
                 proj_name=self.proj_name,
@@ -136,7 +154,6 @@ class ProjProfile:
                 failures=failure_details,
             )
 
-        self.failure_count = new_failure_count
         return new_runtime
     
     def new_average_runtime(self):
@@ -178,6 +195,7 @@ def _construct_profile(
             ],
             capture_output=False,
             cwd=repo_path,
+            timeout=1200,
         )
     except KeyboardInterrupt:
         print("Tests halted - speedscope saved")
@@ -408,13 +426,17 @@ def _is_import_line(file_path: str, line_number: int) -> bool:
 
 
 def _get_node(abs_path : str, target : int):
-    if target <= 0:
+    if target <= 0 or not abs_path.endswith('.py'):
         return None
 
-    with open(abs_path, 'r', encoding='utf-8') as f:
-        lines = f.readlines()
-    
-    tree = ast.parse(''.join(lines), abs_path)
+    try:
+        with open(abs_path, 'r', encoding='utf-8') as f:
+            lines = f.readlines()
+        tree = ast.parse(''.join(lines), abs_path)
+    except (SyntaxError, UnicodeDecodeError, OSError):
+        # py-spy occasionally surfaces frames from non-Python files via
+        # template rendering / dynamic imports; skip them.
+        return None
                 
     best_match = None
     smallest_size = float('inf')

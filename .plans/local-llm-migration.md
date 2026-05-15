@@ -1,9 +1,9 @@
 # Local LLM Migration
 
-**Status:** IN_PROGRESS
+**Status:** P6 PARTIAL (resample done, full run pending)
 **Created:** 2026-05-05
 **Owner:** aidenhong77@gmail.com
-**Last update:** 2026-05-05 — P1–P5 landed in commits 91ab9db, 4f4c0ca, b488df4, 02c1fb9, e32258f. P6 is the operator gate (resample + run).
+**Last update:** 2026-05-05 — P1–P5 landed in commits 91ab9db, 4f4c0ca, b488df4, 02c1fb9, e32258f. P6 resample completed (10 post-cutoff repos in `repos.json`); full `python main.py` run intentionally deferred to operator.
 
 ## Goal
 
@@ -111,10 +111,52 @@ JSON-mode discipline, no thinking tags in code output).
 - [x] **P5 — Resample repos (code-only).** Bumped `CREATED_AFTER` to `2025-12-01`. Operator
   follow-up: wipe `repos.json` / `repos/` / `src/profiler/profiles/`, run
   `python setup.py -s 10`. If yield < 5, drop `MIN_STARS` to 50 and retry.
-- [ ] **P6 — Full run (operator).** Set `LOCAL_LLM_BASE_URL` + `LOCAL_LLM_MODEL` in `.env`,
-  start Ollama on the RTX box with `OLLAMA_KV_CACHE_TYPE=q4_0` + flash attention, then
-  `python main.py` and regenerate graphs. Sanity-check `results.json` schema is intact and
-  metrics are populated.
+- [~] **P6 — Full run (operator).** Partially complete:
+  - [x] Ollama 0.23.0 installed to `D:\Ollama` via `OllamaSetup.exe /VERYSILENT /DIR=D:\Ollama`.
+  - [x] User-scope env vars set (persistent): `OLLAMA_MODELS=D:\Ollama\models`,
+    `OLLAMA_KV_CACHE_TYPE=q4_0`, `OLLAMA_FLASH_ATTENTION=1`, `OLLAMA_CONTEXT_LENGTH=8192`.
+    Note: this harness's PowerShell sessions don't auto-inherit User-scope vars, so the
+    serve daemon must be launched from a shell that explicitly sets them or after a fresh
+    login. The Ollama tray app launched from Start Menu *does* inherit them.
+  - [x] `qwen3.5:9b-q4_K_M` pulled (digest `6488c96fa5fa`, 6.6 GB on disk; 6.0 GB VRAM
+    when loaded; ~7.5 GB total VRAM use of 8.0 GB available).
+  - [x] `.env` rewritten — added `LOCAL_LLM_BASE_URL=http://localhost:11434/v1` and
+    `LOCAL_LLM_MODEL=qwen3.5:9b-q4_K_M`; dropped `ANTHROPIC_KEY` / `GEMINI_KEY` /
+    `LANGSMITH_*`. Old keys stashed at `.env.bak.preP6` (gitignored) — rotate them.
+  - [x] Smoke test passed (`local_llm()` + `with_structured_output(OptimizedCode)` +
+    `track_run`). Generation completes in ~11 s wall per small call, dominated by
+    prompt-processing overhead, not gen throughput.
+  - [x] Resample landed: `python setup.py -s 10` produced 10 post-cutoff repos in
+    `repos.json` — `nanobot`, `QwenPaw`, `CorridorKey`, `GLM-OCR`, `OBLITERATUS`,
+    `Vibe-Trading`, `ClawTeam`, `rlm`, `sqlit`, `sentrysearch`. `prompts/project_info.json`
+    refreshed in lockstep.
+  - [ ] `python main.py` not yet run. With ~11 s per LLM call across 10 repos × 4 prompts
+    × ~10 snippets/repo (with retries + 3-step RMP refinement) plus the GPT-4o judge,
+    expect 5–10 h of GPU and meaningful OpenAI judge spend. Run when ready and confirm
+    `src/results.json` schema (`{agent_name/prompt_name: {proj: {start_runtime_avg,
+    end_runtime_avg, snippets: [...]}}}`) is intact and `prompt_tokens` /
+    `completion_tokens` / `total_latency` / `tokens_per_second` populate.
+  - [ ] Regenerate graphs after the run.
+
+### P6 operational notes (`setup.py` / `profile.py` fixes landed during resample)
+
+- `shutil.rmtree(..., onexc=...)` was added in Python 3.12 but the project runs on
+  3.10.11 (pyenv-win); renamed to `onerror=` (the `_remove_readonly` callback signature
+  is compatible with both). One unhandled `TypeError` was killing the whole sampling
+  loop on the first cleanup attempt.
+- `setup.py` was calling `profile.initialize()` (10× baseline pytest under py-spy) for
+  per-candidate screening, which is duplicative — `mainloop.py` re-runs the full
+  baseline at experiment time. Switched to `profile.initialize(setup=True)` so screening
+  is one pass instead of ten. The `setup` kwarg already existed for this purpose.
+- Even with the screening change, slow benchmark suites (mempalace's chromadb_stress
+  etc.) made setup unbounded. Added `PYTEST_TIMEOUT = 1200` (20 min) to both pytest
+  invocations in `setup.py` and to the `py-spy record … pytest …` call in `profile.py`.
+  Candidates whose pytest exceeds 20 min get killed and skipped via the existing
+  `Skipping {full_name}: {e}` path.
+- Output buffering: `python setup.py … > log` block-buffers Python `print()` while
+  subprocess output bypasses the buffer, so `Skipping/Added` lines only appear when
+  setup.py exits. `Cloning into …` lines (from `git clone`) are the per-candidate live
+  signal during a run. To restore live `print()` flushing, run `python -u setup.py …`.
 
 ## Open questions / risks
 

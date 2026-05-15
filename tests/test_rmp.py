@@ -10,6 +10,12 @@ from src.chains.evaluation import is_converged, CONVERGENCE_THRESHOLD
 # Helpers
 # ---------------------------------------------------------------------------
 
+def _make_raw(input_tokens=100, output_tokens=50):
+    raw = MagicMock()
+    raw.usage_metadata = {"input_tokens": input_tokens, "output_tokens": output_tokens}
+    return raw
+
+
 @contextmanager
 def _rmp_chain(proposer_prompt="Initial prompt", refiner_prompts=None, converge_results=None):
     """Yield a fully-mocked RMPChain. All patches stay active for the lifetime of
@@ -31,7 +37,10 @@ def _rmp_chain(proposer_prompt="Initial prompt", refiner_prompts=None, converge_
         mock_llm = MagicMock()
         mock_target_chain = MagicMock()
         mock_llm.with_structured_output.return_value = mock_target_chain
-        mock_target_chain.invoke.return_value = OptimizedCode(code="optimized")
+        mock_target_chain.invoke.return_value = {
+            "parsed": OptimizedCode(code="optimized"),
+            "raw": _make_raw(),
+        }
         mock_local_llm.return_value = mock_llm
 
         mock_proposer_template = MagicMock()
@@ -43,7 +52,10 @@ def _rmp_chain(proposer_prompt="Initial prompt", refiner_prompts=None, converge_
 
         proposer_chain = MagicMock()
         mock_proposer_template.__or__ = MagicMock(return_value=proposer_chain)
-        proposer_chain.invoke.return_value = GeneratedPrompt(prompt=proposer_prompt)
+        proposer_chain.invoke.return_value = {
+            "parsed": GeneratedPrompt(prompt=proposer_prompt),
+            "raw": _make_raw(),
+        }
 
         mock_refiner_template = MagicMock()
         mock_refiner.return_value = mock_refiner_template
@@ -51,7 +63,8 @@ def _rmp_chain(proposer_prompt="Initial prompt", refiner_prompts=None, converge_
         refiner_chain = MagicMock()
         mock_refiner_template.__or__ = MagicMock(return_value=refiner_chain)
         refiner_chain.invoke.side_effect = [
-            GeneratedPrompt(prompt=p) for p in refiner_prompts
+            {"parsed": GeneratedPrompt(prompt=p), "raw": _make_raw()}
+            for p in refiner_prompts
         ]
 
         mock_converged.side_effect = converge_results
@@ -121,7 +134,7 @@ class TestRefinementErrorUsesPartial:
                 def side_effect(*args, **kwargs):
                     call_count[0] += 1
                     if call_count[0] == 1:
-                        return GeneratedPrompt(prompt="Refined 1")
+                        return {"parsed": GeneratedPrompt(prompt="Refined 1"), "raw": _make_raw()}
                     raise RuntimeError("API timeout")
 
                 refiner_chain.invoke.side_effect = side_effect
@@ -139,16 +152,19 @@ class TestIsConvergedThreshold:
     def test_exact_match_short_circuits(self):
         result, score = is_converged("identical prompt", "identical prompt")
         assert result is True
-        assert score == 0.0
+        assert score == 1.0
 
-    def test_threshold_boundary(self):
-        with patch("src.chains.evaluation._convergence_metric") as mock_metric:
-            async def mock_score(sample):
-                return CONVERGENCE_THRESHOLD
-            mock_metric.single_turn_ascore = mock_score
-            result, score = is_converged("A", "B")
-            assert result is True
-            assert score == CONVERGENCE_THRESHOLD
+    def test_high_similarity_converges(self):
+        a = "A" * 100
+        b = "A" * 96 + "B" * 4   # ~96% similar
+        result, score = is_converged(a, b)
+        assert result is True
+        assert score >= CONVERGENCE_THRESHOLD
+
+    def test_low_similarity_does_not_converge(self):
+        result, score = is_converged("totally different content", "completely opposite text")
+        assert result is False
+        assert score < CONVERGENCE_THRESHOLD
 
 
 class TestEscapeSystemMessage:

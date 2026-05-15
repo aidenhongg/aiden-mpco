@@ -47,6 +47,7 @@ pip-log.txt
 pip-delete-this-directory.txt
 .mypy_cache/
 .pytest_cache/
+/src/results.json
 .ruff_cache/
 htmlcov/
 .coverage

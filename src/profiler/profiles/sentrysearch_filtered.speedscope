@@ -1,0 +1,1015 @@
+{
+  "$schema": "https://www.speedscope.app/file-format-schema.json",
+  "profiles": [
+    {
+      "type": "sampled",
+      "name": "Process 4468 Thread 16768 \"Thread-88 (_readerthread)\"",
+      "unit": "seconds",
+      "startValue": 0.0,
+      "endValue": 0.01,
+      "samples": [],
+      "weights": []
+    },
+    {
+      "type": "sampled",
+      "name": "Process 4468 Thread 26904 \"MainThread\"",
+      "unit": "seconds",
+      "startValue": 0.0,
+      "endValue": 4.8,
+      "samples": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          7
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          8,
+          3,
+          2
+        ],
+        [
+          10,
+          9
+        ],
+        [
+          10,
+          11
+        ],
+        [
+          14,
+          13,
+          12
+        ],
+        [
+          15
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          17
+        ],
+        [
+          17
+        ],
+        [
+          17
+        ],
+        [
+          17
+        ],
+        [
+          17
+        ],
+        [
+          17
+        ],
+        [
+          20,
+          19,
+          18
+        ],
+        [
+          17
+        ],
+        [
+          17
+        ],
+        [
+          17
+        ],
+        [
+          20,
+          19,
+          18
+        ],
+        [
+          17
+        ],
+        [
+          17
+        ],
+        [
+          21
+        ],
+        [
+          17
+        ],
+        [
+          17
+        ],
+        [
+          22
+        ],
+        [
+          17
+        ],
+        [
+          23
+        ],
+        [
+          24
+        ],
+        [
+          17
+        ],
+        [
+          17
+        ],
+        [
+          17
+        ],
+        [
+          25
+        ],
+        [
+          17
+        ],
+        [
+          17
+        ],
+        [
+          17
+        ],
+        [
+          17
+        ],
+        [
+          17
+        ],
+        [
+          17
+        ],
+        [
+          17
+        ],
+        [
+          17
+        ],
+        [
+          17
+        ],
+        [
+          17
+        ],
+        [
+          17
+        ],
+        [
+          27,
+          26
+        ],
+        [
+          27,
+          26
+        ],
+        [
+          27,
+          26
+        ],
+        [
+          17
+        ],
+        [
+          17
+        ],
+        [
+          17
+        ],
+        [
+          26
+        ],
+        [
+          17
+        ],
+        [
+          26
+        ],
+        [
+          23
+        ],
+        [
+          28
+        ],
+        [
+          29
+        ],
+        [
+          30,
+          1
+        ],
+        [
+          30,
+          3,
+          2
+        ],
+        [
+          32,
+          31,
+          30,
+          0
+        ],
+        [
+          31,
+          30,
+          3,
+          2
+        ],
+        [
+          31,
+          30,
+          3,
+          2
+        ],
+        [
+          31,
+          30,
+          0
+        ],
+        [
+          31,
+          33
+        ],
+        [
+          31,
+          30,
+          0
+        ],
+        [
+          31,
+          30,
+          3,
+          2
+        ]
+      ],
+      "weights": [
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01
+      ]
+    },
+    {
+      "type": "sampled",
+      "name": "Process 4468 Thread 33716 \"Thread-68 (_readerthread)\"",
+      "unit": "seconds",
+      "startValue": 0.0,
+      "endValue": 0.01,
+      "samples": [],
+      "weights": []
+    },
+    {
+      "type": "sampled",
+      "name": "Process 4468 Thread 38980 \"Thread-67 (_readerthread)\"",
+      "unit": "seconds",
+      "startValue": 0.0,
+      "endValue": 0.01,
+      "samples": [],
+      "weights": []
+    }
+  ],
+  "shared": {
+    "frames": [
+      {
+        "name": "_get_video_duration",
+        "file": "D:\\aiden-mpco\\repos\\projects\\sentrysearch\\sentrysearch\\chunker.py",
+        "line": 85,
+        "col": null
+      },
+      {
+        "name": "_get_video_duration",
+        "file": "D:\\aiden-mpco\\repos\\projects\\sentrysearch\\sentrysearch\\chunker.py",
+        "line": 76,
+        "col": null
+      },
+      {
+        "name": "_get_ffmpeg_executable",
+        "file": "D:\\aiden-mpco\\repos\\projects\\sentrysearch\\sentrysearch\\chunker.py",
+        "line": 48,
+        "col": null
+      },
+      {
+        "name": "_get_video_duration",
+        "file": "D:\\aiden-mpco\\repos\\projects\\sentrysearch\\sentrysearch\\chunker.py",
+        "line": 84,
+        "col": null
+      },
+      {
+        "name": "chunk_video",
+        "file": "D:\\aiden-mpco\\repos\\projects\\sentrysearch\\sentrysearch\\chunker.py",
+        "line": 153,
+        "col": null
+      },
+      {
+        "name": "chunk_video",
+        "file": "D:\\aiden-mpco\\repos\\projects\\sentrysearch\\sentrysearch\\chunker.py",
+        "line": 154,
+        "col": null
+      },
+      {
+        "name": "preprocess_chunk",
+        "file": "D:\\aiden-mpco\\repos\\projects\\sentrysearch\\sentrysearch\\chunker.py",
+        "line": 301,
+        "col": null
+      },
+      {
+        "name": "preprocess_chunk",
+        "file": "D:\\aiden-mpco\\repos\\projects\\sentrysearch\\sentrysearch\\chunker.py",
+        "line": 305,
+        "col": null
+      },
+      {
+        "name": "index",
+        "file": "D:\\aiden-mpco\\repos\\projects\\sentrysearch\\sentrysearch\\cli.py",
+        "line": 406,
+        "col": null
+      },
+      {
+        "name": "_flush",
+        "file": "D:\\aiden-mpco\\repos\\projects\\sentrysearch\\sentrysearch\\dlq.py",
+        "line": 70,
+        "col": null
+      },
+      {
+        "name": "record",
+        "file": "D:\\aiden-mpco\\repos\\projects\\sentrysearch\\sentrysearch\\dlq.py",
+        "line": 48,
+        "col": null
+      },
+      {
+        "name": "_flush",
+        "file": "D:\\aiden-mpco\\repos\\projects\\sentrysearch\\sentrysearch\\dlq.py",
+        "line": 72,
+        "col": null
+      },
+      {
+        "name": "write_last_clip",
+        "file": "D:\\aiden-mpco\\repos\\projects\\sentrysearch\\sentrysearch\\_toolkit_cache.py",
+        "line": 60,
+        "col": null
+      },
+      {
+        "name": "_cache_last_clip",
+        "file": "D:\\aiden-mpco\\repos\\projects\\sentrysearch\\sentrysearch\\cli.py",
+        "line": 35,
+        "col": null
+      },
+      {
+        "name": "overlay",
+        "file": "D:\\aiden-mpco\\repos\\projects\\sentrysearch\\sentrysearch\\cli.py",
+        "line": 960,
+        "col": null
+      },
+      {
+        "name": "__init__",
+        "file": "D:\\aiden-mpco\\repos\\projects\\sentrysearch\\sentrysearch\\dlq.py",
+        "line": 21,
+        "col": null
+      },
+      {
+        "name": "__init__",
+        "file": "D:\\aiden-mpco\\repos\\projects\\sentrysearch\\sentrysearch\\gemini_embedder.py",
+        "line": 99,
+        "col": null
+      },
+      {
+        "name": "__init__",
+        "file": "D:\\aiden-mpco\\repos\\projects\\sentrysearch\\sentrysearch\\store.py",
+        "line": 73,
+        "col": null
+      },
+      {
+        "name": "search",
+        "file": "D:\\aiden-mpco\\repos\\projects\\sentrysearch\\sentrysearch\\store.py",
+        "line": 176,
+        "col": null
+      },
+      {
+        "name": "_search_with_embedding",
+        "file": "D:\\aiden-mpco\\repos\\projects\\sentrysearch\\sentrysearch\\search.py",
+        "line": 12,
+        "col": null
+      },
+      {
+        "name": "search_footage",
+        "file": "D:\\aiden-mpco\\repos\\projects\\sentrysearch\\sentrysearch\\search.py",
+        "line": 45,
+        "col": null
+      },
+      {
+        "name": "__init__",
+        "file": "D:\\aiden-mpco\\repos\\projects\\sentrysearch\\sentrysearch\\store.py",
+        "line": 81,
+        "col": null
+      },
+      {
+        "name": "get_stats",
+        "file": "D:\\aiden-mpco\\repos\\projects\\sentrysearch\\sentrysearch\\store.py",
+        "line": 230,
+        "col": null
+      },
+      {
+        "name": "add_chunk",
+        "file": "D:\\aiden-mpco\\repos\\projects\\sentrysearch\\sentrysearch\\store.py",
+        "line": 136,
+        "col": null
+      },
+      {
+        "name": "has_chunk",
+        "file": "D:\\aiden-mpco\\repos\\projects\\sentrysearch\\sentrysearch\\store.py",
+        "line": 208,
+        "col": null
+      },
+      {
+        "name": "is_indexed",
+        "file": "D:\\aiden-mpco\\repos\\projects\\sentrysearch\\sentrysearch\\store.py",
+        "line": 200,
+        "col": null
+      },
+      {
+        "name": "detect_index",
+        "file": "D:\\aiden-mpco\\repos\\projects\\sentrysearch\\sentrysearch\\store.py",
+        "line": 31,
+        "col": null
+      },
+      {
+        "name": "detect_backend",
+        "file": "D:\\aiden-mpco\\repos\\projects\\sentrysearch\\sentrysearch\\store.py",
+        "line": 56,
+        "col": null
+      },
+      {
+        "name": "write_last_clip",
+        "file": "D:\\aiden-mpco\\repos\\projects\\sentrysearch\\sentrysearch\\_toolkit_cache.py",
+        "line": 51,
+        "col": null
+      },
+      {
+        "name": "read_last_clip",
+        "file": "D:\\aiden-mpco\\repos\\projects\\sentrysearch\\sentrysearch\\_toolkit_cache.py",
+        "line": 81,
+        "col": null
+      },
+      {
+        "name": "trim_clip",
+        "file": "D:\\aiden-mpco\\repos\\projects\\sentrysearch\\sentrysearch\\trimmer.py",
+        "line": 22,
+        "col": null
+      },
+      {
+        "name": "trim_top_results",
+        "file": "D:\\aiden-mpco\\repos\\projects\\sentrysearch\\sentrysearch\\trimmer.py",
+        "line": 128,
+        "col": null
+      },
+      {
+        "name": "trim_top_result",
+        "file": "D:\\aiden-mpco\\repos\\projects\\sentrysearch\\sentrysearch\\trimmer.py",
+        "line": 141,
+        "col": null
+      },
+      {
+        "name": "trim_clip",
+        "file": "D:\\aiden-mpco\\repos\\projects\\sentrysearch\\sentrysearch\\trimmer.py",
+        "line": 38,
+        "col": null
+      }
+    ]
+  },
+  "activeProfileIndex": null,
+  "exporter": "py-spy@0.4.1",
+  "name": "py-spy profile"
+}

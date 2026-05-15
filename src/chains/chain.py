@@ -5,14 +5,35 @@ from langchain_community.callbacks import get_openai_callback
 
 from langchain_core.prompts import ChatPromptTemplate
 
-from ..llm import local_llm, MAX_INPUT_TOKENS
+from ..llm import local_llm, MAX_SYSTEM_TOKENS, MAX_CODE_TOKENS
 from .prompts import PROMPTS, rmp_proposer, rmp_refiner, GeneratedPrompt, _HUMAN
 from .evaluation import is_converged
 from .truncate import truncate_head, truncate_tail
 
 
 class OptimizedCode(BaseModel):
-    code: str = Field(description="Return ONLY the optimized code. Include only executable code, and exclude any comments, explanations, markdown formatting, or additional text.")
+    code: str = Field(description="Optimized code only. No markdown, comments, or prose.")
+
+
+def _extract_prompt_text(result: dict) -> str:
+    """Pull a prompt string from a structured-output result, falling back to raw text.
+
+    Qwen3.5-9B-Q4 with reasoning=False does not reliably emit function_calling
+    tool_calls for the meta-prompt proposer/refiner tasks (verified: 100% miss
+    rate in a prior run). When the tool_call is missing, langchain returns
+    parsed=None, but the assistant message itself contains the generated
+    prompt text. Treat that as the answer rather than crashing on a None deref.
+    """
+    parsed = result.get("parsed")
+    text = getattr(parsed, "prompt", None) if parsed is not None else None
+    if text:
+        return text
+    raw = result.get("raw")
+    content = getattr(raw, "content", "") if raw is not None else ""
+    content = (content or "").strip()
+    if not content:
+        raise ValueError("Structured-output result has neither parsed.prompt nor raw.content")
+    return content
 
 
 class RMPChain:
@@ -29,43 +50,51 @@ class RMPChain:
         self._meta_meta_prompt: str | None = None
         self._converged: bool = False
 
-    def invoke(self, inputs: dict, *, regenerate: bool = False) -> OptimizedCode:
+    def invoke(self, inputs: dict, *, regenerate: bool = False):
+        """Returns (parsed: OptimizedCode, raw: AIMessage)."""
         if self._cached_prompt is None or regenerate:
             self._refine_prompt()
 
-        capped = truncate_head(self._cached_prompt, MAX_INPUT_TOKENS, label="rmp.cached_prompt")
+        capped = truncate_head(self._cached_prompt, MAX_SYSTEM_TOKENS, label="rmp.cached_prompt")
         prompt = ChatPromptTemplate.from_messages([
             ("system", _escape(capped)),
             ("human", _HUMAN),
         ])
-        return (prompt | self._llm.with_structured_output(OptimizedCode)).invoke(inputs)
+        chain = prompt | self._llm.with_structured_output(OptimizedCode, include_raw=True, method="function_calling")
+        result = chain.invoke(inputs)
+        return result["parsed"], result.get("raw")
 
     def _refine_prompt(self):
         self._meta_meta_prompt = self._proposer.messages[0].prompt.template
         self._converged = False
 
-        gen_chain = self._proposer | self._meta_llm.with_structured_output(GeneratedPrompt)
-        p_current = gen_chain.invoke({}).prompt
+        gen_chain = self._proposer | self._meta_llm.with_structured_output(GeneratedPrompt, include_raw=True, method="function_calling")
+        result = gen_chain.invoke({})
+        p_current = _extract_prompt_text(result)
         self._refinement_trace = [{"iteration": 0, "prompt": p_current, "convergence_score": None}]
 
         for i in range(1, self.MAX_REFINEMENT_ITERS + 1):
             try:
                 t0 = time.time()
-                p_current_capped = truncate_head(p_current, MAX_INPUT_TOKENS, label=f"rmp.refiner.iter{i}")
-                refine_chain = self._refiner_template | self._meta_llm.with_structured_output(GeneratedPrompt)
+                p_current_capped = truncate_head(p_current, MAX_SYSTEM_TOKENS, label=f"rmp.refiner.iter{i}")
+                refine_chain = self._refiner_template | self._meta_llm.with_structured_output(GeneratedPrompt, include_raw=True, method="function_calling")
                 with get_openai_callback() as cb:
-                    p_refined = refine_chain.invoke({
-                        "p_current": p_current_capped
-                    }).prompt
+                    result = refine_chain.invoke({"p_current": p_current_capped})
+                    p_refined = _extract_prompt_text(result)
+                    raw = result.get("raw")
                 refine_latency = time.time() - t0
 
-                converged, conv_score = is_converged(p_current, p_refined)
+                usage = getattr(raw, "usage_metadata", {}) or {}
+                refine_prompt_tokens = usage.get("input_tokens", cb.prompt_tokens)
+                refine_completion_tokens = usage.get("output_tokens", cb.completion_tokens)
+
+                converged, conv_score = is_converged(p_current_capped, p_refined)
                 self._refinement_trace.append({
                     "iteration": i,
                     "prompt": p_refined,
                     "convergence_score": conv_score,
-                    "refine_prompt_tokens": cb.prompt_tokens,
-                    "refine_completion_tokens": cb.completion_tokens,
+                    "refine_prompt_tokens": refine_prompt_tokens,
+                    "refine_completion_tokens": refine_completion_tokens,
                     "refine_latency": refine_latency,
                 })
 
@@ -97,7 +126,7 @@ def build_chain(agent_name: str, prompt_name: str, proj_name: str):
         return RMPChain(agent_name, proj_name)
     llm = AGENTS[agent_name]()
     prompt = PROMPTS[prompt_name](proj_name, agent_name)
-    return prompt | llm.with_structured_output(OptimizedCode)
+    return prompt | llm.with_structured_output(OptimizedCode, include_raw=True, method="function_calling")
 
 
 def _escape(text: str) -> str:
@@ -105,13 +134,17 @@ def _escape(text: str) -> str:
     return text.replace("{", "{{").replace("}", "}}")
 
 
-def invoke(chain, code: str, scope: list[dict], *, regenerate: bool = False) -> str:
+def invoke(chain, code: str, scope: list[dict], *, regenerate: bool = False) -> tuple[str, dict]:
     scope_str = (
         " > ".join(f"{s['type']} {s['name']}" for s in scope)
         if scope else "module-level"
     )
-    code = truncate_tail(code, MAX_INPUT_TOKENS, label="invoke.code")
+    code = truncate_tail(code, MAX_CODE_TOKENS, label="invoke.code")
     inputs = {"code": code, "scope": scope_str}
     if isinstance(chain, RMPChain):
-        return chain.invoke(inputs, regenerate=regenerate).code
-    return chain.invoke(inputs).code
+        parsed, raw = chain.invoke(inputs, regenerate=regenerate)
+    else:
+        result = chain.invoke(inputs)
+        parsed, raw = result["parsed"], result.get("raw")
+    usage = getattr(raw, "usage_metadata", {}) or {}
+    return parsed.code, usage

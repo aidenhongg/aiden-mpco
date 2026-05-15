@@ -1,1 +1,42 @@
-{}
+{
+    "nanobot": {
+        "description": "Lightweight open-source personal AI agent with chat channels, memory, and MCP support.",
+        "languages": "Python, TypeScript, JavaScript"
+    },
+    "QwenPaw": {
+        "description": "Personal AI assistant deployable locally or in the cloud, with multi-channel chat and extensible skills.",
+        "languages": "Python, TypeScript, JavaScript"
+    },
+    "CorridorKey": {
+        "description": "Neural-network green and blue screen keyer that unmixes foreground color and produces a linear alpha channel.",
+        "languages": "Python"
+    },
+    "GLM-OCR": {
+        "description": "Multimodal OCR model for complex document understanding, layout analysis, and structured recognition.",
+        "languages": "Python, TypeScript"
+    },
+    "OBLITERATUS": {
+        "description": "Toolkit for analyzing and removing refusal directions from large language model weights via abliteration.",
+        "languages": "Python, Jupyter Notebook"
+    },
+    "Vibe-Trading": {
+        "description": "Personal trading agent with FastAPI backend and React frontend that orchestrates trading skills and tools.",
+        "languages": "Python, TypeScript, JavaScript"
+    },
+    "ClawTeam": {
+        "description": "CLI orchestrator that coordinates swarms of coding agents (Claude Code, Codex, others) over file or P2P transports.",
+        "languages": "Python, JavaScript"
+    },
+    "rlm": {
+        "description": "Plug-and-play inference library for Recursive Language Models supporting multiple sandbox backends.",
+        "languages": "Python"
+    },
+    "sqlit": {
+        "description": "Terminal UI for SQL databases supporting SQL Server, MySQL, PostgreSQL, SQLite, Turso, and others.",
+        "languages": "Python"
+    },
+    "sentrysearch": {
+        "description": "Semantic video search library using Gemini Embedding 2 or Qwen3-VL.",
+        "languages": "Python"
+    }
+}
