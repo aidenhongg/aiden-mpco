@@ -9,24 +9,34 @@
 
 Replace cloud API calls (OpenAI / Anthropic / Google) with a single local Qwen3.5 9B Q4
 served by Ollama on the same machine that runs the experiment (RTX 2070, 8GB VRAM —
-no remote box, `LOCAL_LLM_BASE_URL` points at `http://localhost:11434/v1`). Drop
+no remote box, Ollama's native `/api/chat` at `http://localhost:11434`; any trailing
+`/v1` in `LOCAL_LLM_BASE_URL` is stripped at runtime). Drop
 multi-model dupe trials. Set `temperature=0` (and `seed`) for reproducibility. Adjust
 repo sampling to post-training-cutoff to prevent data leakage.
 
 ## Decisions locked in
 
 - **Model:** Qwen3.5 9B Q4_K_M (released ~Apr 2026, training cutoff Dec 2025).
-- **Server:** Ollama. OpenAI-compatible endpoint, returns `usage` for token accounting,
-  reliable JSON mode for `OptimizedCode` / `GeneratedPrompt`. Run with
-  `OLLAMA_KV_CACHE_TYPE=q4_0` + flash attention to extend usable context to ~8K on 8GB.
+- **Server:** Ollama, via `langchain-ollama`'s `ChatOllama` against the native
+  `/api/chat` endpoint. The OpenAI-compatible `/v1` path was tried first and abandoned:
+  it silently dropped `max_tokens` (no `num_predict` translation → unbounded generation)
+  and ignored repeat/presence-penalty overrides. Native `/api/chat` lets us pass
+  Ollama-native options (`num_predict`, `num_ctx`, `repeat_penalty`, `top_p`, `top_k`)
+  as first-class kwargs, and `raw.usage_metadata` carries token accounting.
+  `with_structured_output` is used for `OptimizedCode` / `GeneratedPrompt` (function_calling
+  method; refiner/proposer fall back to raw assistant text when Qwen omits the tool_call).
+  Run with `OLLAMA_KV_CACHE_TYPE=q4_0` + flash attention to extend usable context to ~8K on 8GB.
 - **Judge:** Stays GPT-4o (Ragas + RMP convergence). Keeps eval integrity; cost is negligible.
 - **Sampling cutoff:** `CREATED_AFTER = '2025-12-01'`. Existing `repos.json` (CorridorKey,
   Memori) is pre-cutoff and gets re-sampled. `MIN_STARS = 100` held; lower to 50 if
   `sample_main` runs dry.
 - **Reproducibility:** `temperature=0`, `seed=42`. CUDA non-determinism may still produce
   rare token-level drift — documented, not fought.
-- **Context budget:** `MAX_INPUT_TOKENS = 6000` (leaves ~2K output in 8K window). Truncations
-  logged via the `Tee` in `main.py`.
+- **Context budget:** split caps — `MAX_SYSTEM_TOKENS = 4000` (system role),
+  `MAX_CODE_TOKENS = 1500` (human-role code). `MAX_INPUT_TOKENS` is kept as a legacy
+  alias of `MAX_SYSTEM_TOKENS`. Budget math: 4000 + 1500 + ~250 (template/scope/schema)
+  + 2048 (`num_predict`) ≈ 7800, fitting the 8192 ctx window with ~390-token margin.
+  Truncations logged via the `Tee` in `main.py`.
 - **Telemetry:** Drop LangSmith. Use `get_openai_callback` + `time.time()`. `ttft` becomes
   `None` (streaming + structured output don't compose cleanly).
 - **Graphing:** Flat single-bar-per-prompt. Drop agent facet.
@@ -34,16 +44,27 @@ repo sampling to post-training-cutoff to prevent data leakage.
 ## File-by-file changes
 
 ### New: `src/llm.py`
-Single factory returning a configured `ChatOpenAI` for both target and meta roles. Reads
-`LOCAL_LLM_BASE_URL` and `LOCAL_LLM_MODEL` from env. ~20 lines. Also exposes
-`count_tokens(text)` using `tiktoken` cl100k_base (close-enough for Qwen for hard caps).
+Single `local_llm()` factory returning a configured `ChatOllama` (langchain-ollama,
+native `/api/chat`) for both target and meta roles. Reads `LOCAL_LLM_MODEL` and
+`LOCAL_LLM_BASE_URL` from env (strips a trailing `/v1` so the same value works whether
+or not it carries the compat suffix). Passes Ollama-native kwargs: `temperature=0`,
+`seed=42`, `num_predict=2048`, `num_ctx=8192`, `repeat_penalty=1.0`, `top_p=1.0`,
+`top_k=0`, plus `reasoning=False` (Qwen3.5 ships chain-of-thought enabled; left on it
+emits a 1k–8k-token `<think>` block that blows num_predict) and `keep_alive=0`
+(unload after each generation so baseline pytest and post-gen pytest both measure a
+cold VRAM environment). Defines `MAX_SYSTEM_TOKENS = 4000`, `MAX_CODE_TOKENS = 1500`,
+`MAX_INPUT_TOKENS` (legacy alias of `MAX_SYSTEM_TOKENS`), `SEED = 42`, and a shared
+`ENCODING`. Also exposes `count_tokens(text)` using `tiktoken` cl100k_base
+(close-enough for Qwen for hard caps). ~74 lines, with the OpenAI-compat→native
+pivot documented in the `local_llm` docstring.
 
 ### New: `src/chains/truncate.py`
 - `truncate_head(text, n_tokens, *, label) -> str` — keep tail, drop head (for refiner
   prompts where the trailing instruction matters most).
 - `truncate_tail(text, n_tokens, *, label) -> str` — keep head, drop tail (for code
   snippets where signature + early body are most important).
-- Both log `[TRUNCATE] <label>: 9421 → 6000 tokens (-3421)` to stdout.
+- Both log `[TRUNCATE] <label>: 9421 -> 4000 tokens (-5421)` to stdout (only when the
+  text actually exceeds the cap).
 
 ### `src/chains/chain.py`
 - `AGENTS` collapses to `{"qwen3.5-9b-q4": local_llm}`.
@@ -90,7 +111,9 @@ JSON-mode discipline, no thinking tags in code output).
 
 ### `requirements.txt`
 - Remove: `langchain-anthropic`, `langchain-google-genai`, `langsmith`.
-- Add: `tiktoken`.
+- Add: `tiktoken` (token counting / truncation), `langchain-ollama` (provides
+  `ChatOllama`, the local target+meta model). `langchain-openai` stays for the
+  GPT-4o judge in `evaluation.py`.
 
 ### `.env`
 - Add: `LOCAL_LLM_BASE_URL`, `LOCAL_LLM_MODEL`.

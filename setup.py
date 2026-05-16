@@ -228,10 +228,10 @@ def sample_main(n=10):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('-s', type=int, nargs='?', const=None, default=False)
+    parser.add_argument('-s', type=int, nargs='?', const=10, default=None)
     args = parser.parse_args()
 
-    if not args.s:
+    if args.s is None:
         main()
     else:
         sample_main(args.s)

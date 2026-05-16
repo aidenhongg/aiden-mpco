@@ -75,11 +75,11 @@ def _bar_chart(
     ax.axhline(0, color="black", linewidth=0.5)
 
     GRAPHS_DIR.mkdir(parents=True, exist_ok=True)
-    out = GRAPHS_DIR / filename
+    out_path = GRAPHS_DIR / filename
     fig.tight_layout()
-    fig.savefig(out, dpi=150)
+    fig.savefig(out_path, dpi=150)
     plt.close(fig)
-    print(f"Saved: {out}")
+    print(f"Saved: {out_path}")
 
 
 # ---------------------------------------------------------------------------

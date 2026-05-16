@@ -5,7 +5,11 @@ pydantic
 langchain-core
 langchain-community
 langchain-openai
+langchain-ollama
 tiktoken
 ragas
 matplotlib
 numpy
+py-spy
+
+# External prerequisites (not pip-installed by this file): git, uv
